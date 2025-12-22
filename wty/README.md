@@ -1,1 +1,1 @@
-
+# Verisav Warranty (WTY) Vocabulary
