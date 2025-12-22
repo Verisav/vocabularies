@@ -1,0 +1,560 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dpp: <https://ns.verisav.fr/dpp#> .
+@prefix rma: <https://ns.verisav.fr/rma#> .
+
+# ============================================================================
+# Verisav RMA / Ticketing Vocabulary
+# Return Merchandise Authorization and Service Ticket Management
+# ============================================================================
+
+<https://ns.verisav.fr/rma#> a owl:Ontology, voaf:Vocabulary ;
+    rdfs:label "Verisav RMA Vocabulary"@en ;
+    rdfs:label "Vocabulaire RMA Verisav"@fr ;
+    dcterms:title "Verisav RMA / Ticketing Vocabulary"@en ;
+    dcterms:description "Vocabulary for Return Merchandise Authorization (RMA) and service ticket management, standardizing communication between consumers, retailers, and repairers."@en ;
+    dcterms:description "Vocabulaire pour les Autorisations de Retour de Marchandise (RMA) et la gestion de tickets SAV, standardisant la communication entre consommateurs, distributeurs et réparateurs."@fr ;
+    
+    # Technical Metadata (VOAF/VANN)
+    vann:preferredNamespacePrefix "rma" ;
+    vann:preferredNamespaceUri "https://ns.verisav.fr/rma#" ;
+    
+    # Versioning & Dates
+    owl:versionInfo "1.0.0" ;
+    dcterms:created "2025-12-16"^^xsd:date ;
+    dcterms:modified "2025-12-16"^^xsd:date ;
+    
+    # Authors & Rights
+    dcterms:creator [
+        a foaf:Person ;
+        foaf:name "Kévin Boutillier" ;
+        rdfs:seeAlso <https://www.verisav.fr/en/founders/kevin-boutillier> ;
+        rdfs:seeAlso <https://www.linkedin.com/in/kévinboutillier>
+    ] ;
+    dcterms:publisher <https://www.verisav.fr> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    cc:license <https://creativecommons.org/licenses/by/4.0/> ;
+    
+    # Distributions (formats disponibles)
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "text/turtle" ;
+        dcat:downloadURL <https://ns.verisav.fr/rma/rma.ttl>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/ld+json" ;
+        dcat:downloadURL <https://ns.verisav.fr/rma/rma.jsonld>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/ld+json" ;
+        dcat:accessURL <https://api.verisav.fr/rma/rma.jsonld> ;
+        dcterms:title "RMA Vocabulary (JSON-LD via API)"@en
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/graphql" ;
+        dcat:accessURL <https://www.verisav.fr/api/graphql> ;
+        dcterms:title "Verisav Vocabularies GraphQL API"@en ;
+        dcterms:description "GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY)"@en
+    ] ;
+    
+    # API de recherche
+    schema:potentialAction [
+        a schema:SearchAction ;
+        schema:target <https://api.verisav.fr/api/v1/vocabulary/rma/search?q={query}> ;
+        schema:query-input "required name=query"
+    ] ;
+    
+    # Relations
+    owl:imports <https://schema.org/> ;
+    owl:imports <https://ns.verisav.fr/dpp#> .
+
+# ============================================================================
+# CLASSES
+# ============================================================================
+
+rma:ReturnRequest a owl:Class ;
+    rdfs:label "Return Request"@en, "Demande de Retour"@fr ;
+    rdfs:comment "A request for returning a product to a retailer or manufacturer."@en ;
+    rdfs:subClassOf schema:Action ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:Ticket a owl:Class ;
+    rdfs:label "Service Ticket"@en, "Ticket SAV"@fr ;
+    rdfs:comment "A service ticket that tracks customer service interactions and issue resolution."@en ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:Dispute a owl:Class ;
+    rdfs:label "Dispute"@en, "Litige"@fr ;
+    rdfs:comment "A dispute or complaint about a product (e.g., arrived broken, not as described, defective)."@en ;
+    rdfs:subClassOf schema:Complaint ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:Resolution a owl:Class ;
+    rdfs:label "Resolution"@en, "Résolution"@fr ;
+    rdfs:comment "A resolution proposed or applied to a return request or dispute (refund, exchange, store credit, repair)."@en ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:ShippingLabel a owl:Class ;
+    rdfs:label "Shipping Label"@en, "Étiquette d'Expédition"@fr ;
+    rdfs:comment "A shipping label for returning a product, containing carrier and tracking information."@en ;
+    rdfs:subClassOf schema:DigitalDocument ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:Message a owl:Class ;
+    rdfs:label "Message"@en, "Message"@fr ;
+    rdfs:comment "A message in a ticket conversation thread between customer, retailer, or repairer."@en ;
+    rdfs:subClassOf schema:Message ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:Approval a owl:Class ;
+    rdfs:label "Approval"@en, "Approbation"@fr ;
+    rdfs:comment "An approval or authorization for a return request or resolution."@en ;
+    rdfs:subClassOf schema:Action ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:Tracking a owl:Class ;
+    rdfs:label "Package Tracking"@en, "Suivi Colis"@fr ;
+    rdfs:comment "Tracking information for a returned package, including carrier events and status."@en ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# OBJECT PROPERTIES
+# ============================================================================
+
+# Core Relations
+rma:hasReturnRequest a owl:ObjectProperty ;
+    rdfs:label "has return request"@en, "a pour demande de retour"@fr ;
+    rdfs:comment "Links a product or ticket to a return request."@en ;
+    rdfs:domain schema:Product, rma:Ticket ;
+    rdfs:range rma:ReturnRequest ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:hasTicket a owl:ObjectProperty ;
+    rdfs:label "has ticket"@en, "a pour ticket"@fr ;
+    rdfs:comment "Links a product or return request to a service ticket."@en ;
+    rdfs:domain schema:Product, rma:ReturnRequest ;
+    rdfs:range rma:Ticket ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:hasDispute a owl:ObjectProperty ;
+    rdfs:label "has dispute"@en, "a pour litige"@fr ;
+    rdfs:comment "Links a return request or ticket to a dispute."@en ;
+    rdfs:domain rma:ReturnRequest, rma:Ticket ;
+    rdfs:range rma:Dispute ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:hasResolution a owl:ObjectProperty ;
+    rdfs:label "has resolution"@en, "a pour résolution"@fr ;
+    rdfs:comment "Links a return request, ticket, or dispute to a resolution."@en ;
+    rdfs:domain rma:ReturnRequest, rma:Ticket, rma:Dispute ;
+    rdfs:range rma:Resolution ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:hasShippingLabel a owl:ObjectProperty ;
+    rdfs:label "has shipping label"@en, "a pour étiquette d'expédition"@fr ;
+    rdfs:comment "Links a return request to a shipping label."@en ;
+    rdfs:domain rma:ReturnRequest ;
+    rdfs:range rma:ShippingLabel ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:hasMessage a owl:ObjectProperty ;
+    rdfs:label "has message"@en, "a pour message"@fr ;
+    rdfs:comment "Links a ticket to messages in the conversation thread."@en ;
+    rdfs:domain rma:Ticket ;
+    rdfs:range rma:Message ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:hasApproval a owl:ObjectProperty ;
+    rdfs:label "has approval"@en, "a pour approbation"@fr ;
+    rdfs:comment "Links a return request or resolution to an approval."@en ;
+    rdfs:domain rma:ReturnRequest, rma:Resolution ;
+    rdfs:range rma:Approval ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:hasTracking a owl:ObjectProperty ;
+    rdfs:label "has tracking"@en, "a pour suivi"@fr ;
+    rdfs:comment "Links a return request or shipping label to tracking information."@en ;
+    rdfs:domain rma:ReturnRequest, rma:ShippingLabel ;
+    rdfs:range rma:Tracking ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+# Relations to DPP and Actors
+rma:concernsProduct a owl:ObjectProperty ;
+    rdfs:label "concerns product"@en, "concerne le produit"@fr ;
+    rdfs:comment "Links a return request, ticket, or dispute to the product it concerns."@en ;
+    rdfs:domain rma:ReturnRequest, rma:Ticket, rma:Dispute ;
+    rdfs:range schema:Product, dpp:ProductPassport ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:resultsInWorkOrder a owl:ObjectProperty ;
+    rdfs:label "results in work order"@en, "résulte en ordre de travail"@fr ;
+    rdfs:comment "Links a return request or resolution to a work order if repair is needed."@en ;
+    rdfs:domain rma:ReturnRequest, rma:Resolution ;
+    rdfs:range dpp:WorkOrder ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:requestedBy a owl:ObjectProperty ;
+    rdfs:label "requested by"@en, "demandé par"@fr ;
+    rdfs:comment "The person or organization who requested the return or created the ticket."@en ;
+    rdfs:domain rma:ReturnRequest, rma:Ticket ;
+    rdfs:range schema:Person, schema:Organization ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:handledBy a owl:ObjectProperty ;
+    rdfs:label "handled by"@en, "traité par"@fr ;
+    rdfs:comment "The retailer, repairer, or organization handling the return request or ticket."@en ;
+    rdfs:domain rma:ReturnRequest, rma:Ticket ;
+    rdfs:range schema:Organization ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:approvedBy a owl:ObjectProperty ;
+    rdfs:label "approved by"@en, "approuvé par"@fr ;
+    rdfs:comment "The person or organization who approved the return request or resolution."@en ;
+    rdfs:domain rma:Approval ;
+    rdfs:range schema:Person, schema:Organization ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:authoredBy a owl:ObjectProperty ;
+    rdfs:label "authored by"@en, "rédigé par"@fr ;
+    rdfs:comment "The person or organization who authored a message."@en ;
+    rdfs:domain rma:Message ;
+    rdfs:range schema:Person, schema:Organization ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# DATATYPE PROPERTIES
+# ============================================================================
+
+# ReturnRequest Properties
+rma:returnRequestNumber a owl:DatatypeProperty ;
+    rdfs:label "return request number"@en, "numéro de demande de retour"@fr ;
+    rdfs:comment "Unique identifier for the return request (RMA number)."@en ;
+    rdfs:domain rma:ReturnRequest ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:returnReason a owl:DatatypeProperty ;
+    rdfs:label "return reason"@en, "raison du retour"@fr ;
+    rdfs:comment "Reason for the return (defective, wrong_item, not_as_described, changed_mind, etc.)."@en ;
+    rdfs:domain rma:ReturnRequest ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:returnRequestDate a owl:DatatypeProperty ;
+    rdfs:label "return request date"@en, "date de demande de retour"@fr ;
+    rdfs:comment "Date when the return request was created."@en ;
+    rdfs:domain rma:ReturnRequest ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:returnRequestStatus a owl:DatatypeProperty ;
+    rdfs:label "return request status"@en, "statut de demande de retour"@fr ;
+    rdfs:comment "Status of the return request (pending, approved, rejected, in_transit, received, processed, completed)."@en ;
+    rdfs:domain rma:ReturnRequest ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:expectedReturnDate a owl:DatatypeProperty ;
+    rdfs:label "expected return date"@en, "date de retour attendue"@fr ;
+    rdfs:comment "Expected date for receiving the returned product."@en ;
+    rdfs:domain rma:ReturnRequest ;
+    rdfs:range xsd:date ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+# Ticket Properties
+rma:ticketNumber a owl:DatatypeProperty ;
+    rdfs:label "ticket number"@en, "numéro de ticket"@fr ;
+    rdfs:comment "Unique identifier for the service ticket."@en ;
+    rdfs:domain rma:Ticket ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:ticketStatus a owl:DatatypeProperty ;
+    rdfs:label "ticket status"@en, "statut du ticket"@fr ;
+    rdfs:comment "Status of the ticket (open, in_progress, waiting_customer, waiting_vendor, resolved, closed)."@en ;
+    rdfs:domain rma:Ticket ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:ticketPriority a owl:DatatypeProperty ;
+    rdfs:label "ticket priority"@en, "priorité du ticket"@fr ;
+    rdfs:comment "Priority level of the ticket (low, normal, high, urgent)."@en ;
+    rdfs:domain rma:Ticket ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:ticketCreatedDate a owl:DatatypeProperty ;
+    rdfs:label "ticket created date"@en, "date de création du ticket"@fr ;
+    rdfs:comment "Date when the ticket was created."@en ;
+    rdfs:domain rma:Ticket ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:ticketClosedDate a owl:DatatypeProperty ;
+    rdfs:label "ticket closed date"@en, "date de fermeture du ticket"@fr ;
+    rdfs:comment "Date when the ticket was closed."@en ;
+    rdfs:domain rma:Ticket ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+# Dispute Properties
+rma:disputeType a owl:DatatypeProperty ;
+    rdfs:label "dispute type"@en, "type de litige"@fr ;
+    rdfs:comment "Type of dispute (defective, damaged_shipping, wrong_item, not_as_described, missing_parts, etc.)."@en ;
+    rdfs:domain rma:Dispute ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:disputeDescription a owl:DatatypeProperty ;
+    rdfs:label "dispute description"@en, "description du litige"@fr ;
+    rdfs:comment "Detailed description of the dispute or complaint."@en ;
+    rdfs:domain rma:Dispute ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:disputeDate a owl:DatatypeProperty ;
+    rdfs:label "dispute date"@en, "date du litige"@fr ;
+    rdfs:comment "Date when the dispute was raised."@en ;
+    rdfs:domain rma:Dispute ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+# Resolution Properties
+rma:resolutionType a owl:DatatypeProperty ;
+    rdfs:label "resolution type"@en, "type de résolution"@fr ;
+    rdfs:comment "Type of resolution (refund, exchange, store_credit, repair, replacement, rejection)."@en ;
+    rdfs:domain rma:Resolution ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:resolutionAmount a owl:DatatypeProperty ;
+    rdfs:label "resolution amount"@en, "montant de résolution"@fr ;
+    rdfs:comment "Amount for refund or store credit resolution."@en ;
+    rdfs:domain rma:Resolution ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:resolutionCurrency a owl:DatatypeProperty ;
+    rdfs:label "resolution currency"@en, "devise de résolution"@fr ;
+    rdfs:comment "Currency code for the resolution amount (ISO 4217)."@en ;
+    rdfs:domain rma:Resolution ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:resolutionDescription a owl:DatatypeProperty ;
+    rdfs:label "resolution description"@en, "description de résolution"@fr ;
+    rdfs:comment "Description of the proposed or applied resolution."@en ;
+    rdfs:domain rma:Resolution ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:resolutionDate a owl:DatatypeProperty ;
+    rdfs:label "resolution date"@en, "date de résolution"@fr ;
+    rdfs:comment "Date when the resolution was proposed or applied."@en ;
+    rdfs:domain rma:Resolution ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:resolutionStatus a owl:DatatypeProperty ;
+    rdfs:label "resolution status"@en, "statut de résolution"@fr ;
+    rdfs:comment "Status of the resolution (proposed, approved, rejected, applied, cancelled)."@en ;
+    rdfs:domain rma:Resolution ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+# ShippingLabel Properties
+rma:labelUrl a owl:DatatypeProperty ;
+    rdfs:label "label URL"@en, "URL de l'étiquette"@fr ;
+    rdfs:comment "URL or link to download the shipping label."@en ;
+    rdfs:domain rma:ShippingLabel ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:carrierName a owl:DatatypeProperty ;
+    rdfs:label "carrier name"@en, "nom du transporteur"@fr ;
+    rdfs:comment "Name of the shipping carrier (e.g., DHL, FedEx, UPS, Colissimo)."@en ;
+    rdfs:domain rma:ShippingLabel, rma:Tracking ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:carrierService a owl:DatatypeProperty ;
+    rdfs:label "carrier service"@en, "service transporteur"@fr ;
+    rdfs:comment "Type of carrier service (standard, express, overnight, etc.)."@en ;
+    rdfs:domain rma:ShippingLabel ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:labelCreatedDate a owl:DatatypeProperty ;
+    rdfs:label "label created date"@en, "date de création de l'étiquette"@fr ;
+    rdfs:comment "Date when the shipping label was created."@en ;
+    rdfs:domain rma:ShippingLabel ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:labelExpiryDate a owl:DatatypeProperty ;
+    rdfs:label "label expiry date"@en, "date d'expiration de l'étiquette"@fr ;
+    rdfs:comment "Expiry date of the shipping label."@en ;
+    rdfs:domain rma:ShippingLabel ;
+    rdfs:range xsd:date ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+# Message Properties
+rma:messageText a owl:DatatypeProperty ;
+    rdfs:label "message text"@en, "texte du message"@fr ;
+    rdfs:comment "Text content of the message."@en ;
+    rdfs:domain rma:Message ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:messageDate a owl:DatatypeProperty ;
+    rdfs:label "message date"@en, "date du message"@fr ;
+    rdfs:comment "Date and time when the message was sent."@en ;
+    rdfs:domain rma:Message ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:messageType a owl:DatatypeProperty ;
+    rdfs:label "message type"@en, "type de message"@fr ;
+    rdfs:comment "Type of message (customer_message, support_response, internal_note, system_notification)."@en ;
+    rdfs:domain rma:Message ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:isInternal a owl:DatatypeProperty ;
+    rdfs:label "is internal"@en, "est interne"@fr ;
+    rdfs:comment "Whether the message is internal (not visible to customer)."@en ;
+    rdfs:domain rma:Message ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+# Approval Properties
+rma:approvalDate a owl:DatatypeProperty ;
+    rdfs:label "approval date"@en, "date d'approbation"@fr ;
+    rdfs:comment "Date when the approval was given."@en ;
+    rdfs:domain rma:Approval ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:approvalStatus a owl:DatatypeProperty ;
+    rdfs:label "approval status"@en, "statut d'approbation"@fr ;
+    rdfs:comment "Status of the approval (pending, approved, rejected)."@en ;
+    rdfs:domain rma:Approval ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:approvalComment a owl:DatatypeProperty ;
+    rdfs:label "approval comment"@en, "commentaire d'approbation"@fr ;
+    rdfs:comment "Comment associated with the approval or rejection."@en ;
+    rdfs:domain rma:Approval ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+# Tracking Properties
+rma:trackingNumber a owl:DatatypeProperty ;
+    rdfs:label "tracking number"@en, "numéro de suivi"@fr ;
+    rdfs:comment "Carrier tracking number for the package."@en ;
+    rdfs:domain rma:Tracking ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:trackingUrl a owl:DatatypeProperty ;
+    rdfs:label "tracking URL"@en, "URL de suivi"@fr ;
+    rdfs:comment "URL to track the package on carrier's website."@en ;
+    rdfs:domain rma:Tracking ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:trackingStatus a owl:DatatypeProperty ;
+    rdfs:label "tracking status"@en, "statut de suivi"@fr ;
+    rdfs:comment "Current tracking status (label_created, in_transit, out_for_delivery, delivered, exception)."@en ;
+    rdfs:domain rma:Tracking ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:lastTrackingUpdate a owl:DatatypeProperty ;
+    rdfs:label "last tracking update"@en, "dernière mise à jour de suivi"@fr ;
+    rdfs:comment "Date and time of the last tracking update."@en ;
+    rdfs:domain rma:Tracking ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
+
+rma:estimatedDeliveryDate a owl:DatatypeProperty ;
+    rdfs:label "estimated delivery date"@en, "date de livraison estimée"@fr ;
+    rdfs:comment "Estimated delivery date for the package."@en ;
+    rdfs:domain rma:Tracking ;
+    rdfs:range xsd:date ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/rma#> ;
+    vs:term_status "stable" .
