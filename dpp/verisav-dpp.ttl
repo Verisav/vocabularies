@@ -1,0 +1,624 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dpp: <https://ns.verisav.fr/dpp#> .
+
+# ============================================================================
+# Verisav Digital Product Passport (DPP) Vocabulary
+# ============================================================================
+
+<https://ns.verisav.fr/dpp#> a owl:Ontology, voaf:Vocabulary ;
+    rdfs:label "Verisav Digital Product Passport Vocabulary"@en ;
+    rdfs:label "Vocabulaire Passeport Produit Numérique Verisav"@fr ;
+    dcterms:title "Verisav DPP Vocabulary"@en ;
+    dcterms:description "Vocabulary for Digital Product Passports (DPP) managing product lifecycle, warranties, repairs, and compliance with EU regulations."@en ;
+    dcterms:description "Vocabulaire pour les Passeports Produit Numérique (DPP) gérant le cycle de vie des produits, garanties, réparations et conformité avec les réglementations européennes."@fr ;
+    
+    # Technical Metadata (VOAF/VANN)
+    vann:preferredNamespacePrefix "dpp" ;
+    vann:preferredNamespaceUri "https://ns.verisav.fr/dpp#" ;
+    
+    # Versioning & Dates
+    owl:versionInfo "1.0.0" ;
+    dcterms:created "2025-12-16"^^xsd:date ;
+    dcterms:modified "2025-12-16"^^xsd:date ;
+    
+    # Authors & Rights
+    dcterms:creator [
+        a foaf:Person ;
+        foaf:name "Kévin Boutillier" ;
+        rdfs:seeAlso <https://www.verisav.fr/en/founders/kevin-boutillier> ;
+        rdfs:seeAlso <https://www.linkedin.com/in/kévinboutillier>
+    ] ;
+    dcterms:publisher <https://www.verisav.fr> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    cc:license <https://creativecommons.org/licenses/by/4.0/> ;
+    
+    # Distributions (formats disponibles)
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "text/turtle" ;
+        dcat:downloadURL <https://ns.verisav.fr/dpp/dpp.ttl>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/ld+json" ;
+        dcat:downloadURL <https://ns.verisav.fr/dpp/dpp.jsonld>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/rdf+xml" ;
+        dcat:downloadURL <https://ns.verisav.fr/dpp/dpp.xml>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/ld+json" ;
+        dcat:accessURL <https://api.verisav.fr/dpp/dpp.jsonld> ;
+        dcterms:title "DPP Vocabulary (JSON-LD via API)"@en
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/graphql" ;
+        dcat:accessURL <https://www.verisav.fr/api/graphql> ;
+        dcterms:title "Verisav Vocabularies GraphQL API"@en ;
+        dcterms:description "GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY)"@en
+    ] ;
+    
+    # API de recherche
+    schema:potentialAction [
+        a schema:SearchAction ;
+        schema:target <https://api.verisav.fr/api/v1/vocabulary/dpp/search?q={query}> ;
+        schema:query-input "required name=query"
+    ] ;
+    
+    # Imports
+    owl:imports <https://schema.org/> .
+
+# ============================================================================
+# CLASSES
+# ============================================================================
+
+dpp:ProductPassport a owl:Class ;
+    rdfs:label "Product Passport"@en ;
+    rdfs:label "Passeport Produit"@fr ;
+    rdfs:comment "A Digital Product Passport that tracks a product throughout its entire lifecycle."@en ;
+    rdfs:comment "Un Passeport Produit Numérique qui suit un produit tout au long de son cycle de vie."@fr ;
+    rdfs:subClassOf schema:Product .
+
+dpp:Warranty a owl:Class ;
+    rdfs:label "Warranty"@en ;
+    rdfs:label "Garantie"@fr ;
+    rdfs:comment "A warranty covering a product, which can be of different types (manufacturer, retailer, extension, maintenance)."@en ;
+    rdfs:comment "Une garantie couvrant un produit, qui peut être de différents types (constructeur, distributeur, extension, maintenance)."@fr ;
+    rdfs:subClassOf schema:WarrantyScope .
+
+dpp:WarrantyClaim a owl:Class ;
+    rdfs:label "Warranty Claim"@en ;
+    rdfs:label "Réclamation de Garantie"@fr ;
+    rdfs:comment "A claim made under a warranty."@en ;
+    rdfs:comment "Une réclamation effectuée sous garantie."@fr ;
+    rdfs:subClassOf schema:Claim .
+
+dpp:ServiceRequest a owl:Class ;
+    rdfs:label "Service Request"@en ;
+    rdfs:label "Demande de Service"@fr ;
+    rdfs:comment "A request for after-sales service (SAV) for a product."@en ;
+    rdfs:comment "Une demande de service après-vente (SAV) pour un produit."@fr ;
+    rdfs:subClassOf schema:Service .
+
+dpp:WorkOrder a owl:Class ;
+    rdfs:label "Work Order"@en ;
+    rdfs:label "Ordre de Travail"@fr ;
+    rdfs:comment "An order for work to be performed on a product (repair, maintenance, etc.)."@en ;
+    rdfs:comment "Un ordre de travail à effectuer sur un produit (réparation, maintenance, etc.)."@fr ;
+    rdfs:subClassOf schema:Service .
+
+dpp:RepairEvent a owl:Class ;
+    rdfs:label "Repair Event"@en ;
+    rdfs:label "Événement de Réparation"@fr ;
+    rdfs:comment "A specific repair or maintenance intervention performed on a product."@en ;
+    rdfs:comment "Une intervention de réparation ou maintenance spécifique effectuée sur un produit."@fr ;
+    rdfs:subClassOf schema:Service .
+
+dpp:Intervention a owl:Class ;
+    rdfs:label "Intervention"@en ;
+    rdfs:label "Intervention"@fr ;
+    rdfs:comment "A technical intervention on a product (diagnostic, repair, maintenance, replacement, return to manufacturer)."@en ;
+    rdfs:comment "Une intervention technique sur un produit (diagnostic, réparation, maintenance, remplacement, retour fabricant)."@fr ;
+    rdfs:subClassOf dpp:RepairEvent .
+
+dpp:Diagnostic a owl:Class ;
+    rdfs:label "Diagnostic"@en ;
+    rdfs:label "Diagnostic"@fr ;
+    rdfs:comment "A diagnostic assessment performed on a product to identify issues."@en ;
+    rdfs:comment "Une évaluation de diagnostic effectuée sur un produit pour identifier les problèmes."@fr ;
+    rdfs:subClassOf schema:Thing .
+
+dpp:ReplacementPart a owl:Class ;
+    rdfs:label "Replacement Part"@en ;
+    rdfs:label "Pièce de Rechange"@fr ;
+    rdfs:comment "A part used to replace a component in a product during repair or maintenance."@en ;
+    rdfs:comment "Une pièce utilisée pour remplacer un composant dans un produit lors d'une réparation ou maintenance."@fr ;
+    rdfs:subClassOf schema:Product .
+
+dpp:ProductStatus a owl:Class ;
+    rdfs:label "Product Status"@en ;
+    rdfs:label "Statut Produit"@fr ;
+    rdfs:comment "The current status of a product (under warranty, out of warranty, broken, repaired, etc.)."@en ;
+    rdfs:comment "Le statut actuel d'un produit (sous garantie, hors garantie, en panne, réparé, etc.)."@fr ;
+    rdfs:subClassOf schema:Enumeration .
+
+dpp:ProductLifecycleStage a owl:Class ;
+    rdfs:label "Product Lifecycle Stage"@en ;
+    rdfs:label "Étape du Cycle de Vie du Produit"@fr ;
+    rdfs:comment "A stage in the product lifecycle (manufacturing, purchase, usage, end of life, recycling)."@en ;
+    rdfs:comment "Une étape dans le cycle de vie du produit (fabrication, achat, usage, fin de vie, recyclage)."@fr ;
+    rdfs:subClassOf schema:Enumeration .
+
+dpp:Retailer a owl:Class ;
+    rdfs:label "Retailer"@en ;
+    rdfs:label "Distributeur"@fr ;
+    rdfs:comment "A retailer or distributor who sells products."@en ;
+    rdfs:comment "Un distributeur qui vend des produits."@fr ;
+    rdfs:subClassOf schema:Organization .
+
+dpp:Repairer a owl:Class ;
+    rdfs:label "Repairer"@en ;
+    rdfs:label "Réparateur"@fr ;
+    rdfs:comment "A person or organization that repairs products."@en ;
+    rdfs:comment "Une personne ou organisation qui répare des produits."@fr ;
+    rdfs:subClassOf schema:Person, schema:Organization .
+
+dpp:Manufacturer a owl:Class ;
+    rdfs:label "Manufacturer"@en ;
+    rdfs:label "Fabricant"@fr ;
+    rdfs:comment "The manufacturer of a product."@en ;
+    rdfs:comment "Le fabricant d'un produit."@fr ;
+    rdfs:subClassOf schema:Organization .
+
+dpp:Consumer a owl:Class ;
+    rdfs:label "Consumer"@en ;
+    rdfs:label "Consommateur"@fr ;
+    rdfs:comment "A consumer who owns or uses a product."@en ;
+    rdfs:comment "Un consommateur qui possède ou utilise un produit."@fr ;
+    rdfs:subClassOf schema:Person .
+
+dpp:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:label "Document"@fr ;
+    rdfs:comment "A document associated with a product (manuals, invoices, certificates, etc.)."@en ;
+    rdfs:comment "Un document associé à un produit (manuels, factures, certificats, etc.)."@fr ;
+    rdfs:subClassOf schema:DigitalDocument .
+
+dpp:RecyclingInstructions a owl:Class ;
+    rdfs:label "Recycling Instructions"@en ;
+    rdfs:label "Consignes de Recyclage"@fr ;
+    rdfs:comment "Instructions for recycling or disposing of a product at end of life."@en ;
+    rdfs:comment "Instructions pour recycler ou éliminer un produit en fin de vie."@fr ;
+    rdfs:subClassOf schema:CreativeWork .
+
+# ============================================================================
+# PROPERTIES
+# ============================================================================
+
+dpp:hasWarranty a owl:ObjectProperty ;
+    rdfs:label "has warranty"@en ;
+    rdfs:label "a pour garantie"@fr ;
+    rdfs:comment "Links a ProductPassport to its Warranty."@en ;
+    rdfs:comment "Lie un ProductPassport à sa Garantie."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Warranty .
+
+dpp:hasWarrantyClaim a owl:ObjectProperty ;
+    rdfs:label "has warranty claim"@en ;
+    rdfs:label "a pour réclamation"@fr ;
+    rdfs:comment "Links a ProductPassport to a WarrantyClaim."@en ;
+    rdfs:comment "Lie un ProductPassport à une Réclamation de Garantie."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:WarrantyClaim .
+
+dpp:hasWorkOrder a owl:ObjectProperty ;
+    rdfs:label "has work order"@en ;
+    rdfs:label "a pour ordre de travail"@fr ;
+    rdfs:comment "Links a ProductPassport to a WorkOrder."@en ;
+    rdfs:comment "Lie un ProductPassport à un Ordre de Travail."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:WorkOrder .
+
+dpp:hasIntervention a owl:ObjectProperty ;
+    rdfs:label "has intervention"@en ;
+    rdfs:label "a pour intervention"@fr ;
+    rdfs:comment "Links a WorkOrder to an Intervention."@en ;
+    rdfs:comment "Lie un WorkOrder à une Intervention."@fr ;
+    rdfs:domain dpp:WorkOrder ;
+    rdfs:range dpp:Intervention .
+
+dpp:hasServiceRequest a owl:ObjectProperty ;
+    rdfs:label "has service request"@en ;
+    rdfs:label "a pour demande de service"@fr ;
+    rdfs:comment "Links a ProductPassport to a ServiceRequest."@en ;
+    rdfs:comment "Lie un ProductPassport à une Demande de Service."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:ServiceRequest .
+
+dpp:hasReplacementPart a owl:ObjectProperty ;
+    rdfs:label "has replacement part"@en ;
+    rdfs:label "a pour pièce de rechange"@fr ;
+    rdfs:comment "Links an Intervention to a ReplacementPart."@en ;
+    rdfs:comment "Lie une Intervention à une Pièce de Rechange."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range dpp:ReplacementPart .
+
+dpp:hasDiagnostic a owl:ObjectProperty ;
+    rdfs:label "has diagnostic"@en ;
+    rdfs:label "a pour diagnostic"@fr ;
+    rdfs:comment "Links an Intervention to a Diagnostic."@en ;
+    rdfs:comment "Lie une Intervention à un Diagnostic."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range dpp:Diagnostic .
+
+dpp:hasLifecycleStage a owl:ObjectProperty ;
+    rdfs:label "has lifecycle stage"@en ;
+    rdfs:label "a pour étape de cycle de vie"@fr ;
+    rdfs:comment "Links a ProductPassport to a ProductLifecycleStage."@en ;
+    rdfs:comment "Lie un ProductPassport à une Étape du Cycle de Vie."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:ProductLifecycleStage .
+
+dpp:hasCurrentStatus a owl:ObjectProperty ;
+    rdfs:label "has current status"@en ;
+    rdfs:label "a pour statut actuel"@fr ;
+    rdfs:comment "Links a ProductPassport to its current ProductStatus."@en ;
+    rdfs:comment "Lie un ProductPassport à son ProductStatus actuel."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:ProductStatus .
+
+dpp:hasRetailer a owl:ObjectProperty ;
+    rdfs:label "has retailer"@en ;
+    rdfs:label "a pour distributeur"@fr ;
+    rdfs:comment "Links a ProductPassport to its Retailer."@en ;
+    rdfs:comment "Lie un ProductPassport à son Distributeur."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Retailer .
+
+dpp:hasRepairer a owl:ObjectProperty ;
+    rdfs:label "has repairer"@en ;
+    rdfs:label "a pour réparateur"@fr ;
+    rdfs:comment "Links an Intervention to its Repairer."@en ;
+    rdfs:comment "Lie une Intervention à son Réparateur."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range dpp:Repairer .
+
+dpp:hasManufacturer a owl:ObjectProperty ;
+    rdfs:label "has manufacturer"@en ;
+    rdfs:label "a pour fabricant"@fr ;
+    rdfs:comment "Links a ProductPassport to its Manufacturer."@en ;
+    rdfs:comment "Lie un ProductPassport à son Fabricant."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Manufacturer .
+
+dpp:hasConsumer a owl:ObjectProperty ;
+    rdfs:label "has consumer"@en ;
+    rdfs:label "a pour consommateur"@fr ;
+    rdfs:comment "Links a ProductPassport to its Consumer."@en ;
+    rdfs:comment "Lie un ProductPassport à son Consommateur."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Consumer .
+
+dpp:hasDocument a owl:ObjectProperty ;
+    rdfs:label "has document"@en ;
+    rdfs:label "a pour document"@fr ;
+    rdfs:comment "Links a ProductPassport to a Document."@en ;
+    rdfs:comment "Lie un ProductPassport à un Document."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Document .
+
+dpp:hasRecyclingInstructions a owl:ObjectProperty ;
+    rdfs:label "has recycling instructions"@en ;
+    rdfs:label "a pour consignes de recyclage"@fr ;
+    rdfs:comment "Links a ProductPassport to RecyclingInstructions."@en ;
+    rdfs:comment "Lie un ProductPassport à des Consignes de Recyclage."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:RecyclingInstructions .
+
+# Inverse Relations
+dpp:belongsTo a owl:ObjectProperty ;
+    rdfs:label "belongs to"@en ;
+    rdfs:label "appartient à"@fr ;
+    rdfs:comment "Inverse property: links a WorkOrder or Intervention to its ProductPassport."@en ;
+    rdfs:comment "Propriété inverse : lie un WorkOrder ou Intervention à son ProductPassport."@fr ;
+    rdfs:domain dpp:WorkOrder, dpp:Intervention ;
+    rdfs:range dpp:ProductPassport ;
+    owl:inverseOf dpp:hasWorkOrder, dpp:hasIntervention .
+
+dpp:replaces a owl:ObjectProperty ;
+    rdfs:label "replaces"@en ;
+    rdfs:label "remplace"@fr ;
+    rdfs:comment "Links a ReplacementPart to the original part it replaces."@en ;
+    rdfs:comment "Lie une Pièce de Rechange à la pièce originale qu'elle remplace."@fr ;
+    rdfs:domain dpp:ReplacementPart ;
+    rdfs:range dpp:ReplacementPart .
+
+dpp:follows a owl:ObjectProperty ;
+    rdfs:label "follows"@en ;
+    rdfs:label "suit"@fr ;
+    rdfs:comment "Links an Intervention to a previous Intervention (creates a chain of interventions)."@en ;
+    rdfs:comment "Lie une Intervention à une Intervention précédente (crée une chaîne d'interventions)."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range dpp:Intervention .
+
+# ============================================================================
+# DATA PROPERTIES
+# ============================================================================
+
+dpp:serialNumber a owl:DatatypeProperty ;
+    rdfs:label "serial number"@en ;
+    rdfs:label "numéro de série"@fr ;
+    rdfs:comment "The serial number of the product."@en ;
+    rdfs:comment "Le numéro de série du produit."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:string .
+
+dpp:purchaseDate a owl:DatatypeProperty ;
+    rdfs:label "purchase date"@en ;
+    rdfs:label "date d'achat"@fr ;
+    rdfs:comment "The date when the product was purchased."@en ;
+    rdfs:comment "La date à laquelle le produit a été acheté."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:date .
+
+dpp:purchasePrice a owl:DatatypeProperty ;
+    rdfs:label "purchase price"@en ;
+    rdfs:label "prix d'achat"@fr ;
+    rdfs:comment "The price paid for the product."@en ;
+    rdfs:comment "Le prix payé pour le produit."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:decimal .
+
+dpp:manufacturingDate a owl:DatatypeProperty ;
+    rdfs:label "manufacturing date"@en ;
+    rdfs:label "date de fabrication"@fr ;
+    rdfs:comment "The date when the product was manufactured."@en ;
+    rdfs:comment "La date à laquelle le produit a été fabriqué."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:date .
+
+dpp:manufacturingLocation a owl:DatatypeProperty ;
+    rdfs:label "manufacturing location"@en ;
+    rdfs:label "lieu de fabrication"@fr ;
+    rdfs:comment "The location where the product was manufactured."@en ;
+    rdfs:comment "Le lieu où le produit a été fabriqué."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:string .
+
+dpp:warrantyStartDate a owl:DatatypeProperty ;
+    rdfs:label "warranty start date"@en ;
+    rdfs:label "date de début de garantie"@fr ;
+    rdfs:comment "The start date of the warranty."@en ;
+    rdfs:comment "La date de début de la garantie."@fr ;
+    rdfs:domain dpp:Warranty ;
+    rdfs:range xsd:date .
+
+dpp:warrantyEndDate a owl:DatatypeProperty ;
+    rdfs:label "warranty end date"@en ;
+    rdfs:label "date de fin de garantie"@fr ;
+    rdfs:comment "The end date of the warranty."@en ;
+    rdfs:comment "La date de fin de la garantie."@fr ;
+    rdfs:domain dpp:Warranty ;
+    rdfs:range xsd:date .
+
+dpp:warrantyDurationMonths a owl:DatatypeProperty ;
+    rdfs:label "warranty duration in months"@en ;
+    rdfs:label "durée de garantie en mois"@fr ;
+    rdfs:comment "The duration of the warranty in months."@en ;
+    rdfs:comment "La durée de la garantie en mois."@fr ;
+    rdfs:domain dpp:Warranty ;
+    rdfs:range xsd:integer .
+
+dpp:warrantyType a owl:DatatypeProperty ;
+    rdfs:label "warranty type"@en ;
+    rdfs:label "type de garantie"@fr ;
+    rdfs:comment "The type of warranty (constructeur, retailer, extension, maintenance)."@en ;
+    rdfs:comment "Le type de garantie (constructeur, distributeur, extension, maintenance)."@fr ;
+    rdfs:domain dpp:Warranty ;
+    rdfs:range xsd:string .
+
+dpp:warrantyStatus a owl:DatatypeProperty ;
+    rdfs:label "warranty status"@en ;
+    rdfs:label "statut de garantie"@fr ;
+    rdfs:comment "The status of the warranty (active, expiree, suspendue, annulee)."@en ;
+    rdfs:comment "Le statut de la garantie (active, expirée, suspendue, annulée)."@fr ;
+    rdfs:domain dpp:Warranty ;
+    rdfs:range xsd:string .
+
+dpp:workOrderNumber a owl:DatatypeProperty ;
+    rdfs:label "work order number"@en ;
+    rdfs:label "numéro d'ordre de travail"@fr ;
+    rdfs:comment "The unique identifier for the work order."@en ;
+    rdfs:comment "L'identifiant unique de l'ordre de travail."@fr ;
+    rdfs:domain dpp:WorkOrder ;
+    rdfs:range xsd:string .
+
+dpp:workOrderPriority a owl:DatatypeProperty ;
+    rdfs:label "work order priority"@en ;
+    rdfs:label "priorité de l'ordre de travail"@fr ;
+    rdfs:comment "The priority of the work order (basse, normale, haute, urgente)."@en ;
+    rdfs:comment "La priorité de l'ordre de travail (basse, normale, haute, urgente)."@fr ;
+    rdfs:domain dpp:WorkOrder ;
+    rdfs:range xsd:string .
+
+dpp:workOrderStatus a owl:DatatypeProperty ;
+    rdfs:label "work order status"@en ;
+    rdfs:label "statut de l'ordre de travail"@fr ;
+    rdfs:comment "The status of the work order (cree, assigne, en_cours, en_attente_pieces, complete, facture, annule)."@en ;
+    rdfs:comment "Le statut de l'ordre de travail (créé, assigné, en cours, en attente de pièces, complété, facturé, annulé)."@fr ;
+    rdfs:domain dpp:WorkOrder ;
+    rdfs:range xsd:string .
+
+dpp:interventionType a owl:DatatypeProperty ;
+    rdfs:label "intervention type"@en ;
+    rdfs:label "type d'intervention"@fr ;
+    rdfs:comment "The type of intervention (diagnostic, reparation, maintenance, remplacement, retour_fabricant)."@en ;
+    rdfs:comment "Le type d'intervention (diagnostic, réparation, maintenance, remplacement, retour fabricant)."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:string .
+
+dpp:interventionStartDate a owl:DatatypeProperty ;
+    rdfs:label "intervention start date"@en ;
+    rdfs:label "date de début d'intervention"@fr ;
+    rdfs:comment "The start date and time of the intervention."@en ;
+    rdfs:comment "La date et heure de début de l'intervention."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:dateTime .
+
+dpp:interventionEndDate a owl:DatatypeProperty ;
+    rdfs:label "intervention end date"@en ;
+    rdfs:label "date de fin d'intervention"@fr ;
+    rdfs:comment "The end date and time of the intervention."@en ;
+    rdfs:comment "La date et heure de fin de l'intervention."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:dateTime .
+
+dpp:interventionDuration a owl:DatatypeProperty ;
+    rdfs:label "intervention duration"@en ;
+    rdfs:label "durée d'intervention"@fr ;
+    rdfs:comment "The duration of the intervention in minutes."@en ;
+    rdfs:comment "La durée de l'intervention en minutes."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:integer .
+
+dpp:laborCost a owl:DatatypeProperty ;
+    rdfs:label "labor cost"@en ;
+    rdfs:label "coût main d'œuvre"@fr ;
+    rdfs:comment "The cost of labor for the intervention."@en ;
+    rdfs:comment "Le coût de la main d'œuvre pour l'intervention."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:decimal .
+
+dpp:partsCost a owl:DatatypeProperty ;
+    rdfs:label "parts cost"@en ;
+    rdfs:label "coût des pièces"@fr ;
+    rdfs:comment "The cost of replacement parts for the intervention."@en ;
+    rdfs:comment "Le coût des pièces de rechange pour l'intervention."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:decimal .
+
+dpp:totalCost a owl:DatatypeProperty ;
+    rdfs:label "total cost"@en ;
+    rdfs:label "coût total"@fr ;
+    rdfs:comment "The total cost of the intervention (labor + parts)."@en ;
+    rdfs:comment "Le coût total de l'intervention (main d'œuvre + pièces)."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:decimal .
+
+dpp:resolutionDescription a owl:DatatypeProperty ;
+    rdfs:label "resolution description"@en ;
+    rdfs:label "description de la résolution"@fr ;
+    rdfs:comment "A description of how the issue was resolved."@en ;
+    rdfs:comment "Une description de la façon dont le problème a été résolu."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:string .
+
+dpp:repairStatus a owl:DatatypeProperty ;
+    rdfs:label "repair status"@en ;
+    rdfs:label "statut de réparation"@fr ;
+    rdfs:comment "The status of a repair event (pending, in_progress, completed, failed)."@en ;
+    rdfs:comment "Le statut d'un événement de réparation (en attente, en cours, complété, échoué)."@fr ;
+    rdfs:domain dpp:RepairEvent ;
+    rdfs:range xsd:string .
+
+dpp:partReference a owl:DatatypeProperty ;
+    rdfs:label "part reference"@en ;
+    rdfs:label "référence de pièce"@fr ;
+    rdfs:comment "The reference number of the replacement part."@en ;
+    rdfs:comment "Le numéro de référence de la pièce de rechange."@fr ;
+    rdfs:domain dpp:ReplacementPart ;
+    rdfs:range xsd:string .
+
+dpp:partName a owl:DatatypeProperty ;
+    rdfs:label "part name"@en ;
+    rdfs:label "nom de la pièce"@fr ;
+    rdfs:comment "The name of the replacement part."@en ;
+    rdfs:comment "Le nom de la pièce de rechange."@fr ;
+    rdfs:domain dpp:ReplacementPart ;
+    rdfs:range xsd:string .
+
+dpp:diagnosticDescription a owl:DatatypeProperty ;
+    rdfs:label "diagnostic description"@en ;
+    rdfs:label "description du diagnostic"@fr ;
+    rdfs:comment "A description of the diagnostic process and findings."@en ;
+    rdfs:comment "Une description du processus de diagnostic et des résultats."@fr ;
+    rdfs:domain dpp:Diagnostic ;
+    rdfs:range xsd:string .
+
+dpp:diagnosticResult a owl:DatatypeProperty ;
+    rdfs:label "diagnostic result"@en ;
+    rdfs:label "résultat du diagnostic"@fr ;
+    rdfs:comment "The result or conclusion of the diagnostic."@en ;
+    rdfs:comment "Le résultat ou conclusion du diagnostic."@fr ;
+    rdfs:domain dpp:Diagnostic ;
+    rdfs:range xsd:string .
+
+dpp:claimStatus a owl:DatatypeProperty ;
+    rdfs:label "claim status"@en ;
+    rdfs:label "statut de la réclamation"@fr ;
+    rdfs:comment "The status of a service request (soumise, en_cours, approuvee, resolue)."@en ;
+    rdfs:comment "Le statut d'une demande de service (soumise, en cours, approuvée, résolue)."@fr ;
+    rdfs:domain dpp:ServiceRequest ;
+    rdfs:range xsd:string .
+
+dpp:claimDescription a owl:DatatypeProperty ;
+    rdfs:label "claim description"@en ;
+    rdfs:label "description de la réclamation"@fr ;
+    rdfs:comment "A description of the service request or claim."@en ;
+    rdfs:comment "Une description de la demande de service ou réclamation."@fr ;
+    rdfs:domain dpp:ServiceRequest ;
+    rdfs:range xsd:string .
+
+dpp:claimPriority a owl:DatatypeProperty ;
+    rdfs:label "claim priority"@en ;
+    rdfs:label "priorité de la réclamation"@fr ;
+    rdfs:comment "The priority of the service request (normal, high, urgent)."@en ;
+    rdfs:comment "La priorité de la demande de service (normal, haute, urgente)."@fr ;
+    rdfs:domain dpp:ServiceRequest ;
+    rdfs:range xsd:string .
+
+dpp:productStatus a owl:DatatypeProperty ;
+    rdfs:label "product status"@en ;
+    rdfs:label "statut du produit"@fr ;
+    rdfs:comment "The status of the product (sous_garantie, hors_garantie, contrat_maintenance, en_panne, repare)."@en ;
+    rdfs:comment "Le statut du produit (sous garantie, hors garantie, contrat maintenance, en panne, réparé)."@fr ;
+    rdfs:domain dpp:ProductStatus ;
+    rdfs:range xsd:string .
+
+dpp:productStatusDate a owl:DatatypeProperty ;
+    rdfs:label "product status date"@en ;
+    rdfs:label "date du statut produit"@fr ;
+    rdfs:comment "The date when the product status was set."@en ;
+    rdfs:comment "La date à laquelle le statut du produit a été défini."@fr ;
+    rdfs:domain dpp:ProductStatus ;
+    rdfs:range xsd:date .
+
+dpp:lifecycleStageName a owl:DatatypeProperty ;
+    rdfs:label "lifecycle stage name"@en ;
+    rdfs:label "nom de l'étape du cycle de vie"@fr ;
+    rdfs:comment "The name of the lifecycle stage (manufacturing, purchase, usage, end_of_life, recycling)."@en ;
+    rdfs:comment "Le nom de l'étape du cycle de vie (fabrication, achat, usage, fin de vie, recyclage)."@fr ;
+    rdfs:domain dpp:ProductLifecycleStage ;
+    rdfs:range xsd:string .
+
+dpp:lifecycleStageDate a owl:DatatypeProperty ;
+    rdfs:label "lifecycle stage date"@en ;
+    rdfs:label "date de l'étape du cycle de vie"@fr ;
+    rdfs:comment "The date when the product entered this lifecycle stage."@en ;
+    rdfs:comment "La date à laquelle le produit est entré dans cette étape du cycle de vie."@fr ;
+    rdfs:domain dpp:ProductLifecycleStage ;
+    rdfs:range xsd:date .
