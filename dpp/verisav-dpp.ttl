@@ -8,6 +8,7 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dpp: <https://ns.verisav.fr/dpp#> .
 
@@ -29,12 +30,13 @@
     # Versioning & Dates
     owl:versionInfo "1.0.0" ;
     dcterms:created "2025-12-16"^^xsd:date ;
-    dcterms:modified "2025-12-16"^^xsd:date ;
+    dcterms:modified "2025-12-28"^^xsd:date ;
     
     # Authors & Rights
     dcterms:creator [
         a foaf:Person ;
         foaf:name "Kévin Boutillier" ;
+        rdfs:seeAlso <https://orcid.org/0009-0001-0356-4421> ;
         rdfs:seeAlso <https://www.verisav.fr/en/founders/kevin-boutillier> ;
         rdfs:seeAlso <https://www.linkedin.com/in/kévinboutillier>
     ] ;
@@ -75,12 +77,16 @@
     # API de recherche
     schema:potentialAction [
         a schema:SearchAction ;
-        schema:target <https://api.verisav.fr/api/v1/vocabulary/dpp/search?q={query}> ;
+        schema:target <https://api.verisav.fr/api/v1/vocabulary/dpp/search?q=%7Bquery%7D> ;
         schema:query-input "required name=query"
     ] ;
     
     # Imports
-    owl:imports <https://schema.org/> .
+    owl:imports <https://schema.org/> ;
+    
+    # GS1 Standards Reference
+    rdfs:seeAlso <https://www.gs1.org/standards/Digital-Link/> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/id-keys> .
 
 # ============================================================================
 # CLASSES
@@ -205,6 +211,33 @@ dpp:RecyclingInstructions a owl:Class ;
     rdfs:comment "Instructions pour recycler ou éliminer un produit en fin de vie."@fr ;
     rdfs:subClassOf schema:CreativeWork .
 
+dpp:CompoundIdentifier a owl:Class ;
+    rdfs:label "Compound Identifier"@en ;
+    rdfs:label "Identifiant Composé"@fr ;
+    rdfs:comment "A complex identifier combining a GTIN with a variant, batch, or serial number (Made-to-Order products)."@en ;
+    rdfs:comment "Un identifiant complexe combinant un GTIN avec un variant, lot ou numéro de série (produits sur mesure)."@fr ;
+    rdfs:subClassOf schema:PropertyValue ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:EconomicOperator a owl:Class ;
+    rdfs:label "Economic Operator"@en ;
+    rdfs:label "Opérateur Économique"@fr ;
+    rdfs:comment "An economic operator in the value chain (manufacturer, importer, distributor, dealer, repairer) as per EU ESPR regulation."@en ;
+    rdfs:comment "Un opérateur économique dans la chaîne de valeur (fabricant, importateur, distributeur, revendeur, réparateur) selon la réglementation européenne ESPR."@fr ;
+    rdfs:subClassOf schema:Organization ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:Facility a owl:Class ;
+    rdfs:label "Facility"@en ;
+    rdfs:label "Installation"@fr ;
+    rdfs:comment "A location or building involved in the value chain of a product (manufacturing facility, warehouse, etc.) as per EU ESPR regulation."@en ;
+    rdfs:comment "Un lieu ou bâtiment impliqué dans la chaîne de valeur d'un produit (usine de fabrication, entrepôt, etc.) selon la réglementation européenne ESPR."@fr ;
+    rdfs:subClassOf schema:Place ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
 # ============================================================================
 # PROPERTIES
 # ============================================================================
@@ -328,6 +361,30 @@ dpp:hasRecyclingInstructions a owl:ObjectProperty ;
     rdfs:comment "Lie un ProductPassport à des Consignes de Recyclage."@fr ;
     rdfs:domain dpp:ProductPassport ;
     rdfs:range dpp:RecyclingInstructions .
+
+dpp:hasEconomicOperator a owl:ObjectProperty ;
+    rdfs:label "has economic operator"@en ;
+    rdfs:label "a pour opérateur économique"@fr ;
+    rdfs:comment "Links a ProductPassport to its EconomicOperator (manufacturer, importer, distributor, etc.)."@en ;
+    rdfs:comment "Lie un ProductPassport à son Opérateur Économique (fabricant, importateur, distributeur, etc.)."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:EconomicOperator .
+
+dpp:hasFacility a owl:ObjectProperty ;
+    rdfs:label "has facility"@en ;
+    rdfs:label "a pour installation"@fr ;
+    rdfs:comment "Links a ProductPassport to the Facility where it was produced."@en ;
+    rdfs:comment "Lie un ProductPassport à l'Installation où il a été produit."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Facility .
+
+dpp:hasCompoundIdentifier a owl:ObjectProperty ;
+    rdfs:label "has compound identifier"@en ;
+    rdfs:label "a pour identifiant composé"@fr ;
+    rdfs:comment "Links a ProductPassport to a CompoundIdentifier (GTIN + variant/batch/serial)."@en ;
+    rdfs:comment "Lie un ProductPassport à un Identifiant Composé (GTIN + variant/lot/série)."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:CompoundIdentifier .
 
 # Inverse Relations
 dpp:belongsTo a owl:ObjectProperty ;
@@ -622,3 +679,74 @@ dpp:lifecycleStageDate a owl:DatatypeProperty ;
     rdfs:comment "La date à laquelle le produit est entré dans cette étape du cycle de vie."@fr ;
     rdfs:domain dpp:ProductLifecycleStage ;
     rdfs:range xsd:date .
+
+# ============================================================================
+# GS1 STANDARDS ALIGNMENT
+# ============================================================================
+
+dpp:gs1DigitalLink a owl:DatatypeProperty ;
+    rdfs:label "GS1 Digital Link URI"@en ;
+    rdfs:label "URI GS1 Digital Link"@fr ;
+    rdfs:comment "The standard GS1 Digital Link URI for the product, resolving to the DPP. Uses uncompressed GS1 Digital Link URI syntax per GS1 standards."@en ;
+    rdfs:comment "L'URI standard GS1 Digital Link pour le produit, résolvant vers le DPP. Utilise la syntaxe GS1 Digital Link URI non compressée selon les standards GS1."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/Digital-Link/> ;
+    vs:term_status "stable" .
+
+dpp:hasGln a owl:DatatypeProperty ;
+    rdfs:label "Global Location Number (GLN)"@en ;
+    rdfs:label "Code Lieu International (GLN)"@fr ;
+    rdfs:comment "The GS1 Global Location Number identifying the organization or facility. Used for economic operators and facilities per EU ESPR regulation."@en ;
+    rdfs:comment "Le Code Lieu International GS1 identifiant l'organisation ou l'installation. Utilisé pour les opérateurs économiques et installations selon la réglementation européenne ESPR."@fr ;
+    rdfs:domain schema:Organization, schema:Place, dpp:EconomicOperator, dpp:Facility ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf schema:globalLocationNumber ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/id-keys/gln> ;
+    vs:term_status "stable" .
+
+dpp:hasGtin a owl:DatatypeProperty ;
+    rdfs:label "Global Trade Item Number (GTIN)"@en ;
+    rdfs:label "Numéro d'Article Global (GTIN)"@fr ;
+    rdfs:comment "The GS1 Global Trade Item Number (GTIN) in one of the formats: GTIN-8, GTIN-12, GTIN-13, or GTIN-14. Used with AI (01) for Made-to-Stock products or AI (03) for Made-to-Order products."@en ;
+    rdfs:comment "Le Numéro d'Article Global GS1 (GTIN) dans l'un des formats : GTIN-8, GTIN-12, GTIN-13 ou GTIN-14. Utilisé avec AI (01) pour produits Made-to-Stock ou AI (03) pour produits Made-to-Order."@fr ;
+    rdfs:domain dpp:ProductPassport, dpp:CompoundIdentifier ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf schema:gtin ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/id-keys/gtin> ;
+    vs:term_status "stable" .
+
+dpp:granularityLevel a owl:DatatypeProperty ;
+    rdfs:label "Granularity Level"@en ;
+    rdfs:label "Niveau de Granularité"@fr ;
+    rdfs:comment "The level of identification granularity: 'model' (GTIN only), 'batch' (GTIN + batch/lot number), or 'serial' (GTIN + serial number). Determined by EU delegated acts per product category."@en ;
+    rdfs:comment "Le niveau de granularité d'identification : 'model' (GTIN seul), 'batch' (GTIN + numéro de lot), ou 'serial' (GTIN + numéro de série). Déterminé par les actes délégués UE par catégorie de produit."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:batchLotNumber a owl:DatatypeProperty ;
+    rdfs:label "Batch/Lot Number"@en ;
+    rdfs:label "Numéro de Lot"@fr ;
+    rdfs:comment "The batch or lot number (GS1 AI 10) for production batches. Used with GTIN for batch-level granularity."@en ;
+    rdfs:comment "Le numéro de lot ou batch (GS1 AI 10) pour les lots de production. Utilisé avec GTIN pour la granularité au niveau lot."@fr ;
+    rdfs:domain dpp:ProductPassport, dpp:CompoundIdentifier ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/barcodes/application-identifiers/10> ;
+    vs:term_status "stable" .
+
+dpp:versionNumber a owl:DatatypeProperty ;
+    rdfs:label "Version Number"@en ;
+    rdfs:label "Numéro de Version"@fr ;
+    rdfs:comment "The GTIN version number (GS1 AI 22) for product changes that do not require a GTIN change per GTIN Management Standard."@en ;
+    rdfs:comment "Le numéro de version GTIN (GS1 AI 22) pour les changements de produit qui ne nécessitent pas un changement de GTIN selon le GTIN Management Standard."@fr ;
+    rdfs:domain dpp:ProductPassport, dpp:CompoundIdentifier ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/barcodes/application-identifiers/22> ;
+    vs:term_status "stable" .
