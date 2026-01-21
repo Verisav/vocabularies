@@ -1,0 +1,95 @@
+{
+  "@context": [
+    "https://schema.org/",
+    "https://ns.verisav.fr/dpp/dpp.jsonld"
+  ],
+  "@type": ["Product", "ProductPassport"],
+  "@id": "https://example.com/products/ABC123456",
+  "name": "Samsung Washing Machine WW90T534AAW",
+  "brand": {
+    "@type": "Brand",
+    "name": "Samsung"
+  },
+  "sku": "WW90T534AAW",
+  "serialNumber": "ABC123456",
+  "gtin": "8806091234567",
+  "purchaseDate": "2025-07-25",
+  "purchasePrice": 499.99,
+  "currency": "EUR",
+  "manufacturingDate": "2025-06-15",
+  "manufacturingLocation": "France",
+  "hasWarranty": {
+    "@type": "Warranty",
+    "warrantyType": "constructeur",
+    "warrantyStatus": "active",
+    "warrantyStartDate": "2025-07-25",
+    "warrantyEndDate": "2027-07-25",
+    "warrantyDurationMonths": 24,
+    "warrantyDescription": "Garantie constructeur 2 ans pièces et main d'œuvre"
+  },
+  "hasWorkOrder": {
+    "@type": "WorkOrder",
+    "@id": "https://example.com/workorders/WO-2025-001",
+    "workOrderNumber": "WO-2025-001",
+    "workOrderStatus": "en_cours",
+    "workOrderPriority": "haute",
+    "workOrderDate": "2025-12-10",
+    "hasIntervention": {
+      "@type": "Intervention",
+      "@id": "https://example.com/interventions/INT-001",
+      "interventionType": "reparation",
+      "interventionStartDate": "2025-12-10T09:00:00Z",
+      "interventionEndDate": "2025-12-10T11:30:00Z",
+      "interventionDuration": 150,
+      "laborCost": 120.00,
+      "partsCost": 45.50,
+      "totalCost": 165.50,
+      "resolutionDescription": "Moteur de vidange remplacé",
+      "hasReplacementPart": {
+        "@type": "ReplacementPart",
+        "@id": "https://example.com/parts/PART-12345",
+        "partReference": "MOT-VID-SAM-2025",
+        "partName": "Moteur de vidange Samsung",
+        "partCost": 45.50
+      },
+      "hasDiagnostic": {
+        "@type": "Diagnostic",
+        "diagnosticDate": "2025-12-10T09:00:00Z",
+        "diagnosticResult": "Moteur de vidange défectueux",
+        "diagnosticCost": 30.00
+      },
+      "hasRepairer": {
+        "@type": "Repairer",
+        "name": "Réparateur Pro",
+        "address": "123 Rue de la Réparation, 75001 Paris"
+      }
+    }
+  },
+  "hasCurrentStatus": {
+    "@type": "ProductStatus",
+    "productStatus": "en_reparation",
+    "productStatusDate": "2025-12-10"
+  },
+  "hasLifecycleStage": {
+    "@type": "ProductLifecycleStage",
+    "lifecycleStage": "utilisation",
+    "lifecycleStageDate": "2025-07-25"
+  },
+  "hasManufacturer": {
+    "@type": "Manufacturer",
+    "name": "Samsung Electronics",
+    "country": "South Korea",
+    "address": "Samsung-ro, Yeongtong-gu, Suwon-si, Gyeonggi-do, South Korea"
+  },
+  "hasRetailer": {
+    "@type": "Retailer",
+    "name": "Darty",
+    "country": "France",
+    "address": "123 Avenue des Champs-Élysées, 75008 Paris"
+  },
+  "hasConsumer": {
+    "@type": "Consumer",
+    "name": "Jean Dupont",
+    "email": "jean.dupont@example.com"
+  }
+}

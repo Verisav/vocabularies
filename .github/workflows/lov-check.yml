@@ -1,0 +1,58 @@
+name: Check LOV Status
+
+on:
+  schedule:
+    # Run weekly on Monday at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check-lov:
+    name: Check LOV Registry Status
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Check DPP on LOV
+        run: |
+          echo "Checking DPP vocabulary on LOV..."
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://lov.linkeddata.es/dataset/lov/vocabs/dpp)
+          if [ "$STATUS" = "200" ]; then
+            echo "✅ DPP is available on LOV"
+          else
+            echo "⚠️  DPP returned status code: $STATUS"
+          fi
+      
+      - name: Check RMA on LOV
+        run: |
+          echo "Checking RMA vocabulary on LOV..."
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://lov.linkeddata.es/dataset/lov/vocabs/rma)
+          if [ "$STATUS" = "200" ]; then
+            echo "✅ RMA is available on LOV"
+          else
+            echo "⚠️  RMA returned status code: $STATUS"
+          fi
+      
+      - name: Check WTY on LOV
+        run: |
+          echo "Checking WTY vocabulary on LOV..."
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://lov.linkeddata.es/dataset/lov/vocabs/wty)
+          if [ "$STATUS" = "200" ]; then
+            echo "✅ WTY is available on LOV"
+          else
+            echo "⚠️  WTY returned status code: $STATUS"
+          fi
+      
+      - name: Check W3ID redirects
+        run: |
+          echo "Checking W3ID persistent URIs..."
+          for vocab in dpp rma wty; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://w3id.org/verisav/$vocab)
+            if [ "$STATUS" = "303" ] || [ "$STATUS" = "200" ]; then
+              echo "✅ $vocab W3ID URI is working (status: $STATUS)"
+            else
+              echo "⚠️  $vocab W3ID URI returned status: $STATUS"
+            fi
+          done

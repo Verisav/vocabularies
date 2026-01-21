@@ -1,0 +1,68 @@
+{
+  "@context": [
+    "https://schema.org/",
+    "https://ns.verisav.fr/dpp/dpp.jsonld",
+    "https://ns.verisav.fr/rma/rma.jsonld",
+    "https://ns.verisav.fr/wty/wty.jsonld"
+  ],
+  "@type": "ProductPassport",
+  "@id": "https://example.com/products/ABC123456",
+  "name": "Samsung Washing Machine WW90T534AAW",
+  "serialNumber": "ABC123456",
+  "purchaseDate": "2025-07-25",
+  "hasWarranty": {
+    "@type": "Warranty",
+    "@id": "https://example.com/warranties/WTY-2025-001",
+    "warrantyType": "constructeur",
+    "warrantyStatus": "active",
+    "warrantyStartDate": "2025-07-25",
+    "warrantyEndDate": "2027-07-25",
+    "definesCoverage": {
+      "@type": "Coverage",
+      "coversDefectType": "defaut_fabrication"
+    },
+    "definesPaymentRule": {
+      "@type": "PaymentRule",
+      "firstParty": {
+        "@type": "Organization",
+        "name": "Samsung Electronics"
+      },
+      "paymentPercentage": 100.0
+    }
+  },
+  "hasReturnRequest": {
+    "@type": "ReturnRequest",
+    "@id": "https://example.com/returns/RMA-2025-001234",
+    "returnRequestNumber": "RMA-2025-001234",
+    "returnReason": "defective",
+    "returnRequestStatus": "approved",
+    "returnRequestDate": "2025-12-16T10:30:00Z",
+    "hasResolution": {
+      "@type": "Resolution",
+      "resolutionType": "repair",
+      "resolutionDate": "2025-12-18T14:00:00Z"
+    },
+    "hasTicket": {
+      "@type": "Ticket",
+      "ticketNumber": "TICKET-2025-001234",
+      "ticketStatus": "in_progress"
+    },
+    "resultsInWorkOrder": {
+      "@type": "WorkOrder",
+      "@id": "https://example.com/workorders/WO-2025-001",
+      "workOrderNumber": "WO-2025-001",
+      "workOrderStatus": "en_cours",
+      "hasIntervention": {
+        "@type": "Intervention",
+        "interventionType": "reparation",
+        "interventionStartDate": "2025-12-20T09:00:00Z",
+        "totalCost": 165.50
+      }
+    }
+  },
+  "hasCurrentStatus": {
+    "@type": "ProductStatus",
+    "productStatus": "en_reparation",
+    "productStatusDate": "2025-12-16"
+  }
+}

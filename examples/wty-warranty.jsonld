@@ -1,0 +1,38 @@
+{
+  "@context": "https://ns.verisav.fr/wty/wty.jsonld",
+  "@type": "Warranty",
+  "@id": "https://example.com/warranties/WTY-2025-001",
+  "warrantyType": "constructeur",
+  "warrantyStatus": "active",
+  "warrantyStartDate": "2025-07-25",
+  "warrantyEndDate": "2027-07-25",
+  "warrantyDurationMonths": 24,
+  "definesCoverage": {
+    "@type": "Coverage",
+    "coversDefectType": "defaut_fabrication",
+    "coversRepairType": ["reparation", "remplacement"],
+    "coveragePeriod": "24_months",
+    "coverageDescription": "Garantie constructeur couvrant les défauts de fabrication"
+  },
+  "definesExclusions": {
+    "@type": "Exclusion",
+    "excludedDefectType": "usure_normale",
+    "excludedCause": "dommages_client",
+    "exclusionDescription": "Usure normale et dommages causés par le client ne sont pas couverts"
+  },
+  "definesPaymentRule": {
+    "@type": "PaymentRule",
+    "firstParty": {
+      "@type": "Organization",
+      "name": "Samsung Electronics"
+    },
+    "paysFor": ["reparation", "pieces", "deplacement"],
+    "paymentPercentage": 100.0,
+    "paymentDescription": "Le fabricant paie 100% des coûts de réparation"
+  },
+  "definesLimits": {
+    "@type": "Limit",
+    "limitType": "none",
+    "limitDescription": "Aucune limite financière pour cette garantie"
+  }
+}

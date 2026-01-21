@@ -1,0 +1,54 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Extract version
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+      
+      - name: Generate changelog
+        id: changelog
+        run: |
+          # Extract changelog for this version
+          if [ -f CHANGELOG.md ]; then
+            # Extract section for this version
+            VERSION="${{ steps.version.outputs.version }}"
+            awk "/^## \[$VERSION\]/,/^## \[/" CHANGELOG.md | head -n -1 > release_notes.md
+          else
+            echo "## Release ${{ steps.version.outputs.version }}" > release_notes.md
+            echo "See CHANGELOG.md for details." >> release_notes.md
+          fi
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: "Verisav Vocabularies v${{ steps.version.outputs.version }}"
+          body_path: release_notes.md
+          draft: false
+          prerelease: false
+          files: |
+            dpp/dpp.ttl
+            dpp/dpp.jsonld
+            rma/rma.ttl
+            rma/rma.jsonld
+            wty/wty.ttl
+            wty/wty.jsonld
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

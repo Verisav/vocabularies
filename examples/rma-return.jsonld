@@ -1,0 +1,46 @@
+{
+  "@context": "https://ns.verisav.fr/rma/rma.jsonld",
+  "@type": "ReturnRequest",
+  "@id": "https://example.com/returns/RMA-2025-001234",
+  "returnRequestNumber": "RMA-2025-001234",
+  "returnReason": "defective",
+  "returnRequestDate": "2025-12-16T10:30:00Z",
+  "returnRequestStatus": "approved",
+  "returnDescription": "Le produit ne démarre plus après 2 semaines d'utilisation",
+  "concernsProduct": {
+    "@type": "Product",
+    "@id": "https://example.com/products/ABC123456",
+    "sku": "PROD-12345",
+    "name": "Samsung Washing Machine"
+  },
+  "requestedBy": {
+    "@type": "Person",
+    "name": "Jean Dupont",
+    "email": "jean.dupont@example.com"
+  },
+  "handledBy": {
+    "@type": "Organization",
+    "name": "Darty",
+    "email": "sav@darty.fr"
+  },
+  "hasResolution": {
+    "@type": "Resolution",
+    "resolutionType": "refund",
+    "resolutionAmount": 499.99,
+    "resolutionCurrency": "EUR",
+    "resolutionDate": "2025-12-18T14:00:00Z",
+    "resolutionStatus": "completed"
+  },
+  "hasShippingLabel": {
+    "@type": "ShippingLabel",
+    "trackingNumber": "FR123456789",
+    "carrier": "Colissimo",
+    "shippingDate": "2025-12-17T09:00:00Z"
+  },
+  "hasTicket": {
+    "@type": "Ticket",
+    "ticketNumber": "TICKET-2025-001234",
+    "ticketStatus": "resolved",
+    "ticketPriority": "high"
+  }
+}

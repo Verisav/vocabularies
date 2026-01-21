@@ -1,0 +1,182 @@
+name: Validate Vocabularies
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - '**/*.ttl'
+      - '**/*.jsonld'
+      - '**/*.xml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**/*.ttl'
+      - '**/*.jsonld'
+      - '**/*.xml'
+  workflow_dispatch:
+
+jobs:
+  validate-rdf:
+    name: Validate RDF/OWL Files
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        vocabulary: [dpp, rma, wty]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install rdflib
+          pip install pyld
+      
+      - name: Validate Turtle file
+        run: |
+          python3 << EOF
+          import rdflib
+          import sys
+          
+          vocab = "${{ matrix.vocabulary }}"
+          file_path = f"{vocab}/{vocab}.ttl"
+          
+          try:
+              g = rdflib.Graph()
+              g.parse(file_path, format='turtle')
+              triple_count = len(g)
+              print(f"✅ {vocab.upper()} vocabulary is valid: {triple_count} triples")
+          except Exception as e:
+              print(f"❌ Error validating {vocab.upper()}: {e}")
+              sys.exit(1)
+          EOF
+      
+      - name: Validate JSON-LD file
+        run: |
+          python3 << EOF
+          import json
+          import sys
+          
+          vocab = "${{ matrix.vocabulary }}"
+          file_path = f"{vocab}/{vocab}.jsonld"
+          
+          try:
+              with open(file_path, 'r') as f:
+                  data = json.load(f)
+              print(f"✅ {vocab.upper()} JSON-LD is valid")
+          except json.JSONDecodeError as e:
+              print(f"❌ Invalid JSON in {vocab.upper()}: {e}")
+              sys.exit(1)
+          except Exception as e:
+              print(f"❌ Error validating {vocab.upper()}: {e}")
+              sys.exit(1)
+          EOF
+      
+      - name: Check namespace consistency
+        run: |
+          python3 << EOF
+          import re
+          import sys
+          
+          vocab = "${{ matrix.vocabulary }}"
+          ttl_file = f"{vocab}/{vocab}.ttl"
+          jsonld_file = f"{vocab}/{vocab}.jsonld"
+          
+          # Expected namespace
+          expected_ns = f"https://ns.verisav.fr/{vocab}#"
+          w3id_ns = f"https://w3id.org/verisav/{vocab}#"
+          
+          # Check Turtle file
+          with open(ttl_file, 'r') as f:
+              ttl_content = f.read()
+              if expected_ns not in ttl_content and w3id_ns not in ttl_content:
+                  print(f"⚠️  Warning: Namespace not found in {vocab}.ttl")
+          
+          # Check JSON-LD file
+          with open(jsonld_file, 'r') as f:
+              jsonld_content = f.read()
+              if expected_ns not in jsonld_content and w3id_ns not in jsonld_content:
+                  print(f"⚠️  Warning: Namespace not found in {vocab}.jsonld")
+          
+          print(f"✅ Namespace check completed for {vocab.upper()}")
+          EOF
+
+  validate-examples:
+    name: Validate Examples
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install rdflib
+          pip install pyld
+      
+      - name: Validate example files
+        run: |
+          python3 << EOF
+          import json
+          import os
+          import sys
+          
+          examples_dir = "examples"
+          if not os.path.exists(examples_dir):
+              print("ℹ️  No examples directory found, skipping")
+              sys.exit(0)
+          
+          errors = []
+          for filename in os.listdir(examples_dir):
+              if filename.endswith('.jsonld'):
+                  filepath = os.path.join(examples_dir, filename)
+                  try:
+                      with open(filepath, 'r') as f:
+                          data = json.load(f)
+                      print(f"✅ {filename} is valid JSON-LD")
+                  except json.JSONDecodeError as e:
+                      errors.append(f"{filename}: {e}")
+          
+          if errors:
+              print("❌ Errors found in examples:")
+              for error in errors:
+                  print(f"  - {error}")
+              sys.exit(1)
+          
+          print("✅ All examples are valid")
+          EOF
+
+  check-content-negotiation:
+    name: Check Content Negotiation
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Check DPP content negotiation
+        run: |
+          echo "Checking DPP vocabulary..."
+          curl -s -I -H "Accept: text/turtle" https://w3id.org/verisav/dpp | head -1
+          curl -s -I -H "Accept: application/ld+json" https://w3id.org/verisav/dpp | head -1
+      
+      - name: Check RMA content negotiation
+        run: |
+          echo "Checking RMA vocabulary..."
+          curl -s -I -H "Accept: text/turtle" https://w3id.org/verisav/rma | head -1
+          curl -s -I -H "Accept: application/ld+json" https://w3id.org/verisav/rma | head -1
+      
+      - name: Check WTY content negotiation
+        run: |
+          echo "Checking WTY vocabulary..."
+          curl -s -I -H "Accept: text/turtle" https://w3id.org/verisav/wty | head -1
+          curl -s -I -H "Accept: application/ld+json" https://w3id.org/verisav/wty | head -1

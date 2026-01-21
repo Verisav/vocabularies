@@ -1,13 +1,34 @@
 cff-version: 1.2.0
-message: "If you use the Verisav DPP Open Standard, please cite it as below."
+message: "If you use this software, please cite it as below."
+title: "Verisav Semantic Vocabularies: DPP, RMA, WTY"
+version: "1.0.0"
+doi: "10.5281/zenodo.18016854"
+date-released: "2025-12-22"
 authors:
-- family-names: "Boutillier"
-  given-names: "Kévin"
-  orcid: "0009-0001-0356-4421" 
-  affiliation: "Verisav"
-title: "Verisav DPP Open Standard (VDOS)"
-version: 1.0.0
-doi: 10.5281/zenodo.18016854
-date-released: 2025-12-22
-url: "https://github.com/Verisav/vocabularies"
+  - given-names: Kévin
+    family-names: Boutillier
+    orcid: "https://orcid.org/0009-0001-0356-4421"
+    affiliation: Verisav SAS
+    email: contact@verisav.fr
+    website: "https://www.verisav.fr"
+keywords:
+  - RDF
+  - OWL
+  - Semantic Web
+  - Linked Data
+  - Digital Product Passport
+  - DPP
+  - After-sales service
+  - SAV
+  - Warranty
+  - Return Merchandise Authorization
+  - RMA
+  - Schema.org
+  - LOV
+  - W3ID
+  - ESPR
+  - EU regulations
 license: CC-BY-4.0
+repository-code: "https://github.com/Verisav/vocabularies"
+url: "https://www.verisav.fr"
+abstract: "Three complementary RDF/OWL vocabularies for standardizing after-sales service data: DPP (Digital Product Passport) for product lifecycle and compliance with EU regulations (ESPR EU 2024/1781), RMA (Return Merchandise Authorization) for return and service ticket workflows, and WTY (Warranty & Contracts) for machine-readable warranties and payment automation. All vocabularies are validated on LOV (Linked Open Vocabularies) and published with W3ID persistent URIs managed by W3C."
