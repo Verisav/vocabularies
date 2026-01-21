@@ -160,15 +160,15 @@ If you use these vocabularies in your research or projects, please cite:
 ### BibTeX
 
 ```bibtex
-@software{verisav_vocabularies_2025,
+@software{verisav_vocabularies_2026,
   title = {Verisav Semantic Vocabularies: DPP, RMA, WTY},
   author = {Boutillier, Kévin},
-  year = {2025},
-  month = {12},
+  year = {2026},
+  month = {1},
   publisher = {Zenodo},
   doi = {10.5281/zenodo.18328444},
   url = {https://doi.org/10.5281/zenodo.18328444},
-  version = {1.0.0}
+  version = {1.1.0}
 }
 ```
 
