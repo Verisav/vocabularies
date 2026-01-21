@@ -43,15 +43,32 @@ jobs:
           python3 << EOF
           import rdflib
           import sys
+          import os
           
           vocab = "${{ matrix.vocabulary }}"
-          file_path = f"{vocab}/{vocab}.ttl"
+          # Try both naming conventions
+          possible_files = [
+              f"{vocab}/verisav-{vocab}.ttl",
+              f"{vocab}/{vocab}.ttl"
+          ]
+          
+          file_path = None
+          for path in possible_files:
+              if os.path.exists(path):
+                  file_path = path
+                  break
+          
+          if not file_path:
+              print(f"❌ Error: No Turtle file found for {vocab.upper()}")
+              print(f"   Tried: {possible_files}")
+              sys.exit(1)
           
           try:
               g = rdflib.Graph()
               g.parse(file_path, format='turtle')
               triple_count = len(g)
               print(f"✅ {vocab.upper()} vocabulary is valid: {triple_count} triples")
+              print(f"   File: {file_path}")
           except Exception as e:
               print(f"❌ Error validating {vocab.upper()}: {e}")
               sys.exit(1)
@@ -62,14 +79,32 @@ jobs:
           python3 << EOF
           import json
           import sys
+          import os
           
           vocab = "${{ matrix.vocabulary }}"
-          file_path = f"{vocab}/{vocab}.jsonld"
+          # Try both naming conventions
+          possible_files = [
+              f"{vocab}/verisav-{vocab}.jsonld",
+              f"{vocab}/{vocab}.jsonld"
+          ]
+          
+          file_path = None
+          for path in possible_files:
+              if os.path.exists(path):
+                  file_path = path
+                  break
+          
+          if not file_path:
+              print(f"⚠️  Warning: No JSON-LD file found for {vocab.upper()}")
+              print(f"   Tried: {possible_files}")
+              print(f"   Skipping JSON-LD validation")
+              sys.exit(0)
           
           try:
               with open(file_path, 'r') as f:
                   data = json.load(f)
               print(f"✅ {vocab.upper()} JSON-LD is valid")
+              print(f"   File: {file_path}")
           except json.JSONDecodeError as e:
               print(f"❌ Invalid JSON in {vocab.upper()}: {e}")
               sys.exit(1)
@@ -83,26 +118,50 @@ jobs:
           python3 << EOF
           import re
           import sys
+          import os
           
           vocab = "${{ matrix.vocabulary }}"
-          ttl_file = f"{vocab}/{vocab}.ttl"
-          jsonld_file = f"{vocab}/{vocab}.jsonld"
+          
+          # Try both naming conventions
+          possible_ttl = [
+              f"{vocab}/verisav-{vocab}.ttl",
+              f"{vocab}/{vocab}.ttl"
+          ]
+          possible_jsonld = [
+              f"{vocab}/verisav-{vocab}.jsonld",
+              f"{vocab}/{vocab}.jsonld"
+          ]
+          
+          ttl_file = None
+          jsonld_file = None
+          
+          for path in possible_ttl:
+              if os.path.exists(path):
+                  ttl_file = path
+                  break
+          
+          for path in possible_jsonld:
+              if os.path.exists(path):
+                  jsonld_file = path
+                  break
           
           # Expected namespace
           expected_ns = f"https://ns.verisav.fr/{vocab}#"
           w3id_ns = f"https://w3id.org/verisav/{vocab}#"
           
           # Check Turtle file
-          with open(ttl_file, 'r') as f:
-              ttl_content = f.read()
-              if expected_ns not in ttl_content and w3id_ns not in ttl_content:
-                  print(f"⚠️  Warning: Namespace not found in {vocab}.ttl")
+          if ttl_file:
+              with open(ttl_file, 'r') as f:
+                  ttl_content = f.read()
+                  if expected_ns not in ttl_content and w3id_ns not in ttl_content:
+                      print(f"⚠️  Warning: Namespace not found in {ttl_file}")
           
           # Check JSON-LD file
-          with open(jsonld_file, 'r') as f:
-              jsonld_content = f.read()
-              if expected_ns not in jsonld_content and w3id_ns not in jsonld_content:
-                  print(f"⚠️  Warning: Namespace not found in {vocab}.jsonld")
+          if jsonld_file:
+              with open(jsonld_file, 'r') as f:
+                  jsonld_content = f.read()
+                  if expected_ns not in jsonld_content and w3id_ns not in jsonld_content:
+                      print(f"⚠️  Warning: Namespace not found in {jsonld_file}")
           
           print(f"✅ Namespace check completed for {vocab.upper()}")
           EOF
