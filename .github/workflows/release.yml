@@ -44,11 +44,8 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            dpp/dpp.ttl
-            dpp/dpp.jsonld
-            rma/rma.ttl
-            rma/rma.jsonld
-            wty/wty.ttl
-            wty/wty.jsonld
+            dpp/verisav-dpp.ttl
+            rma/verisav-rma.ttl
+            wty/verisav-wty.ttl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
