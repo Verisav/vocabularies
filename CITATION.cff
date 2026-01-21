@@ -8,8 +8,8 @@ authors:
   - given-names: Kévin
     family-names: Boutillier
     orcid: "https://orcid.org/0009-0001-0356-4421"
-    affiliation: Verisav SAS
-    email: contact@verisav.fr
+    affiliation: Verisav
+    email: k.boutillier@verisav.fr
     website: "https://www.verisav.fr"
 keywords:
   - RDF

@@ -138,8 +138,8 @@ curl https://w3id.org/verisav/dpp
 
 **Kévin Boutillier**
 - **ORCID:** [0009-0001-0356-4421](https://orcid.org/0009-0001-0356-4421)
-- **Organization:** Verisav SAS
-- **Email:** contact@verisav.fr
+- **Organization:** Verisav
+- **Email:** k.boutillier@verisav.fr
 - **Website:** https://www.verisav.fr
 
 ## 📄 License
@@ -229,7 +229,7 @@ All vocabularies are validated:
 ## 📞 Contact
 
 For questions, suggestions, or collaboration opportunities:
-- **Email:** contact@verisav.fr
+- **Email:** k.boutillier@verisav.fr
 - **Website:** https://www.verisav.fr
 - **GitHub Issues:** [Open an issue](https://github.com/Verisav/vocabularies/issues)
 

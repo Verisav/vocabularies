@@ -110,7 +110,7 @@ curl -I https://ns.verisav.fr/dpp
 
 If you have questions:
 - Open a GitHub Discussion
-- Email: contact@verisav.fr
+- Email: k.boutillier@verisav.fr
 - Check existing documentation
 
 Thank you for contributing! 🙏
