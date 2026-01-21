@@ -3,7 +3,7 @@
 [![LOV](https://img.shields.io/badge/LOV-Validated-brightgreen)](https://lov.linkeddata.es/dataset/lov/agents/Verisav)
 [![W3ID](https://img.shields.io/badge/W3ID-Persistent%20URI-blue)](https://w3id.org/verisav)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18016854-blue)](https://doi.org/10.5281/zenodo.18016854)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18328444-blue)](https://doi.org/10.5281/zenodo.18328444)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0001--0356--4421-green)](https://orcid.org/0009-0001-0356-4421)
 
 Official RDF/OWL vocabularies for Verisav - Standardizing after-sales service data with semantic web technologies.
@@ -124,7 +124,7 @@ curl https://w3id.org/verisav/dpp
 - **W3ID Persistent URIs:** https://w3id.org/verisav/
 - **LOV Registry:** https://lov.linkeddata.es/dataset/lov/agents/Verisav
 - **LOV Agent Profile:** https://lov.linkeddata.es/dataset/lov/agents/K%C3%A9vin%20Boutillier
-- **DOI (Zenodo):** https://doi.org/10.5281/zenodo.18016854
+- **DOI (Zenodo):** https://doi.org/10.5281/zenodo.18328444
 
 ## 📊 Statistics
 
@@ -166,19 +166,19 @@ If you use these vocabularies in your research or projects, please cite:
   year = {2025},
   month = {12},
   publisher = {Zenodo},
-  doi = {10.5281/zenodo.18016854},
-  url = {https://doi.org/10.5281/zenodo.18016854},
+  doi = {10.5281/zenodo.18328444},
+  url = {https://doi.org/10.5281/zenodo.18328444},
   version = {1.0.0}
 }
 ```
 
 ### APA
 
-Boutillier, K. (2025). Verisav Semantic Vocabularies: DPP, RMA, WTY (Version 1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.18016854
+Boutillier, K. (2026). Verisav Semantic Vocabularies: DPP, RMA, WTY (Version 1.1.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.18328444
 
 ### MLA
 
-Boutillier, Kévin. *Verisav Semantic Vocabularies: DPP, RMA, WTY*. Version 1.0.0, Zenodo, 2025, doi:10.5281/zenodo.18016854.
+Boutillier, Kévin. *Verisav Semantic Vocabularies: DPP, RMA, WTY*. Version 1.1.0, Zenodo, 2026, doi:10.5281/zenodo.18328444.
 
 ## 🤝 Contributing
 
