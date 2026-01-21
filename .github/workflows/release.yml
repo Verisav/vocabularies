@@ -36,6 +36,19 @@ jobs:
             echo "See CHANGELOG.md for details." >> release_notes.md
           fi
       
+      - name: Check files exist
+        id: files
+        run: |
+          FILES=""
+          for file in dpp/verisav-dpp.ttl rma/verisav-rma.ttl wty/verisav-wty.ttl; do
+            if [ -f "$file" ]; then
+              FILES="$FILES$file"$'\n'
+            fi
+          done
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
@@ -43,9 +56,6 @@ jobs:
           body_path: release_notes.md
           draft: false
           prerelease: false
-          files: |
-            dpp/verisav-dpp.ttl
-            rma/verisav-rma.ttl
-            wty/verisav-wty.ttl
+          files: ${{ steps.files.outputs.files }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
