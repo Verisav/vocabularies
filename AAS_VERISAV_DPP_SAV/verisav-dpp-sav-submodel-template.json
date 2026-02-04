@@ -1,0 +1,186 @@
+{
+  "modelType": "Submodel",
+  "id": "https://ns.verisav.fr/aas/dpp-sav-submodel/1/0",
+  "idShort": "VerisavDPPSAV",
+  "kind": "Template",
+  "semanticId": {
+    "type": "ExternalReference",
+    "keys": [
+      {
+        "type": "GlobalReference",
+        "value": "https://ns.verisav.fr/dpp#ProductPassport"
+      }
+    ]
+  },
+  "displayName": [
+    { "language": "en", "text": "Verisav Digital Product Passport & After-Sales Submodel" },
+    { "language": "fr", "text": "Submodel Verisav DPP et SAV" }
+  ],
+  "description": [
+    {
+      "language": "en",
+      "text": "AAS Submodel template for Verisav DPP/SAV semantics. Maps product identification, material provenance (DPP-03), warranty, and repair events. Compatible with IEC 63278-1 and ECLASS IRDI for material classification."
+    },
+    {
+      "language": "fr",
+      "text": "Template de submodel AAS pour la sémantique Verisav DPP/SAV. Couvre identification produit, provenance des matériaux (DPP-03), garantie et événements de réparation. Compatible IEC 63278-1 et ECLASS IRDI."
+    }
+  ],
+  "administration": {
+    "version": "1.0",
+    "revision": "0"
+  },
+  "submodelElements": [
+    {
+      "modelType": "SubmodelElementCollection",
+      "idShort": "ProductIdentification",
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#CompoundIdentifier" }]
+      },
+      "displayName": [{ "language": "en", "text": "Product identification" }],
+      "value": [
+        {
+          "modelType": "Property",
+          "idShort": "gtin",
+          "valueType": "string",
+          "value": "",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#hasGtin" }]
+          }
+        },
+        {
+          "modelType": "Property",
+          "idShort": "granularityLevel",
+          "valueType": "string",
+          "value": "serial",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#granularityLevel" }]
+          }
+        },
+        {
+          "modelType": "Property",
+          "idShort": "serialNumber",
+          "valueType": "string",
+          "value": "",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [{ "type": "GlobalReference", "value": "https://schema.org/serialNumber" }]
+          }
+        }
+      ]
+    },
+    {
+      "modelType": "SubmodelElementList",
+      "idShort": "MaterialProvenance",
+      "orderRelevant": true,
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#hasMaterialProvenance" }]
+      },
+      "displayName": [
+        { "language": "en", "text": "Material provenance (DPP-03)" },
+        { "language": "fr", "text": "Provenance des matériaux (DPP-03)" }
+      ],
+      "typeValueListElement": "SubmodelElementCollection",
+      "value": [
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "Material_0",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#MaterialProvenance" }]
+          },
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "materialName",
+              "valueType": "string",
+              "value": "",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#materialName" }]
+              }
+            },
+            {
+              "modelType": "Property",
+              "idShort": "materialClassificationIRDI",
+              "valueType": "string",
+              "value": "",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [{ "type": "GlobalReference", "value": "https://eclass.eu/irdi" }]
+              },
+              "description": [{ "language": "en", "text": "ECLASS IRDI for material (e.g. 0173-1#02-AAA123#001). Optional; use materialName if IRDI not available." }]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "massFraction",
+              "valueType": "double",
+              "value": "0",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#massFraction" }]
+              }
+            },
+            {
+              "modelType": "Property",
+              "idShort": "originCountry",
+              "valueType": "string",
+              "value": "",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#originCountry" }]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modelType": "SubmodelElementCollection",
+      "idShort": "Warranty",
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#hasWarranty" }]
+      },
+      "displayName": [{ "language": "en", "text": "Warranty" }],
+      "value": [
+        {
+          "modelType": "Property",
+          "idShort": "warrantyStartDate",
+          "valueType": "date",
+          "value": "",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#warrantyStartDate" }]
+          }
+        },
+        {
+          "modelType": "Property",
+          "idShort": "warrantyEndDate",
+          "valueType": "date",
+          "value": "",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#warrantyEndDate" }]
+          }
+        }
+      ]
+    },
+    {
+      "modelType": "SubmodelElementList",
+      "idShort": "RepairEvents",
+      "orderRelevant": true,
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [{ "type": "GlobalReference", "value": "https://ns.verisav.fr/dpp#hasWorkOrder" }]
+      },
+      "displayName": [{ "language": "en", "text": "Repair events / Work orders" }],
+      "typeValueListElement": "SubmodelElementCollection",
+      "value": []
+    }
+  ]
+}
