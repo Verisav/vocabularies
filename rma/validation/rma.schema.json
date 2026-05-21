@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ns.verisav.fr/rma/validation/rma.schema.json",
+  "title": "Verisav RMA JSON-LD payload",
+  "description": "JSON Schema for pre-validating RMA tickets and return requests before semantic validation.",
+  "type": "object",
+  "required": ["@context", "@type"],
+  "properties": {
+    "@context": {
+      "oneOf": [{ "type": "string" }, { "type": "object" }, { "type": "array" }]
+    },
+    "@type": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      ]
+    },
+    "returnRequestNumber": { "type": "string", "minLength": 1 },
+    "returnReason": { "type": "string", "minLength": 1 },
+    "returnRequestStatus": { "type": "string", "minLength": 1 },
+    "returnRequestDate": { "type": "string", "format": "date-time" },
+    "ticketNumber": { "type": "string", "minLength": 1 },
+    "ticketStatus": { "type": "string", "minLength": 1 },
+    "ticketCreatedDate": { "type": "string", "format": "date-time" },
+    "resolutionAmount": { "type": "number", "minimum": 0 },
+    "trackingUrl": { "type": "string", "format": "uri" }
+  },
+  "additionalProperties": true
+}

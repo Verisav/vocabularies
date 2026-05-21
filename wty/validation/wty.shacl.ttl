@@ -1,0 +1,51 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wty: <https://ns.verisav.fr/wty#> .
+
+<https://ns.verisav.fr/wty/validation#WarrantyShape>
+    a sh:NodeShape ;
+    sh:targetClass wty:Warranty ;
+    sh:property [
+        sh:path wty:coverageStartDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date
+    ] ;
+    sh:property [
+        sh:path wty:coverageEndDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date
+    ] ;
+    sh:property [
+        sh:path wty:definesCoverage ;
+        sh:minCount 1 ;
+        sh:class wty:Coverage
+    ] ;
+    sh:property [
+        sh:path wty:definesPaymentRule ;
+        sh:minCount 1 ;
+        sh:class wty:PaymentRule
+    ] .
+
+<https://ns.verisav.fr/wty/validation#ContractShape>
+    a sh:NodeShape ;
+    sh:targetClass wty:Contract ;
+    sh:property [
+        sh:path wty:contractNumber ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path wty:contractStartDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date
+    ] ;
+    sh:property [
+        sh:path wty:contractEndDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date
+    ] ;
+    sh:property [
+        sh:path wty:contractStatus ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] .

@@ -3,66 +3,68 @@
 [![LOV](https://img.shields.io/badge/LOV-Validated-brightgreen)](https://lov.linkeddata.es/dataset/lov/agents/Verisav)
 [![W3ID](https://img.shields.io/badge/W3ID-Persistent%20URI-blue)](https://w3id.org/verisav)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18328444-blue)](https://doi.org/10.5281/zenodo.18328444)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18352147-blue)](https://doi.org/10.5281/zenodo.18352147)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0001--0356--4421-green)](https://orcid.org/0009-0001-0356-4421)
+[![npm](https://img.shields.io/badge/npm-@verisav%2Fdpp--verifiable--credentials-red)](https://www.npmjs.com/package/@verisav/dpp-verifiable-credentials)
 
-Official RDF/OWL vocabularies for Verisav - Standardizing after-sales service data with semantic web technologies.
+**Open RDF/OWL standards for EU Digital Product Passports (ESPR 2024/1781), after-sales (RMA), and machine-readable warranties (WTY).**
 
-## 🌟 Overview
+> **Canonical live publication:** [ns.verisav.fr](https://ns.verisav.fr/) · **Persistent URIs:** [w3id.org/verisav](https://w3id.org/verisav) · **Registry:** [LOV / Verisav](https://lov.linkeddata.es/dataset/lov/agents/Verisav)
 
-Verisav provides three complementary RDF/OWL vocabularies that standardize after-sales service (SAV) data:
+## Why now (EU DPP landscape, 2026–2030)
 
-- **DPP** (Digital Product Passport) - Product lifecycle and compliance with EU regulations (ESPR EU 2024/1781)
-- **RMA** (Return Merchandise Authorization) - Return and service ticket workflows  
-- **WTY** (Warranty & Contracts) - Machine-readable warranties and payment automation
+The [Ecodesign for Sustainable Products Regulation (ESPR, EU 2024/1781)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1781) is in force. **Digital Product Passports** are introduced sector by sector via delegated acts—not a single “big bang” date:
 
-All vocabularies are:
-- ✅ **Validated on LOV** (Linked Open Vocabularies) - World registry of RDF/OWL vocabularies
-- ✅ **Published on W3ID** (W3C-managed persistent URIs) - Guaranteed persistence
-- ✅ **Conformant to RDF/OWL standards** - Following W3C recommendations
-- ✅ **Compatible with Schema.org** - Seamless integration with existing structured data
+| Horizon | Sector / topic | Relevance for implementers |
+|--------|----------------|----------------------------|
+| **2026** | Destruction ban for unsold consumer goods (Art. 25); annual reporting | Retail & brand compliance |
+| **18 Feb 2027** | **Battery passports** (Battery Regulation) | First large-scale mandatory DPP class |
+| **2027–2029** | Textiles, tyres, building products, metals (working plans) | Delegated acts + 18–36 month rollout typical |
+| **2029–2030** | Detergents, toys, furniture (indicative) | Long-tail product categories |
 
-## 📚 Vocabularies
+Verisav vocabularies are built for **machine-readable, interoperable** data—not PDF brochures: JSON-LD/Turtle, **GS1 Digital Link**, **UNTP DPP**, **JRC 2026 methodology** themes (essential vs recommended tiers), **W3C Verifiable Credentials (VCDM 2.0)**, and **EU Business Wallet / EUID** operator identity—aligned with EU registry and semantic-web practice ([data.europa.eu DPP](https://data.europa.eu/en/news-events/news/eus-digital-product-passport-advancing-transparency-and-sustainability), [CIRPASS-2](https://cirpass2.eu/), [GS1 Europe DPP](https://gs1.eu/activities/digital-product-passport/on-the-eu-digital-product-passport/)).
 
-### 1. DPP - Digital Product Passport
+## Overview
 
-**Purpose:** Represents Digital Product Passports (DPP) in compliance with EU regulations effective in 2027.
+Three complementary RDF/OWL vocabularies standardize after-sales and product passport data:
 
-- **Namespace:** `https://w3id.org/verisav/dpp#`
-- **LOV Entry:** https://lov.linkeddata.es/dataset/lov/vocabs/dpp
-- **Documentation:** https://ns.verisav.fr/dpp/
-- **Version:** 1.1.0
-- **Key Features:** Product lifecycle, warranties, repairs, GS1 Digital Link alignment, traceability
+| Vocab | Role | Version (live) | Namespace |
+|-------|------|----------------|-----------|
+| **DPP** | Digital Product Passport · ESPR · traceability · VC/EBW | **1.5.2** | `https://w3id.org/verisav/dpp#` |
+| **RMA** | Returns & service tickets | 1.0.0 | `https://w3id.org/verisav/rma#` |
+| **WTY** | Machine-readable warranties & payment rules | 1.0.0 | `https://w3id.org/verisav/wty#` |
 
-[📖 Read DPP Documentation](dpp/README.md)
+**Quality bar**
 
-### 2. RMA - Return Merchandise Authorization
+- Validated on **[LOV](https://lov.linkeddata.es/dataset/lov/vocabs/dpp)** (Linked Open Vocabularies)
+- **W3ID** persistent URIs (W3C community)
+- **Content negotiation** (Turtle, JSON-LD, HTML)
+- **SHACL** + **JSON Schema** per vocabulary (`validation/*.shacl.ttl`, `validation/*.schema.json`)
+- **CHECKSUMS.sha256** for published artefacts
+- **Schema.org**-compatible patterns for the open web
 
-**Purpose:** Standardizes Return Merchandise Authorization (RMA) and service ticket management.
+## DPP highlights (v1.5.x)
 
-- **Namespace:** `https://w3id.org/verisav/rma#`
-- **LOV Entry:** https://lov.linkeddata.es/dataset/lov/vocabs/rma
-- **Documentation:** https://ns.verisav.fr/rma/
-- **Version:** 1.0.0
-- **Key Features:** Return requests, service tickets, disputes, resolutions, shipping labels
+Beyond core product lifecycle (warranty, repair, work orders):
 
-[📖 Read RMA Documentation](rma/README.md)
+- **ESPR / policy graph:** `rdfs:seeAlso` to ESPR, Data Act, Interoperable Europe Act, Commission ESPR hub, JRC methodology, CEN/CENELEC ESPR work
+- **Interoperability:** GS1 Digital Link URI syntax, GTIN/GLN, UNTP DPP, ISO/IEC 19987 (EPCIS), W3C DID 1.0
+- **EU identity & trust:** EU Business Wallet, EUID, W3C Verifiable Credentials ([`@verisav/dpp-verifiable-credentials`](https://www.npmjs.com/package/@verisav/dpp-verifiable-credentials) on npm)
+- **Trade & customs (v1.3+):** country of production, due diligence, dimensions
+- **OWL-DL** consistency (v1.5.0+)
 
-### 3. WTY - Warranty & Contracts
+Live docs: [ns.verisav.fr/dpp/](https://ns.verisav.fr/dpp/) · [dpp/README.md](dpp/README.md)
 
-**Purpose:** Machine-readable warranties and contracts for complete payment automation.
+## npm tooling (production at Verisav)
 
-- **Namespace:** `https://w3id.org/verisav/wty#`
-- **LOV Entry:** https://lov.linkeddata.es/dataset/lov/vocabs/wty
-- **Documentation:** https://ns.verisav.fr/wty/
-- **Version:** 1.0.0
-- **Key Features:** Coverage definitions, exclusions, payment rules, automated claim assessment
+| Package | Purpose |
+|---------|---------|
+| [`@verisav/dpp-verifiable-credentials`](https://www.npmjs.com/package/@verisav/dpp-verifiable-credentials) | Issue/verify W3C VCs for DPP (Veramo, EBW-ready) |
+| [`@verisav/graphql-rdf-vocabularies`](https://www.npmjs.com/package/@verisav/graphql-rdf-vocabularies) | GraphQL API over TTL vocabularies (DPP, RMA, WTY) |
 
-[📖 Read WTY Documentation](wty/README.md)
+## Quick start
 
-## 🚀 Quick Start
-
-### Using JSON-LD
+### JSON-LD
 
 ```json
 {
@@ -81,158 +83,78 @@ All vocabularies are:
 }
 ```
 
-### Using Turtle
+### Turtle
 
 ```turtle
 @prefix dpp: <https://w3id.org/verisav/dpp#> .
-@prefix schema: <https://schema.org/> .
 
 <https://example.com/product/123> a dpp:ProductPassport ;
     dpp:serialNumber "ABC123456" ;
-    dpp:purchaseDate "2025-07-25"^^xsd:date ;
-    dpp:hasWarranty [ a dpp:Warranty ;
-        dpp:warrantyType "constructeur" ;
-        dpp:warrantyStatus "active" ] .
+    dpp:purchaseDate "2025-07-25"^^xsd:date .
 ```
 
-### Content Negotiation
-
-All vocabularies support HTTP content negotiation:
+### Content negotiation
 
 ```bash
-# Get Turtle format
 curl -H "Accept: text/turtle" https://w3id.org/verisav/dpp
-
-# Get JSON-LD format
 curl -H "Accept: application/ld+json" https://w3id.org/verisav/dpp
-
-# Get HTML documentation (default)
 curl https://w3id.org/verisav/dpp
 ```
 
-## 📖 Documentation
+### Validate (SHACL)
 
-- [Project Overview](PROJECT_OVERVIEW.md) - Complete project description and objectives
-- [DPP Vocabulary](dpp/README.md) - Digital Product Passport vocabulary
-- [RMA Vocabulary](rma/README.md) - Return Merchandise Authorization vocabulary
-- [WTY Vocabulary](wty/README.md) - Warranty & Contracts vocabulary
+```bash
+# Example: validate instance data against published shapes
+# Shapes: dpp/validation/dpp.shacl.ttl
+```
 
-## 🔗 Links
+## Documentation
 
-- **Website:** https://www.verisav.fr
-- **Namespace:** https://ns.verisav.fr/
-- **W3ID Persistent URIs:** https://w3id.org/verisav/
-- **LOV Registry:** https://lov.linkeddata.es/dataset/lov/agents/Verisav
-- **LOV Agent Profile:** https://lov.linkeddata.es/dataset/lov/agents/K%C3%A9vin%20Boutillier
-- **DOI (Zenodo):** https://doi.org/10.5281/zenodo.18328444
+- [Project overview](PROJECT_OVERVIEW.md)
+- [DPP](dpp/README.md) · [RMA](rma/README.md) · [WTY](wty/README.md)
+- [SPARQL API](SPARQL_API.md) · [GraphQL API](GRAPHQL_API.md)
+- [Technical FR/EN](DOCUMENTATION_TECHNIQUE_VOCABULAIRES_FR_EN.md)
 
-## 📊 Statistics
+## Links
 
-- **3 vocabularies** published and validated
-- **26 classes** defined across all vocabularies
-- **71 object properties** for relationships
-- **105 data properties** for attributes
-- **~1500 RDF triples** total
+| Resource | URL |
+|----------|-----|
+| Website | https://www.verisav.fr |
+| Namespace | https://ns.verisav.fr/ |
+| W3ID | https://w3id.org/verisav/ |
+| LOV (agent) | https://lov.linkeddata.es/dataset/lov/agents/Verisav |
+| Zenodo DOI | https://doi.org/10.5281/zenodo.18352147 |
+| Schema.org DPP proposal | https://github.com/schemaorg/schemaorg/issues/4663 |
 
-## 👤 Creator
-
-**Kévin Boutillier**
-- **ORCID:** [0009-0001-0356-4421](https://orcid.org/0009-0001-0356-4421)
-- **Organization:** Verisav
-- **Email:** k.boutillier@verisav.fr
-- **Website:** https://www.verisav.fr
-
-## 📄 License
-
-All vocabularies are licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
-
-You are free to:
-- **Share** — copy and redistribute the material in any medium or format
-- **Adapt** — remix, transform, and build upon the material for any purpose, even commercially
-
-Under the following terms:
-- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
-
-## 📝 Citation
-
-If you use these vocabularies in your research or projects, please cite:
-
-### BibTeX
+## Citation
 
 ```bibtex
 @software{verisav_vocabularies_2026,
   title = {Verisav Semantic Vocabularies: DPP, RMA, WTY},
   author = {Boutillier, Kévin},
   year = {2026},
-  month = {1},
   publisher = {Zenodo},
-  doi = {10.5281/zenodo.18328444},
-  url = {https://doi.org/10.5281/zenodo.18328444},
-  version = {1.1.0}
+  doi = {10.5281/zenodo.18352147},
+  url = {https://doi.org/10.5281/zenodo.18352147},
+  version = {1.5.2}
 }
 ```
 
-### APA
+See [CITATION.cff](CITATION.cff) for CFF metadata.
 
-Boutillier, K. (2026). Verisav Semantic Vocabularies: DPP, RMA, WTY (Version 1.1.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.18328444
+## Contributing
 
-### MLA
+See [CONTRIBUTING.md](CONTRIBUTING.md). Changelog: [CHANGELOG.md](CHANGELOG.md) and per-vocabulary `*/CHANGELOG.md`.
 
-Boutillier, Kévin. *Verisav Semantic Vocabularies: DPP, RMA, WTY*. Version 1.1.0, Zenodo, 2026, doi:10.5281/zenodo.18328444.
+## License
 
-## 🤝 Contributing
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — attribution required.
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+## Contact
 
-## 📜 Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for a detailed list of changes.
-
-## 🌐 Use Cases
-
-### E-commerce Platforms
-- Standardize return requests across multiple sellers
-- Automate warranty validation and claim processing
-- Integrate with existing platforms (Shopify, WooCommerce, etc.)
-
-### Retail Networks
-- Standardize communication between retailers and repairers
-- Centralize product warranty information
-- Automate service ticket routing and resolution
-
-### Manufacturers
-- Track product lifecycle from manufacturing to end-of-life
-- Monitor warranty claims and product defects
-- Ensure regulatory compliance (ESPR, Digital Product Passport)
-
-### Service Providers
-- Automate payment decisions based on warranty terms
-- Standardize work order management
-- Integrate with existing SAV management systems
-
-## 🎯 Impact
-
-These vocabularies enable:
-- **Interoperability:** Replace proprietary formats (Zendesk, Salesforce, SAP) with open standards
-- **Automation:** Complete automation of payment decisions and coverage assessment
-- **Compliance:** Ensure compliance with EU regulations (ESPR EU 2024/1781)
-- **Traceability:** Complete product lifecycle traceability
-
-## 🔍 Validation
-
-All vocabularies are validated:
-- ✅ RDF/OWL syntax validation
-- ✅ LOV registry validation
-- ✅ Content negotiation testing
-- ✅ Schema.org compatibility
-
-## 📞 Contact
-
-For questions, suggestions, or collaboration opportunities:
 - **Email:** k.boutillier@verisav.fr
-- **Website:** https://www.verisav.fr
-- **GitHub Issues:** [Open an issue](https://github.com/Verisav/vocabularies/issues)
+- **Issues:** https://github.com/Verisav/vocabularies/issues
 
 ---
 
-**Made with ❤️ by [Verisav](https://www.verisav.fr)**
+**Verisav** — open standards for compliant, interoperable Digital Product Passports and after-sales data.

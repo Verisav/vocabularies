@@ -1,0 +1,54 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rma: <https://ns.verisav.fr/rma#> .
+
+<https://ns.verisav.fr/rma/validation#ReturnRequestShape>
+    a sh:NodeShape ;
+    sh:targetClass rma:ReturnRequest ;
+    sh:property [
+        sh:path rma:returnRequestNumber ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:maxLength 128
+    ] ;
+    sh:property [
+        sh:path rma:returnReason ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path rma:returnRequestStatus ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path rma:returnRequestDate ;
+        sh:datatype xsd:dateTime
+    ] ;
+    sh:property [
+        sh:path rma:requestedBy ;
+        sh:minCount 1
+    ] ;
+    sh:property [
+        sh:path rma:concernsProduct ;
+        sh:minCount 1
+    ] .
+
+<https://ns.verisav.fr/rma/validation#TicketShape>
+    a sh:NodeShape ;
+    sh:targetClass rma:Ticket ;
+    sh:property [
+        sh:path rma:ticketNumber ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path rma:ticketStatus ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path rma:ticketCreatedDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:dateTime
+    ] .

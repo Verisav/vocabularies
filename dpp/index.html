@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verisav DPP Vocabulary - Vocabulaire Passeport Produit Numérique Verisav</title>
+    
+    <!-- Meta tags pour LOV (Linked Open Vocabularies) -->
+    <meta name="vocabulary:namespace" content="https://ns.verisav.fr/dpp#">
+    <meta name="vocabulary:prefix" content="dpp">
+    <meta name="vocabulary:lov" content="https://lov.linkeddata.es/dataset/lov/vocabs/dpp">
+    <link rel="canonical" href="https://ns.verisav.fr/dpp">
+    <link rel="alternate" type="text/turtle" href="https://ns.verisav.fr/dpp/dpp.ttl">
+    <link rel="alternate" type="application/ld+json" href="https://ns.verisav.fr/dpp/dpp.jsonld">
+    <link rel="alternate" type="application/rdf+xml" href="https://ns.verisav.fr/dpp/dpp.xml">
+    <link rel="describedby" href="https://lov.linkeddata.es/dataset/lov/vocabs/dpp">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Verisav DPP Vocabulary",
+      "alternateName": "Vocabulaire Passeport Produit Numérique Verisav",
+      "description": "Vocabulary for Digital Product Passport (DPP) in RDF/OWL format, defining classes and properties for product lifecycle management, warranties, repairs, and regulatory compliance according to EU regulations effective in 2027. Aligned with GS1 Digital Link standards and ESPR (EU 2024/1781), including GTIN, GLN, granularity (model/batch/serial) and compound identifier support. Vocabulaire pour Passeport Produit Numérique (DPP) au format RDF/OWL, aligné avec les standards GS1 Digital Link et ESPR.",
+      "url": "https://ns.verisav.fr/dpp",
+      "identifier": "https://ns.verisav.fr/dpp#",
+      "version": "1.0.0",
+      "datePublished": "2025-12-16",
+      "dateModified": "2025-12-28",
+      "keywords": ["DPP", "Digital Product Passport", "RDF", "OWL", "Vocabulary", "Semantic Web", "EU Regulation", "Product Lifecycle", "Warranty", "Repair", "GS1", "ESPR"],
+      "creator": {
+        "@type": "Person",
+        "@id": "https://www.verisav.fr/#person-kevin-boutillier",
+        "name": "Kévin Boutillier",
+        "givenName": "Kévin",
+        "familyName": "Boutillier",
+        "alternateName": "Kevin Boutillier",
+        "url": "https://www.verisav.fr/fondateurs/kevin-boutillier",
+        "jobTitle": "Fondateur & CEO de Verisav",
+        "email": "contact@verisav.fr",
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "propertyID": "ORCID",
+            "value": "0009-0001-0356-4421",
+            "url": "https://orcid.org/0009-0001-0356-4421"
+          }
+        ],
+        "sameAs": [
+          "https://orcid.org/0009-0001-0356-4421",
+          "https://www.linkedin.com/in/kévinboutillier",
+          "https://www.google.com/search?kgmid=/g/11yp_5040h"
+        ],
+        "worksFor": {
+          "@id": "https://www.verisav.fr/#organization",
+          "@type": "Organization",
+          "name": "Verisav",
+          "url": "https://www.verisav.fr"
+        },
+        "knowsAbout": ["Semantic Web", "RDF", "OWL", "Linked Data", "Digital Product Passport", "GS1 Standards", "EU Regulations", "ESPR", "Product Lifecycle Management"],
+        "description": "Créateur et développeur principal des vocabulaires Verisav (DPP, RMA, WTY) pour le Web sémantique et le service après-vente."
+      },
+      "author": {
+        "@id": "https://www.verisav.fr/#person-kevin-boutillier"
+      },
+      "contributor": {
+        "@id": "https://www.verisav.fr/#person-kevin-boutillier"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.verisav.fr/#organization",
+        "name": "Verisav",
+        "url": "https://www.verisav.fr",
+        "sameAs": [
+          "https://www.linkedin.com/company/verisav",
+          "https://github.com/verisav"
+        ],
+        "founder": {
+          "@id": "https://www.verisav.fr/#person-kevin-boutillier"
+        }
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "contentUrl": "https://ns.verisav.fr/dpp/dpp.ttl",
+          "encodingFormat": "text/turtle",
+          "name": "DPP Vocabulary (Turtle)"
+        },
+        {
+          "@type": "DataDownload",
+          "contentUrl": "https://ns.verisav.fr/dpp/dpp.jsonld",
+          "encodingFormat": "application/ld+json",
+          "name": "DPP Vocabulary (JSON-LD)"
+        },
+        {
+          "@type": "DataDownload",
+          "contentUrl": "https://ns.verisav.fr/dpp/dpp.xml",
+          "encodingFormat": "application/rdf+xml",
+          "name": "DPP Vocabulary (RDF/XML)"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/ld+json",
+          "contentUrl": "https://www.verisav.fr/api/dpp/dpp.jsonld",
+          "name": "DPP Vocabulary (JSON-LD via API)"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/graphql",
+          "contentUrl": "https://www.verisav.fr/api/graphql",
+          "name": "Verisav Vocabularies GraphQL API",
+          "description": "GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY)"
+        }
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.verisav.fr/api/v1/vocabulary/dpp/search?q={query}",
+        "query-input": "required name=query"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "Verisav Vocabularies",
+        "url": "https://www.verisav.fr/vocabularies"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Digital Product Passport",
+        "sameAs": "https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/ecodesign-sustainable-products-regulation_en"
+      },
+      "citation": {
+        "@type": "CreativeWork",
+        "name": "Linked Open Vocabularies (LOV)",
+        "url": "https://lov.linkeddata.es/dataset/lov/vocabs/dpp",
+        "description": "Ce vocabulaire est validé et référencé dans le registre Linked Open Vocabularies (LOV)"
+      },
+      "sameAs": [
+        "https://lov.linkeddata.es/dataset/lov/vocabs/dpp",
+        "https://w3id.org/verisav/dpp"
+      ],
+      "datePublished": "2025-12-31",
+      "dateModified": "2025-12-31"
+    }
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2563eb;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1e40af;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #3b82f6;
+        }
+        .namespace {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+        }
+        .class, .property {
+            background: #f9fafb;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #2563eb;
+            border-radius: 3px;
+        }
+        .class h3, .property h3 {
+            margin-top: 0;
+        }
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .links {
+            margin: 30px 0;
+            padding: 20px;
+            background: #eff6ff;
+            border-radius: 5px;
+        }
+        .links a {
+            color: #2563eb;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vocabulaire Passeport Produit Numérique Verisav (DPP Vocabulary)</h1>
+    
+    <div class="namespace">
+        <strong>Namespace:</strong> <code>https://ns.verisav.fr/dpp#</code><br>
+        <strong>Version:</strong> 1.0.0<br>
+        <strong>Dernière modification:</strong> 2025-12-31<br>
+        <strong>Alignement:</strong> GS1 Digital Link, ESPR (EU 2024/1781)<br>
+        <strong>✅ Validé LOV:</strong> <a href="https://lov.linkeddata.es/dataset/lov/vocabs/dpp" target="_blank" style="color: #10b981; font-weight: 600;">Voir sur LOV</a>
+    </div>
+
+    <div class="links">
+        <h3>Fichiers disponibles:</h3>
+        <a href="dpp.ttl">dpp.ttl</a> (Turtle/OWL)
+        <a href="dpp.jsonld">dpp.jsonld</a> (JSON-LD Context)
+        <a href="dpp.xml">dpp.xml</a> (RDF/XML)
+    </div>
+
+    <div class="links" style="background: #ecfdf5; border-left: 4px solid #10b981;">
+        <h3>📚 Exemples de données DPP:</h3>
+        <p>Consultez nos exemples pratiques d'utilisation du vocabulaire :</p>
+        <a href="https://www.verisav.fr/data/dpp-examples/">Voir tous les exemples</a>
+        <a href="https://www.verisav.fr/data/dpp-examples/README.md">Documentation des exemples</a>
+        <br><br>
+        <strong>Exemples disponibles :</strong>
+        <ul>
+            <li><a href="https://www.verisav.fr/data/dpp-examples/fairphone-5.ttl">Fairphone 5</a> - Smartphone réparable</li>
+            <li><a href="https://www.verisav.fr/data/dpp-examples/dyson-v15.ttl">Dyson V15</a> - Aspirateur avec historique de réparation</li>
+            <li><a href="https://www.verisav.fr/data/dpp-examples/patagonia-jacket.ttl">Patagonia Jacket</a> - Produit mode durable</li>
+            <li><a href="https://www.verisav.fr/data/dpp-examples/seb-rice-cooker.ttl">SEB Rice Cooker</a> - Électroménager français</li>
+            <li><a href="https://www.verisav.fr/data/dpp-examples/demo-product-complete.ttl">Demo Complete</a> - Exemple exhaustif</li>
+        </ul>
+    </div>
+
+    <div class="links" style="background: #ecfdf5; border-left: 4px solid #10b981; margin-bottom: 30px;">
+        <h3 style="margin-top: 0; color: #059669;">✅ Validé sur Linked Open Vocabularies (LOV)</h3>
+        <p>
+            Ce vocabulaire est officiellement validé et référencé dans le registre 
+            <strong><a href="https://lov.linkeddata.es/dataset/lov/vocabs/dpp" target="_blank" style="color: #059669;">Linked Open Vocabularies (LOV)</a></strong>, 
+            garantissant sa conformité aux standards du Web sémantique et sa réutilisabilité dans l'écosystème Linked Data.
+        </p>
+        <p>
+            <strong>Lien LOV :</strong> 
+            <a href="https://lov.linkeddata.es/dataset/lov/vocabs/dpp" target="_blank" style="color: #2563eb;">
+                https://lov.linkeddata.es/dataset/lov/vocabs/dpp
+            </a>
+        </p>
+        <p>
+            <strong>Date de validation :</strong> 2025-12-31
+        </p>
+    </div>
+
+    <h2>Description</h2>
+    <p>
+        Ce vocabulaire définit les classes et propriétés pour représenter les Passeports Produit Numérique (DPP) 
+        et leurs événements de cycle de vie, conformément aux réglementations européennes qui entreront en vigueur en 2027.
+    </p>
+    <p>
+        <strong>Alignement GS1 :</strong> Ce vocabulaire est aligné avec les standards GS1 Digital Link et la réglementation 
+        européenne ESPR (EU 2024/1781), incluant le support des identifiants GS1 (GTIN, GLN), des niveaux de granularité 
+        (model/batch/serial) et des identifiants composés pour les produits Made-to-Order.
+    </p>
+
+    <h2>Classes Principales</h2>
+
+    <div class="class">
+        <h3>dpp:ProductPassport</h3>
+        <p>Un Passeport Produit Numérique qui suit un produit tout au long de son cycle de vie complet.</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:Product</code></p>
+    </div>
+
+    <div class="class">
+        <h3>dpp:Warranty</h3>
+        <p>Une garantie couvrant un produit, qui peut être de différents types (constructeur, distributeur, extension, maintenance).</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:WarrantyScope</code></p>
+    </div>
+
+    <div class="class">
+        <h3>dpp:WorkOrder</h3>
+        <p>Un ordre de travail à effectuer sur un produit (réparation, maintenance, etc.).</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:Service</code></p>
+    </div>
+
+    <div class="class">
+        <h3>dpp:Intervention</h3>
+        <p>Une intervention technique sur un produit (diagnostic, réparation, maintenance, remplacement, retour fabricant).</p>
+        <p><strong>Sous-classe de:</strong> <code>dpp:RepairEvent</code></p>
+    </div>
+
+    <div class="class">
+        <h3>dpp:ReplacementPart</h3>
+        <p>Une pièce utilisée pour remplacer un composant dans un produit lors d'une réparation ou maintenance.</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:Product</code></p>
+    </div>
+
+    <div class="class">
+        <h3>dpp:Diagnostic</h3>
+        <p>Une évaluation de diagnostic effectuée sur un produit pour identifier les problèmes.</p>
+    </div>
+
+    <div class="class">
+        <h3>dpp:ServiceRequest</h3>
+        <p>Une demande de service après-vente (SAV) pour un produit.</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:Service</code></p>
+    </div>
+
+    <div class="class">
+        <h3>dpp:ProductStatus</h3>
+        <p>Le statut actuel d'un produit (sous garantie, hors garantie, en panne, réparé, etc.).</p>
+    </div>
+
+    <div class="class">
+        <h3>dpp:ProductLifecycleStage</h3>
+        <p>Une étape dans le cycle de vie du produit (fabrication, achat, usage, fin de vie, recyclage).</p>
+    </div>
+
+    <div class="class">
+        <h3>dpp:CompoundIdentifier</h3>
+        <p>Un identifiant complexe combinant un GTIN avec un variant, lot ou numéro de série (produits sur mesure/Made-to-Order).</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:PropertyValue</code></p>
+    </div>
+
+    <div class="class">
+        <h3>dpp:EconomicOperator</h3>
+        <p>Un opérateur économique dans la chaîne de valeur (fabricant, importateur, distributeur, revendeur, réparateur) selon la réglementation européenne ESPR.</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:Organization</code></p>
+    </div>
+
+    <div class="class">
+        <h3>dpp:Facility</h3>
+        <p>Un lieu ou bâtiment impliqué dans la chaîne de valeur d'un produit (usine de fabrication, entrepôt, etc.) selon la réglementation européenne ESPR.</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:Place</code></p>
+    </div>
+
+    <h2>Propriétés Principales</h2>
+
+    <h3>Relations (Object Properties)</h3>
+    <ul>
+        <li><code>dpp:hasWarranty</code> - Lie un ProductPassport à sa Garantie</li>
+        <li><code>dpp:hasWorkOrder</code> - Lie un ProductPassport à un Ordre de Travail</li>
+        <li><code>dpp:hasIntervention</code> - Lie un WorkOrder à une Intervention</li>
+        <li><code>dpp:hasReplacementPart</code> - Lie une Intervention à une Pièce de Rechange</li>
+        <li><code>dpp:hasDiagnostic</code> - Lie une Intervention à un Diagnostic</li>
+        <li><code>dpp:hasCurrentStatus</code> - Lie un ProductPassport à son ProductStatus actuel</li>
+        <li><code>dpp:hasLifecycleStage</code> - Lie un ProductPassport à une Étape du Cycle de Vie</li>
+        <li><code>dpp:hasRetailer</code> - Lie un ProductPassport à son Distributeur</li>
+        <li><code>dpp:hasRepairer</code> - Lie une Intervention à son Réparateur</li>
+        <li><code>dpp:hasManufacturer</code> - Lie un ProductPassport à son Fabricant</li>
+        <li><code>dpp:hasConsumer</code> - Lie un ProductPassport à son Consommateur</li>
+    </ul>
+
+    <h3>Attributs (Data Properties)</h3>
+    <ul>
+        <li><code>dpp:serialNumber</code> - Numéro de série du produit</li>
+        <li><code>dpp:purchaseDate</code> - Date d'achat</li>
+        <li><code>dpp:purchasePrice</code> - Prix d'achat</li>
+        <li><code>dpp:manufacturingDate</code> - Date de fabrication</li>
+        <li><code>dpp:warrantyStartDate</code> - Date de début de garantie</li>
+        <li><code>dpp:warrantyEndDate</code> - Date de fin de garantie</li>
+        <li><code>dpp:warrantyType</code> - Type de garantie</li>
+        <li><code>dpp:warrantyStatus</code> - Statut de garantie</li>
+        <li><code>dpp:workOrderNumber</code> - Numéro d'ordre de travail</li>
+        <li><code>dpp:interventionType</code> - Type d'intervention</li>
+        <li><code>dpp:interventionDuration</code> - Durée d'intervention (minutes)</li>
+        <li><code>dpp:repairStatus</code> - Statut de réparation</li>
+        <li><code>dpp:totalCost</code> - Coût total</li>
+        <li>... et bien d'autres</li>
+    </ul>
+
+    <h3>Propriétés GS1 (Alignement Standards GS1)</h3>
+    <ul>
+        <li><code>dpp:gs1DigitalLink</code> - URI GS1 Digital Link pour le produit (syntaxe non compressée)</li>
+        <li><code>dpp:hasGln</code> - Global Location Number (GLN) pour organisations/installations</li>
+        <li><code>dpp:hasGtin</code> - Global Trade Item Number (GTIN-8/12/13/14)</li>
+        <li><code>dpp:granularityLevel</code> - Niveau de granularité (model/batch/serial)</li>
+        <li><code>dpp:batchLotNumber</code> - Numéro de lot (GS1 AI 10)</li>
+        <li><code>dpp:versionNumber</code> - Numéro de version GTIN (GS1 AI 22)</li>
+    </ul>
+
+    <h2>Utilisation</h2>
+    <p>Ce vocabulaire peut être utilisé avec JSON-LD, RDF/Turtle, ou tout autre format RDF.</p>
+
+    <h3>Exemple JSON-LD</h3>
+    <pre><code>{
+  "@context": "https://ns.verisav.fr/dpp/dpp.jsonld",
+  "@type": "ProductPassport",
+  "serialNumber": "ABC123456",
+  "hasGtin": "1234567890123",
+  "gs1DigitalLink": "https://example.com/01/1234567890123",
+  "granularityLevel": "serial",
+  "purchaseDate": "2025-07-25",
+  "hasWarranty": {
+    "@type": "Warranty",
+    "warrantyType": "constructeur",
+    "warrantyStatus": "active",
+    "warrantyStartDate": "2025-07-25",
+    "warrantyEndDate": "2027-07-25"
+  },
+  "hasManufacturer": {
+    "@type": "EconomicOperator",
+    "name": "Manufacturer Name",
+    "hasGln": "1234567890123"
+  }
+}</code></pre>
+
+    <h2>Validation LOV</h2>
+    <p>
+        Ce vocabulaire est <strong>officiellement validé</strong> et référencé dans le registre 
+        <a href="https://lov.linkeddata.es/dataset/lov/vocabs/dpp" target="_blank">Linked Open Vocabularies (LOV)</a>, 
+        garantissant sa conformité aux standards du Web sémantique et sa réutilisabilité dans l'écosystème Linked Data.
+    </p>
+
+    <footer>
+        <p>
+            <strong>Créé par:</strong> <a href="https://www.verisav.fr">Verisav</a><br>
+            <strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a><br>
+            <strong>Conforme aux réglementations:</strong> UE DPP 2027
+        </p>
+    </footer>
+</body>
+</html>
+

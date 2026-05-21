@@ -23,28 +23,35 @@
     rdfs:label "Verisav Warranty & Contracts Vocabulary"@en ;
     rdfs:label "Vocabulaire Garanties et Contrats Verisav"@fr ;
     dcterms:title "Verisav Warranty & Contracts Vocabulary"@en ;
-    dcterms:description "Vocabulary for machine-readable warranties and contracts, enabling complete automation of payment decisions and coverage assessment in after-sales service."@en ;
-    dcterms:description "Vocabulaire pour garanties et contrats lisibles par machine, permettant l'automatisation complète des décisions de paiement et évaluation de couverture dans le service après-vente."@fr ;
+    dcterms:description "Vocabulary for machine-readable warranties and service contracts aligned with EU product compliance context (ESPR / Digital Product Passport ecosystem): structured coverage, payment rules, and claim assessment data interoperable with DPP and ticketing (RMA). Execution of payment logic requires an application or rules layer on top of this ontology."@en ;
+    dcterms:description "Vocabulaire pour garanties et contrats de service lisibles par machine, aligné sur le contexte européen du passeport produit numérique (ESPR) : couverture structurée, règles de paiement et évaluation de réclamations, interopérable avec DPP et RMA. L’exécution des règles de paiement suppose une couche applicative ou de règles au-dessus de cette ontologie."@fr ;
+    rdfs:comment "Version 1.2.2 (2026-05-07): Aligned rdfs:seeAlso with dpp 1.5.2 — Data Act, Interoperable Europe Act, CIRPASS-2, CircularData, data.europa.eu & GS1 Europe DPP, GS1 URI syntax, W3C DID 1.0, LOV/W3ID/GitHub/Zenodo for WTY. Version 1.2.1: DPP policy block. Version 1.2.0: paymentSplit OWL fix."@en ;
+    rdfs:comment "Version 1.2.2 (2026-05-07): rdfs:seeAlso aligné sur dpp 1.5.2 (Data Act, interopérabilité, communauté DPP, GS1, DID, LOV/W3ID/GitHub/Zenodo). Voir 1.2.1–1.0.0."@fr ;
     
     # Technical Metadata (VOAF/VANN)
     vann:preferredNamespacePrefix "wty" ;
     vann:preferredNamespaceUri "https://ns.verisav.fr/wty#" ;
     
     # Versioning & Dates
-    owl:versionInfo "1.0.0" ;
+    owl:versionInfo "1.2.2" ;
+    owl:versionIRI <https://ns.verisav.fr/wty/1.2.2> ;
     dcterms:created "2025-12-16"^^xsd:date ;
-    dcterms:modified "2025-12-16"^^xsd:date ;
+    dcterms:issued "2026-05-07"^^xsd:date ;
+    dcterms:modified "2026-05-07"^^xsd:date ;
     
     # Authors & Rights
     dcterms:creator [
         a foaf:Person ;
         foaf:name "Kévin Boutillier" ;
+        rdfs:seeAlso <https://orcid.org/0009-0001-0356-4421> ;
         rdfs:seeAlso <https://www.verisav.fr/en/founders/kevin-boutillier> ;
         rdfs:seeAlso <https://www.linkedin.com/in/kévinboutillier>
     ] ;
     dcterms:publisher <https://www.verisav.fr> ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     cc:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:rights "Copyright © 2025 Verisav SAS. All rights reserved."@en ;
+    dcterms:rights "Copyright © 2025 Verisav SAS. Tous droits réservés."@fr ;
     
     # Distributions (formats disponibles)
     dcat:distribution [
@@ -59,29 +66,94 @@
     ] ;
     dcat:distribution [
         a dcat:Distribution ;
+        dcterms:format "application/rdf+xml" ;
+        dcat:downloadURL <https://ns.verisav.fr/wty/wty.xml>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "text/plain" ;
+        dcterms:title "SHA-256 checksums"@en ;
+        dcat:downloadURL <https://ns.verisav.fr/wty/CHECKSUMS.sha256>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "text/turtle" ;
+        dcterms:title "SHACL validation shapes (WTY)"@en ;
+        dcat:downloadURL <https://ns.verisav.fr/wty/validation/wty.shacl.ttl>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/schema+json" ;
+        dcterms:title "JSON Schema validation (WTY)"@en ;
+        dcat:downloadURL <https://ns.verisav.fr/wty/validation/wty.schema.json>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
         dcterms:format "application/ld+json" ;
-        dcat:accessURL <https://api.verisav.fr/wty/wty.jsonld> ;
+        dcat:accessURL <https://www.verisav.fr/api/wty/wty.jsonld> ;
         dcterms:title "WTY Vocabulary (JSON-LD via API)"@en
     ] ;
     dcat:distribution [
         a dcat:Distribution ;
         dcterms:format "application/graphql" ;
         dcat:accessURL <https://www.verisav.fr/api/graphql> ;
+        dcat:endpointURL <https://www.verisav.fr/api/graphql> ;
         dcterms:title "Verisav Vocabularies GraphQL API"@en ;
-        dcterms:description "GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY)"@en
+        dcterms:title "API GraphQL Vocabulaires Verisav"@fr ;
+        dcterms:description "GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY). Supports introspection, multilingual labels, and real-time vocabulary access."@en ;
+        dcterms:description "API GraphQL pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). Supporte l'introspection, les labels multilingues et l'accès en temps réel aux vocabulaires."@fr
     ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/sparql-results+json" ;
+        dcat:accessURL <https://www.verisav.fr/api/sparql> ;
+        dcat:endpointURL <https://www.verisav.fr/api/sparql> ;
+        dcterms:title "Verisav Vocabularies SPARQL Endpoint"@en ;
+        dcterms:title "Endpoint SPARQL Vocabulaires Verisav"@fr ;
+        dcterms:description "Public SPARQL 1.1 endpoint for querying all Verisav vocabularies (DPP, RMA, WTY). GET/POST with query parameter; responses in application/sparql-results+json or application/sparql-results+xml."@en ;
+        dcterms:description "Endpoint SPARQL 1.1 public pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). GET/POST avec paramètre query ; réponses en application/sparql-results+json ou application/sparql-results+xml."@fr
+    ] ;
+    
+    # API GraphQL endpoint (direct reference)
+    dcat:endpointURL <https://www.verisav.fr/api/graphql> ;
+    dcat:accessURL <https://www.verisav.fr/api/graphql> ;
+    # API SPARQL endpoint (direct reference)
+    dcat:endpointURL <https://www.verisav.fr/api/sparql> ;
+    dcat:accessURL <https://www.verisav.fr/api/sparql> ;
+    rdfs:comment "This vocabulary is accessible via GraphQL API at https://www.verisav.fr/api/graphql and via SPARQL endpoint at https://www.verisav.fr/api/sparql. Use vocabulary(id: \"wty\") for GraphQL, or SPARQL over the combined DPP, RMA, WTY graph."@en ;
+    rdfs:comment "Ce vocabulaire est accessible via l'API GraphQL à https://www.verisav.fr/api/graphql et via l'endpoint SPARQL à https://www.verisav.fr/api/sparql. Utilisez vocabulary(id: \"wty\") pour GraphQL, ou SPARQL sur le graphe combiné DPP, RMA, WTY."@fr ;
     
     # API de recherche
     schema:potentialAction [
         a schema:SearchAction ;
-        schema:target <https://api.verisav.fr/api/v1/vocabulary/wty/search?q={query}> ;
+        schema:target <https://www.verisav.fr/api/v1/vocabulary/wty/search?q=%7Bquery%7D> ;
         schema:query-input "required name=query"
     ] ;
     
     # Relations
     owl:imports <https://schema.org/> ;
     owl:imports <https://ns.verisav.fr/dpp#> ;
-    owl:imports <https://ns.verisav.fr/rma#> .
+    owl:imports <https://ns.verisav.fr/rma#> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1781> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52025DC0187> ;
+    rdfs:seeAlso <https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/ecodesign-sustainable-products-regulation_en> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1542> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R2854> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R903> ;
+    rdfs:seeAlso <https://publications.jrc.ec.europa.eu/repository/handle/JRC145830> ;
+    rdfs:seeAlso <https://standards.cencenelec.eu/dyn/www/f?p=305:7:0:25:::FSP_ORG_ID,FSP_LANG_ID:3342699> ;
+    rdfs:seeAlso <https://www.cencenelec.eu/news-events/news/2025/brief-news/2025-12-19-moving-forward-with-espr/> ;
+    rdfs:seeAlso <https://cirpass2.eu/> ;
+    rdfs:seeAlso <https://circular-data.org/> ;
+    rdfs:seeAlso <https://data.europa.eu/en/news-events/news/eus-digital-product-passport-advancing-transparency-and-sustainability> ;
+    rdfs:seeAlso <https://gs1.eu/activities/digital-product-passport/on-the-eu-digital-product-passport/> ;
+    rdfs:seeAlso <https://ref.gs1.org/standards/digital-link/uri-syntax> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    rdfs:seeAlso <https://www.w3.org/TR/did-1.0/> ;
+    rdfs:seeAlso <https://lov.linkeddata.es/dataset/lov/vocabs/wty> ;
+    rdfs:seeAlso <https://w3id.org/verisav/wty> ;
+    rdfs:seeAlso <https://github.com/Verisav/vocabularies> ;
+    rdfs:seeAlso <https://doi.org/10.5281/zenodo.18352147> .
 
 # ============================================================================
 # CLASSES
@@ -626,10 +698,11 @@ wty:invoiceStatus a owl:DatatypeProperty ;
     rdfs:isDefinedBy <https://ns.verisav.fr/wty#> ;
     vs:term_status "stable" .
 
-wty:paymentSplit a owl:DatatypeProperty ;
-    rdfs:label "payment split"@en, "répartition du paiement"@fr ;
-    rdfs:comment "JSON string describing how payment is split between parties (if multiple payers)."@en ;
+wty:invoicePaymentSplit a owl:DatatypeProperty ;
+    rdfs:label "invoice payment split"@en, "répartition de paiement sur facture"@fr ;
+    rdfs:comment "JSON string describing how payment is split between parties on an invoice (if multiple payers)."@en ;
     rdfs:domain wty:Invoice ;
     rdfs:range xsd:string ;
     rdfs:isDefinedBy <https://ns.verisav.fr/wty#> ;
     vs:term_status "stable" .
+

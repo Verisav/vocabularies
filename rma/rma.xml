@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dcat="http://www.w3.org/ns/dcat#"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:schema="https://schema.org/"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#labelExpiryDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">label expiry date</rdfs:label>
+    <rdfs:label xml:lang="fr">date d'expiration de l'étiquette</rdfs:label>
+    <rdfs:comment xml:lang="en">Expiry date of the shipping label.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ShippingLabel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#approvalComment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">approval comment</rdfs:label>
+    <rdfs:label xml:lang="fr">commentaire d'approbation</rdfs:label>
+    <rdfs:comment xml:lang="en">Comment associated with the approval or rejection.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Approval"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#ticketPriority">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">ticket priority</rdfs:label>
+    <rdfs:label xml:lang="fr">priorité du ticket</rdfs:label>
+    <rdfs:comment xml:lang="en">Priority level of the ticket (low, normal, high, urgent).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    <rdfs:label xml:lang="en">Verisav RMA Vocabulary</rdfs:label>
+    <rdfs:label xml:lang="fr">Vocabulaire RMA Verisav</rdfs:label>
+    <dcterms:title xml:lang="en">Verisav RMA / Ticketing Vocabulary</dcterms:title>
+    <dcterms:description xml:lang="en">Vocabulary for Return Merchandise Authorization (RMA) and service ticket management in the EU Digital Product Passport and ESPR context: interoperable tickets linked to product passports, operators, and repair workflows.</dcterms:description>
+    <dcterms:description xml:lang="fr">Vocabulaire RMA / tickets SAV aligné sur le passeport produit numérique et l’ESPR : tickets interopérables liés aux passeports produit, opérateurs et flux de réparation.</dcterms:description>
+    <rdfs:comment xml:lang="en">Version 1.2.2 (2026-05-07): Aligned rdfs:seeAlso with dpp 1.5.2 — Data Act, Interoperable Europe Act, CIRPASS-2, CircularData, data.europa.eu &amp; GS1 Europe DPP, GS1 URI syntax, W3C DID 1.0, LOV/W3ID/GitHub/Zenodo for RMA. Version 1.2.1: DPP policy block. Version 1.2.0: initial seeAlso.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Version 1.2.2 (2026-05-07): rdfs:seeAlso aligné sur dpp 1.5.2. Voir 1.2.1–1.0.0.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This vocabulary is accessible via GraphQL API at https://www.verisav.fr/api/graphql and via SPARQL endpoint at https://www.verisav.fr/api/sparql. Use vocabulary(id: "rma") for GraphQL, or SPARQL over the combined DPP, RMA, WTY graph.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Ce vocabulaire est accessible via l'API GraphQL à https://www.verisav.fr/api/graphql et via l'endpoint SPARQL à https://www.verisav.fr/api/sparql. Utilisez vocabulary(id: "rma") pour GraphQL, ou SPARQL sur le graphe combiné DPP, RMA, WTY.</rdfs:comment>
+    <vann:preferredNamespacePrefix>rma</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://ns.verisav.fr/rma#</vann:preferredNamespaceUri>
+    <owl:versionInfo>1.2.2</owl:versionInfo>
+    <owl:versionIRI rdf:resource="https://ns.verisav.fr/rma/1.2.2"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-16</dcterms:created>
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-07</dcterms:issued>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-07</dcterms:modified>
+    <dcterms:creator rdf:nodeID="n75448299c0654919b8465964cf82b61bb1"/>
+    <dcterms:publisher rdf:resource="https://www.verisav.fr"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <cc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:rights xml:lang="en">Copyright © 2025 Verisav SAS. All rights reserved.</dcterms:rights>
+    <dcterms:rights xml:lang="fr">Copyright © 2025 Verisav SAS. Tous droits réservés.</dcterms:rights>
+    <dcat:distribution rdf:nodeID="n75448299c0654919b8465964cf82b61bb2"/>
+    <dcat:distribution rdf:nodeID="n75448299c0654919b8465964cf82b61bb3"/>
+    <dcat:distribution rdf:nodeID="n75448299c0654919b8465964cf82b61bb4"/>
+    <dcat:distribution rdf:nodeID="n75448299c0654919b8465964cf82b61bb5"/>
+    <dcat:distribution rdf:nodeID="n75448299c0654919b8465964cf82b61bb6"/>
+    <dcat:distribution rdf:nodeID="n75448299c0654919b8465964cf82b61bb7"/>
+    <dcat:distribution rdf:nodeID="n75448299c0654919b8465964cf82b61bb8"/>
+    <dcat:distribution rdf:nodeID="n75448299c0654919b8465964cf82b61bb9"/>
+    <dcat:distribution rdf:nodeID="n75448299c0654919b8465964cf82b61bb10"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <schema:potentialAction rdf:nodeID="n75448299c0654919b8465964cf82b61bb11"/>
+    <owl:imports rdf:resource="https://schema.org/"/>
+    <owl:imports rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1781"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52025DC0187"/>
+    <rdfs:seeAlso rdf:resource="https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/ecodesign-sustainable-products-regulation_en"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1542"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R2854"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R903"/>
+    <rdfs:seeAlso rdf:resource="https://publications.jrc.ec.europa.eu/repository/handle/JRC145830"/>
+    <rdfs:seeAlso rdf:resource="https://standards.cencenelec.eu/dyn/www/f?p=305:7:0:25:::FSP_ORG_ID,FSP_LANG_ID:3342699"/>
+    <rdfs:seeAlso rdf:resource="https://www.cencenelec.eu/news-events/news/2025/brief-news/2025-12-19-moving-forward-with-espr/"/>
+    <rdfs:seeAlso rdf:resource="https://cirpass2.eu/"/>
+    <rdfs:seeAlso rdf:resource="https://circular-data.org/"/>
+    <rdfs:seeAlso rdf:resource="https://data.europa.eu/en/news-events/news/eus-digital-product-passport-advancing-transparency-and-sustainability"/>
+    <rdfs:seeAlso rdf:resource="https://gs1.eu/activities/digital-product-passport/on-the-eu-digital-product-passport/"/>
+    <rdfs:seeAlso rdf:resource="https://ref.gs1.org/standards/digital-link/uri-syntax"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/did-1.0/"/>
+    <rdfs:seeAlso rdf:resource="https://lov.linkeddata.es/dataset/lov/vocabs/rma"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/verisav/rma"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/Verisav/vocabularies"/>
+    <rdfs:seeAlso rdf:resource="https://doi.org/10.5281/zenodo.18352147"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#Tracking">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Package Tracking</rdfs:label>
+    <rdfs:label xml:lang="fr">Suivi Colis</rdfs:label>
+    <rdfs:comment xml:lang="en">Tracking information for a returned package, including carrier events and status.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#approvalDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">approval date</rdfs:label>
+    <rdfs:label xml:lang="fr">date d'approbation</rdfs:label>
+    <rdfs:comment xml:lang="en">Date when the approval was given.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Approval"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n75448299c0654919b8465964cf82b61bb3">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/ld+json</dcterms:format>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/rma/rma.jsonld"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#trackingUrl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">tracking URL</rdfs:label>
+    <rdfs:label xml:lang="fr">URL de suivi</rdfs:label>
+    <rdfs:comment xml:lang="en">URL to track the package on carrier's website.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Tracking"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n75448299c0654919b8465964cf82b61bb4">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/rdf+xml</dcterms:format>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/rma/rma.xml"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#approvedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">approved by</rdfs:label>
+    <rdfs:label xml:lang="fr">approuvé par</rdfs:label>
+    <rdfs:comment xml:lang="en">The person or organization who approved the return request or resolution.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Approval"/>
+    <rdfs:range rdf:resource="https://schema.org/Person"/>
+    <rdfs:range rdf:resource="https://schema.org/Organization"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#hasDispute">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has dispute</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour litige</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a return request or ticket to a dispute.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/rma#Dispute"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#resolutionDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">resolution description</rdfs:label>
+    <rdfs:label xml:lang="fr">description de résolution</rdfs:label>
+    <rdfs:comment xml:lang="en">Description of the proposed or applied resolution.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Resolution"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#ticketNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">ticket number</rdfs:label>
+    <rdfs:label xml:lang="fr">numéro de ticket</rdfs:label>
+    <rdfs:comment xml:lang="en">Unique identifier for the service ticket.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#hasReturnRequest">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has return request</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour demande de retour</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a product or ticket to a return request.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://schema.org/Product"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#hasApproval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has approval</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour approbation</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a return request or resolution to an approval.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Resolution"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/rma#Approval"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#ShippingLabel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Shipping Label</rdfs:label>
+    <rdfs:label xml:lang="fr">Étiquette d'Expédition</rdfs:label>
+    <rdfs:comment xml:lang="en">A shipping label for returning a product, containing carrier and tracking information.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/DigitalDocument"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#returnRequestStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">return request status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut de demande de retour</rdfs:label>
+    <rdfs:comment xml:lang="en">Status of the return request (pending, approved, rejected, in_transit, received, processed, completed).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#disputeType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">dispute type</rdfs:label>
+    <rdfs:label xml:lang="fr">type de litige</rdfs:label>
+    <rdfs:comment xml:lang="en">Type of dispute (defective, damaged_shipping, wrong_item, not_as_described, missing_parts, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Dispute"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#ticketStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">ticket status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut du ticket</rdfs:label>
+    <rdfs:comment xml:lang="en">Status of the ticket (open, in_progress, waiting_customer, waiting_vendor, resolved, closed).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#disputeDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">dispute date</rdfs:label>
+    <rdfs:label xml:lang="fr">date du litige</rdfs:label>
+    <rdfs:comment xml:lang="en">Date when the dispute was raised.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Dispute"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#resultsInWorkOrder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">results in work order</rdfs:label>
+    <rdfs:label xml:lang="fr">résulte en ordre de travail</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a return request or resolution to a work order if repair is needed.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Resolution"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#WorkOrder"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#resolutionStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">resolution status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut de résolution</rdfs:label>
+    <rdfs:comment xml:lang="en">Status of the resolution (proposed, approved, rejected, applied, cancelled).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Resolution"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#carrierName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">carrier name</rdfs:label>
+    <rdfs:label xml:lang="fr">nom du transporteur</rdfs:label>
+    <rdfs:comment xml:lang="en">Name of the shipping carrier (e.g., DHL, FedEx, UPS, Colissimo).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ShippingLabel"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Tracking"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#handledBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">handled by</rdfs:label>
+    <rdfs:label xml:lang="fr">traité par</rdfs:label>
+    <rdfs:comment xml:lang="en">The retailer, repairer, or organization handling the return request or ticket.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:range rdf:resource="https://schema.org/Organization"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n75448299c0654919b8465964cf82b61bb6">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>text/turtle</dcterms:format>
+    <dcterms:title xml:lang="en">SHACL validation shapes (RMA)</dcterms:title>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/rma/validation/rma.shacl.ttl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#trackingStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">tracking status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut de suivi</rdfs:label>
+    <rdfs:comment xml:lang="en">Current tracking status (label_created, in_transit, out_for_delivery, delivered, exception).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Tracking"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#resolutionCurrency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">resolution currency</rdfs:label>
+    <rdfs:label xml:lang="fr">devise de résolution</rdfs:label>
+    <rdfs:comment xml:lang="en">Currency code for the resolution amount (ISO 4217).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Resolution"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#hasResolution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has resolution</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour résolution</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a return request, ticket, or dispute to a resolution.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Dispute"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/rma#Resolution"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n75448299c0654919b8465964cf82b61bb7">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/schema+json</dcterms:format>
+    <dcterms:title xml:lang="en">JSON Schema validation (RMA)</dcterms:title>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/rma/validation/rma.schema.json"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#expectedReturnDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">expected return date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de retour attendue</rdfs:label>
+    <rdfs:comment xml:lang="en">Expected date for receiving the returned product.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#ticketCreatedDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">ticket created date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de création du ticket</rdfs:label>
+    <rdfs:comment xml:lang="en">Date when the ticket was created.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#approvalStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">approval status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut d'approbation</rdfs:label>
+    <rdfs:comment xml:lang="en">Status of the approval (pending, approved, rejected).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Approval"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#hasTracking">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has tracking</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour suivi</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a return request or shipping label to tracking information.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ShippingLabel"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/rma#Tracking"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#Approval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Approval</rdfs:label>
+    <rdfs:label xml:lang="fr">Approbation</rdfs:label>
+    <rdfs:comment xml:lang="en">An approval or authorization for a return request or resolution.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Action"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#disputeDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">dispute description</rdfs:label>
+    <rdfs:label xml:lang="fr">description du litige</rdfs:label>
+    <rdfs:comment xml:lang="en">Detailed description of the dispute or complaint.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Dispute"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#returnRequestDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">return request date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de demande de retour</rdfs:label>
+    <rdfs:comment xml:lang="en">Date when the return request was created.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#trackingNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">tracking number</rdfs:label>
+    <rdfs:label xml:lang="fr">numéro de suivi</rdfs:label>
+    <rdfs:comment xml:lang="en">Carrier tracking number for the package.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Tracking"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#Message">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Message</rdfs:label>
+    <rdfs:label xml:lang="fr">Message</rdfs:label>
+    <rdfs:comment xml:lang="en">A message in a ticket conversation thread between customer, retailer, or repairer.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Message"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#resolutionAmount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">resolution amount</rdfs:label>
+    <rdfs:label xml:lang="fr">montant de résolution</rdfs:label>
+    <rdfs:comment xml:lang="en">Amount for refund or store credit resolution.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Resolution"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#messageDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">message date</rdfs:label>
+    <rdfs:label xml:lang="fr">date du message</rdfs:label>
+    <rdfs:comment xml:lang="en">Date and time when the message was sent.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Message"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#messageText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">message text</rdfs:label>
+    <rdfs:label xml:lang="fr">texte du message</rdfs:label>
+    <rdfs:comment xml:lang="en">Text content of the message.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Message"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#hasShippingLabel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has shipping label</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour étiquette d'expédition</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a return request to a shipping label.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/rma#ShippingLabel"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#Resolution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Resolution</rdfs:label>
+    <rdfs:label xml:lang="fr">Résolution</rdfs:label>
+    <rdfs:comment xml:lang="en">A resolution proposed or applied to a return request or dispute (refund, exchange, store credit, repair).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#hasTicket">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has ticket</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour ticket</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a product or return request to a service ticket.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://schema.org/Product"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#Ticket">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Service Ticket</rdfs:label>
+    <rdfs:label xml:lang="fr">Ticket SAV</rdfs:label>
+    <rdfs:comment xml:lang="en">A service ticket that tracks customer service interactions and issue resolution.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#hasMessage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has message</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour message</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ticket to messages in the conversation thread.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/rma#Message"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#labelCreatedDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">label created date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de création de l'étiquette</rdfs:label>
+    <rdfs:comment xml:lang="en">Date when the shipping label was created.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ShippingLabel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n75448299c0654919b8465964cf82b61bb1">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:name>Kévin Boutillier</foaf:name>
+    <rdfs:seeAlso rdf:resource="https://orcid.org/0009-0001-0356-4421"/>
+    <rdfs:seeAlso rdf:resource="https://www.verisav.fr/en/founders/kevin-boutillier"/>
+    <rdfs:seeAlso rdf:resource="https://www.linkedin.com/in/kévinboutillier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#resolutionDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">resolution date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de résolution</rdfs:label>
+    <rdfs:comment xml:lang="en">Date when the resolution was proposed or applied.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Resolution"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#authoredBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">authored by</rdfs:label>
+    <rdfs:label xml:lang="fr">rédigé par</rdfs:label>
+    <rdfs:comment xml:lang="en">The person or organization who authored a message.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Message"/>
+    <rdfs:range rdf:resource="https://schema.org/Person"/>
+    <rdfs:range rdf:resource="https://schema.org/Organization"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#carrierService">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">carrier service</rdfs:label>
+    <rdfs:label xml:lang="fr">service transporteur</rdfs:label>
+    <rdfs:comment xml:lang="en">Type of carrier service (standard, express, overnight, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ShippingLabel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#messageType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">message type</rdfs:label>
+    <rdfs:label xml:lang="fr">type de message</rdfs:label>
+    <rdfs:comment xml:lang="en">Type of message (customer_message, support_response, internal_note, system_notification).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Message"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#returnRequestNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">return request number</rdfs:label>
+    <rdfs:label xml:lang="fr">numéro de demande de retour</rdfs:label>
+    <rdfs:comment xml:lang="en">Unique identifier for the return request (RMA number).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#ticketClosedDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">ticket closed date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de fermeture du ticket</rdfs:label>
+    <rdfs:comment xml:lang="en">Date when the ticket was closed.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#lastTrackingUpdate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">last tracking update</rdfs:label>
+    <rdfs:label xml:lang="fr">dernière mise à jour de suivi</rdfs:label>
+    <rdfs:comment xml:lang="en">Date and time of the last tracking update.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Tracking"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#estimatedDeliveryDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">estimated delivery date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de livraison estimée</rdfs:label>
+    <rdfs:comment xml:lang="en">Estimated delivery date for the package.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Tracking"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#labelUrl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">label URL</rdfs:label>
+    <rdfs:label xml:lang="fr">URL de l'étiquette</rdfs:label>
+    <rdfs:comment xml:lang="en">URL or link to download the shipping label.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ShippingLabel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#isInternal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">is internal</rdfs:label>
+    <rdfs:label xml:lang="fr">est interne</rdfs:label>
+    <rdfs:comment xml:lang="en">Whether the message is internal (not visible to customer).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Message"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n75448299c0654919b8465964cf82b61bb9">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/graphql</dcterms:format>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcterms:title xml:lang="en">Verisav Vocabularies GraphQL API</dcterms:title>
+    <dcterms:title xml:lang="fr">API GraphQL Vocabulaires Verisav</dcterms:title>
+    <dcterms:description xml:lang="en">GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY). Supports introspection, multilingual labels, and real-time vocabulary access.</dcterms:description>
+    <dcterms:description xml:lang="fr">API GraphQL pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). Supporte l'introspection, les labels multilingues et l'accès en temps réel aux vocabulaires.</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#concernsProduct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">concerns product</rdfs:label>
+    <rdfs:label xml:lang="fr">concerne le produit</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a return request, ticket, or dispute to the product it concerns.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Dispute"/>
+    <rdfs:range rdf:resource="https://schema.org/Product"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#ReturnRequest">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Return Request</rdfs:label>
+    <rdfs:label xml:lang="fr">Demande de Retour</rdfs:label>
+    <rdfs:comment xml:lang="en">A request for returning a product to a retailer or manufacturer.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Action"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n75448299c0654919b8465964cf82b61bb5">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>text/plain</dcterms:format>
+    <dcterms:title xml:lang="en">SHA-256 checksums</dcterms:title>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/rma/CHECKSUMS.sha256"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n75448299c0654919b8465964cf82b61bb2">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>text/turtle</dcterms:format>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/rma/rma.ttl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#requestedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">requested by</rdfs:label>
+    <rdfs:label xml:lang="fr">demandé par</rdfs:label>
+    <rdfs:comment xml:lang="en">The person or organization who requested the return or created the ticket.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:range rdf:resource="https://schema.org/Person"/>
+    <rdfs:range rdf:resource="https://schema.org/Organization"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#returnReason">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">return reason</rdfs:label>
+    <rdfs:label xml:lang="fr">raison du retour</rdfs:label>
+    <rdfs:comment xml:lang="en">Reason for the return (defective, wrong_item, not_as_described, changed_mind, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#ReturnRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#resolutionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">resolution type</rdfs:label>
+    <rdfs:label xml:lang="fr">type de résolution</rdfs:label>
+    <rdfs:comment xml:lang="en">Type of resolution (refund, exchange, store_credit, repair, replacement, rejection).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Resolution"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n75448299c0654919b8465964cf82b61bb10">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/sparql-results+json</dcterms:format>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <dcterms:title xml:lang="en">Verisav Vocabularies SPARQL Endpoint</dcterms:title>
+    <dcterms:title xml:lang="fr">Endpoint SPARQL Vocabulaires Verisav</dcterms:title>
+    <dcterms:description xml:lang="en">Public SPARQL 1.1 endpoint for querying all Verisav vocabularies (DPP, RMA, WTY). GET/POST with query parameter; responses in application/sparql-results+json or application/sparql-results+xml.</dcterms:description>
+    <dcterms:description xml:lang="fr">Endpoint SPARQL 1.1 public pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). GET/POST avec paramètre query ; réponses en application/sparql-results+json ou application/sparql-results+xml.</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/rma#Dispute">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Dispute</rdfs:label>
+    <rdfs:label xml:lang="fr">Litige</rdfs:label>
+    <rdfs:comment xml:lang="en">A dispute or complaint about a product (e.g., arrived broken, not as described, defective).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Complaint"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/rma#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n75448299c0654919b8465964cf82b61bb8">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/ld+json</dcterms:format>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/rma/rma.jsonld"/>
+    <dcterms:title xml:lang="en">RMA Vocabulary (JSON-LD via API)</dcterms:title>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n75448299c0654919b8465964cf82b61bb11">
+    <rdf:type rdf:resource="https://schema.org/SearchAction"/>
+    <schema:target rdf:resource="https://www.verisav.fr/api/v1/vocabulary/rma/search?q=%7Bquery%7D"/>
+    <schema:query-input>required name=query</schema:query-input>
+  </rdf:Description>
+</rdf:RDF>

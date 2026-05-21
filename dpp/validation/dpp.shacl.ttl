@@ -1,0 +1,70 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix dpp: <https://ns.verisav.fr/dpp#> .
+
+<https://ns.verisav.fr/dpp/validation#ProductPassportShape>
+    a sh:NodeShape ;
+    sh:targetClass dpp:ProductPassport ;
+    sh:property [
+        sh:path dpp:serialNumber ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:maxLength 128
+    ] ;
+    sh:property [
+        sh:path dpp:hasManufacturer ;
+        sh:minCount 1 ;
+        sh:class dpp:Manufacturer
+    ] ;
+    sh:property [
+        sh:path dpp:hasLifecycleStage ;
+        sh:minCount 1 ;
+        sh:class dpp:ProductLifecycleStage
+    ] ;
+    sh:property [
+        sh:path dpp:hasCurrentStatus ;
+        sh:maxCount 1 ;
+        sh:class dpp:ProductStatus
+    ] ;
+    sh:property [
+        sh:path dpp:purchaseDate ;
+        sh:datatype xsd:date
+    ] ;
+    sh:property [
+        sh:path dpp:manufacturingDate ;
+        sh:datatype xsd:date
+    ] ;
+    sh:property [
+        sh:path dpp:gs1DigitalLink ;
+        sh:datatype xsd:anyURI ;
+        sh:pattern "^https?://"
+    ] ;
+    sh:property [
+        sh:path dpp:hasWarranty ;
+        sh:class dpp:Warranty
+    ] .
+
+<https://ns.verisav.fr/dpp/validation#WarrantyShape>
+    a sh:NodeShape ;
+    sh:targetClass dpp:Warranty ;
+    sh:property [
+        sh:path dpp:warrantyStartDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date
+    ] ;
+    sh:property [
+        sh:path dpp:warrantyEndDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date
+    ] ;
+    sh:property [
+        sh:path dpp:warrantyStatus ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path dpp:warrantyDurationMonths ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0
+    ] .

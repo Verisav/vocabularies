@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verisav RMA Vocabulary - Vocabulaire RMA Verisav</title>
+    
+    <!-- Meta tags pour LOV (Linked Open Vocabularies) -->
+    <meta name="vocabulary:namespace" content="https://ns.verisav.fr/rma#">
+    <meta name="vocabulary:prefix" content="rma">
+    <meta name="vocabulary:lov" content="https://lov.linkeddata.es/dataset/lov/vocabs/rma">
+    <link rel="canonical" href="https://ns.verisav.fr/rma">
+    <link rel="alternate" type="text/turtle" href="https://ns.verisav.fr/rma/rma.ttl">
+    <link rel="alternate" type="application/ld+json" href="https://ns.verisav.fr/rma/rma.jsonld">
+    <link rel="describedby" href="https://lov.linkeddata.es/dataset/lov/vocabs/rma">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Verisav RMA Vocabulary",
+      "alternateName": "Vocabulaire RMA / Ticketing Verisav",
+      "description": "Vocabulary for Return Merchandise Authorization (RMA) and service ticket management in RDF/OWL format, standardizing communication between consumers, retailers, and repairers. Vocabulaire pour Autorisations de Retour de Marchandise (RMA) et gestion de tickets SAV.",
+      "url": "https://ns.verisav.fr/rma",
+      "identifier": "https://ns.verisav.fr/rma#",
+      "version": "1.0.0",
+      "datePublished": "2025-12-16",
+      "dateModified": "2025-12-28",
+      "keywords": ["RMA", "Return Merchandise Authorization", "Ticketing", "RDF", "OWL", "Vocabulary", "Semantic Web", "Service After-Sales", "SAV"],
+      "creator": {
+        "@type": "Person",
+        "@id": "https://www.verisav.fr/#person-kevin-boutillier",
+        "name": "Kévin Boutillier",
+        "givenName": "Kévin",
+        "familyName": "Boutillier",
+        "alternateName": "Kevin Boutillier",
+        "url": "https://www.verisav.fr/fondateurs/kevin-boutillier",
+        "jobTitle": "Fondateur & CEO de Verisav",
+        "email": "contact@verisav.fr",
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "propertyID": "ORCID",
+            "value": "0009-0001-0356-4421",
+            "url": "https://orcid.org/0009-0001-0356-4421"
+          }
+        ],
+        "sameAs": [
+          "https://orcid.org/0009-0001-0356-4421",
+          "https://www.linkedin.com/in/kévinboutillier",
+          "https://www.google.com/search?kgmid=/g/11yp_5040h"
+        ],
+        "worksFor": {
+          "@id": "https://www.verisav.fr/#organization",
+          "@type": "Organization",
+          "name": "Verisav",
+          "url": "https://www.verisav.fr"
+        },
+        "knowsAbout": ["Semantic Web", "RDF", "OWL", "Linked Data", "Digital Product Passport", "Service After-Sales", "RMA Management", "Ticketing Systems"],
+        "description": "Créateur et développeur principal des vocabulaires Verisav (DPP, RMA, WTY) pour le Web sémantique et le service après-vente."
+      },
+      "author": {
+        "@id": "https://www.verisav.fr/#person-kevin-boutillier"
+      },
+      "contributor": {
+        "@id": "https://www.verisav.fr/#person-kevin-boutillier"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.verisav.fr/#organization",
+        "name": "Verisav",
+        "url": "https://www.verisav.fr",
+        "sameAs": [
+          "https://www.linkedin.com/company/verisav",
+          "https://github.com/verisav"
+        ],
+        "founder": {
+          "@id": "https://www.verisav.fr/#person-kevin-boutillier"
+        }
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "contentUrl": "https://ns.verisav.fr/rma/rma.ttl",
+          "encodingFormat": "text/turtle",
+          "name": "RMA Vocabulary (Turtle)"
+        },
+        {
+          "@type": "DataDownload",
+          "contentUrl": "https://ns.verisav.fr/rma/rma.jsonld",
+          "encodingFormat": "application/ld+json",
+          "name": "RMA Vocabulary (JSON-LD)"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/ld+json",
+          "contentUrl": "https://www.verisav.fr/api/rma/rma.jsonld",
+          "name": "RMA Vocabulary (JSON-LD via API)"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/graphql",
+          "contentUrl": "https://www.verisav.fr/api/graphql",
+          "name": "Verisav Vocabularies GraphQL API",
+          "description": "GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY)"
+        }
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.verisav.fr/api/v1/vocabulary/rma/search?q={query}",
+        "query-input": "required name=query"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "Verisav Vocabularies",
+        "url": "https://www.verisav.fr/vocabularies"
+      },
+      "citation": {
+        "@type": "CreativeWork",
+        "name": "Linked Open Vocabularies (LOV)",
+        "url": "https://lov.linkeddata.es/dataset/lov/vocabs/rma",
+        "description": "Ce vocabulaire est validé et référencé dans le registre Linked Open Vocabularies (LOV)"
+      },
+      "sameAs": [
+        "https://lov.linkeddata.es/dataset/lov/vocabs/rma",
+        "https://w3id.org/verisav/rma"
+      ],
+      "datePublished": "2025-12-31",
+      "dateModified": "2025-12-31"
+    }
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2563eb;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1e40af;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #3b82f6;
+        }
+        .namespace {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+        }
+        .class, .property {
+            background: #f9fafb;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #2563eb;
+            border-radius: 3px;
+        }
+        .class h3, .property h3 {
+            margin-top: 0;
+        }
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .links {
+            margin: 30px 0;
+            padding: 20px;
+            background: #eff6ff;
+            border-radius: 5px;
+        }
+        .links a {
+            color: #2563eb;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+        .example {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vocabulaire RMA / Ticketing Verisav (RMA Vocabulary)</h1>
+    
+    <div class="namespace">
+        <strong>Namespace:</strong> <code>https://ns.verisav.fr/rma#</code><br>
+        <strong>Version:</strong> 1.0.0<br>
+        <strong>Dernière modification:</strong> 2025-12-31<br>
+        <strong>Préfixe recommandé:</strong> <code>rma:</code><br>
+        <strong>✅ Validé LOV:</strong> <a href="https://lov.linkeddata.es/dataset/lov/vocabs/rma" target="_blank" style="color: #10b981; font-weight: 600;">Voir sur LOV</a>
+    </div>
+
+    <div class="links">
+        <h3>Fichiers disponibles:</h3>
+        <a href="rma.ttl">rma.ttl</a> (Turtle/OWL)
+        <a href="rma.jsonld">rma.jsonld</a> (JSON-LD Context)
+        <a href="https://ns.verisav.fr/dpp">Vocabulaire DPP</a> (complémentaire)
+    </div>
+
+    <div class="links" style="background: #ecfdf5; border-left: 4px solid #10b981;">
+        <h3>📚 Exemples de données RMA:</h3>
+        <p>Consultez nos exemples pratiques d'utilisation du vocabulaire :</p>
+        <a href="https://www.verisav.fr/data/rma-examples/">Voir tous les exemples</a>
+        <a href="https://www.verisav.fr/data/rma-examples/README.md">Documentation des exemples</a>
+        <br><br>
+        <strong>Exemples disponibles :</strong>
+        <ul>
+            <li><a href="https://www.verisav.fr/data/rma-examples/simple-return-refund.ttl">Simple Return Refund</a> - Retour avec remboursement</li>
+            <li><a href="https://www.verisav.fr/data/rma-examples/ticket-with-dispute.ttl">Ticket with Dispute</a> - Ticket avec litige et résolution</li>
+            <li><a href="https://www.verisav.fr/data/rma-examples/return-with-shipping.ttl">Return with Shipping</a> - Retour avec expédition et suivi</li>
+            <li><a href="https://www.verisav.fr/data/rma-examples/service-ticket-complete.ttl">Service Ticket Complete</a> - Ticket complet avec messages</li>
+            <li><a href="https://www.verisav.fr/data/rma-examples/demo-complete-scenario.ttl">Demo Complete Scenario</a> - Exemple exhaustif</li>
+        </ul>
+    </div>
+
+    <div class="links" style="background: #ecfdf5; border-left: 4px solid #10b981; margin-bottom: 30px;">
+        <h3 style="margin-top: 0; color: #059669;">✅ Validé sur Linked Open Vocabularies (LOV)</h3>
+        <p>
+            Ce vocabulaire est officiellement validé et référencé dans le registre 
+            <strong><a href="https://lov.linkeddata.es/dataset/lov/vocabs/rma" target="_blank" style="color: #059669;">Linked Open Vocabularies (LOV)</a></strong>, 
+            garantissant sa conformité aux standards du Web sémantique et sa réutilisabilité dans l'écosystème Linked Data.
+        </p>
+        <p>
+            <strong>Lien LOV :</strong> 
+            <a href="https://lov.linkeddata.es/dataset/lov/vocabs/rma" target="_blank" style="color: #2563eb;">
+                https://lov.linkeddata.es/dataset/lov/vocabs/rma
+            </a>
+        </p>
+        <p>
+            <strong>Date de validation :</strong> 2025-12-31
+        </p>
+    </div>
+
+    <h2>Description</h2>
+    <p>
+        Ce vocabulaire définit les classes et propriétés pour standardiser la gestion des Retours de Marchandise 
+        (RMA - Return Merchandise Authorization) et des tickets SAV entre consommateurs, distributeurs et réparateurs.
+    </p>
+    <p>
+        Il complète le <a href="https://ns.verisav.fr/dpp">vocabulaire DPP</a> qui décrit l'état des produits, 
+        en couvrant les workflows dynamiques de communication et résolution de problèmes.
+    </p>
+
+    <h2>Classes Principales</h2>
+
+    <div class="class">
+        <h3>rma:ReturnRequest</h3>
+        <p>Une demande de retour d'un produit vers un distributeur ou fabricant.</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:Action</code></p>
+        <p><strong>Propriétés principales:</strong> <code>returnRequestNumber</code>, <code>returnReason</code>, <code>returnRequestStatus</code></p>
+    </div>
+
+    <div class="class">
+        <h3>rma:Ticket</h3>
+        <p>Un ticket SAV qui suit les interactions de service client et la résolution de problèmes.</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:Thing</code></p>
+        <p><strong>Propriétés principales:</strong> <code>ticketNumber</code>, <code>ticketStatus</code>, <code>ticketPriority</code></p>
+    </div>
+
+    <div class="class">
+        <h3>rma:Dispute</h3>
+        <p>Un litige ou réclamation concernant un produit (ex: arrivé cassé, non conforme, défectueux).</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:Complaint</code></p>
+        <p><strong>Propriétés principales:</strong> <code>disputeType</code>, <code>disputeDescription</code></p>
+    </div>
+
+    <div class="class">
+        <h3>rma:Resolution</h3>
+        <p>Une résolution proposée ou appliquée (remboursement, échange, avoir, réparation, remplacement).</p>
+        <p><strong>Propriétés principales:</strong> <code>resolutionType</code>, <code>resolutionAmount</code>, <code>resolutionStatus</code></p>
+    </div>
+
+    <div class="class">
+        <h3>rma:ShippingLabel</h3>
+        <p>Une étiquette d'expédition pour retourner un produit, contenant les informations transporteur et suivi.</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:DigitalDocument</code></p>
+        <p><strong>Propriétés principales:</strong> <code>labelUrl</code>, <code>carrierName</code>, <code>trackingNumber</code></p>
+    </div>
+
+    <div class="class">
+        <h3>rma:Message</h3>
+        <p>Un message dans un fil de conversation de ticket entre client, distributeur ou réparateur.</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:Message</code></p>
+        <p><strong>Propriétés principales:</strong> <code>messageText</code>, <code>messageDate</code>, <code>messageType</code></p>
+    </div>
+
+    <div class="class">
+        <h3>rma:Approval</h3>
+        <p>Une approbation ou autorisation pour une demande de retour ou résolution.</p>
+        <p><strong>Sous-classe de:</strong> <code>schema:Action</code></p>
+        <p><strong>Propriétés principales:</strong> <code>approvalStatus</code>, <code>approvalDate</code>, <code>approvedBy</code></p>
+    </div>
+
+    <div class="class">
+        <h3>rma:Tracking</h3>
+        <p>Informations de suivi pour un colis retourné, incluant les événements transporteur et statut.</p>
+        <p><strong>Propriétés principales:</strong> <code>trackingNumber</code>, <code>trackingStatus</code>, <code>trackingUrl</code></p>
+    </div>
+
+    <h2>Propriétés Principales</h2>
+
+    <h3>Relations (Object Properties)</h3>
+    <ul>
+        <li><code>rma:hasReturnRequest</code> - Lie un produit ou ticket à une demande de retour</li>
+        <li><code>rma:hasTicket</code> - Lie un produit à un ticket SAV</li>
+        <li><code>rma:hasDispute</code> - Lie une demande de retour à un litige</li>
+        <li><code>rma:hasResolution</code> - Lie une demande de retour à une résolution</li>
+        <li><code>rma:hasShippingLabel</code> - Lie une demande de retour à une étiquette d'expédition</li>
+        <li><code>rma:hasMessage</code> - Lie un ticket à des messages</li>
+        <li><code>rma:concernsProduct</code> - Lie une demande/ticket/litige au produit concerné</li>
+        <li><code>rma:resultsInWorkOrder</code> - Lie une demande de retour à un ordre de travail (si réparation)</li>
+        <li><code>rma:requestedBy</code> - Personne/organisation qui a créé la demande</li>
+        <li><code>rma:handledBy</code> - Organisation qui traite la demande</li>
+    </ul>
+
+    <h3>Attributs (Data Properties)</h3>
+    <ul>
+        <li><code>rma:returnRequestNumber</code> - Numéro RMA unique</li>
+        <li><code>rma:returnReason</code> - Raison du retour</li>
+        <li><code>rma:returnRequestStatus</code> - Statut de la demande</li>
+        <li><code>rma:ticketNumber</code> - Numéro de ticket</li>
+        <li><code>rma:disputeType</code> - Type de litige</li>
+        <li><code>rma:resolutionType</code> - Type de résolution</li>
+        <li><code>rma:resolutionAmount</code> - Montant (remboursement/avoir)</li>
+        <li><code>rma:trackingNumber</code> - Numéro de suivi colis</li>
+        <li>... et bien d'autres</li>
+    </ul>
+
+    <h2>Exemple d'Utilisation</h2>
+
+    <h3>Exemple JSON-LD</h3>
+    <div class="example">{
+  "@context": "https://ns.verisav.fr/rma/rma.jsonld",
+  "@type": "ReturnRequest",
+  "returnRequestNumber": "RMA-2025-001234",
+  "returnReason": "defective",
+  "returnRequestDate": "2025-12-16T10:30:00Z",
+  "returnRequestStatus": "approved",
+  "concernsProduct": {
+    "@type": "Product",
+    "sku": "PROD-12345"
+  },
+  "hasDispute": {
+    "@type": "Dispute",
+    "disputeType": "defective",
+    "disputeDescription": "Le produit ne s'allume plus après 2 jours d'utilisation"
+  },
+  "hasResolution": {
+    "@type": "Resolution",
+    "resolutionType": "refund",
+    "resolutionAmount": 299.99,
+    "resolutionCurrency": "EUR",
+    "resolutionStatus": "approved"
+  },
+  "hasShippingLabel": {
+    "@type": "ShippingLabel",
+    "labelUrl": "https://carrier.com/labels/RMA-2025-001234.pdf",
+    "carrierName": "DHL",
+    "trackingNumber": "1234567890"
+  }
+}</div>
+
+    <h2>Intégration avec DPP</h2>
+    <p>
+        Le vocabulaire RMA peut être utilisé conjointement avec le vocabulaire DPP :
+    </p>
+    <div class="example">{
+  "@context": [
+    "https://ns.verisav.fr/dpp/dpp.jsonld",
+    "https://ns.verisav.fr/rma/rma.jsonld"
+  ],
+  "@type": "ProductPassport",
+  "serialNumber": "SN-123456",
+  "hasReturnRequest": {
+    "@type": "ReturnRequest",
+    "returnRequestNumber": "RMA-2025-001234"
+  },
+  "hasWorkOrder": {
+    "@type": "WorkOrder",
+    "workOrderStatus": "en_cours"
+  }
+}</div>
+
+    <h2>Cas d'Usage</h2>
+    <ul>
+        <li><strong>E-commerce → Réparateur:</strong> Un retailer Shopify envoie une demande de retour standardisée à un réparateur</li>
+        <li><strong>Marketplace:</strong> Standardiser les retours pour tous les vendeurs d'une marketplace</li>
+        <li><strong>Réseau de SAV:</strong> Communication standardisée entre retailers et réparateurs partenaires</li>
+        <li><strong>Interopérabilité:</strong> Remplacer les formats propriétaires (Zendesk, Salesforce) par un standard ouvert</li>
+    </ul>
+
+    <h2>Validation LOV</h2>
+    <p>
+        Ce vocabulaire est <strong>officiellement validé</strong> et référencé dans le registre 
+        <a href="https://lov.linkeddata.es/dataset/lov/vocabs/rma" target="_blank">Linked Open Vocabularies (LOV)</a>, 
+        garantissant sa conformité aux standards du Web sémantique et sa réutilisabilité dans l'écosystème Linked Data.
+    </p>
+
+    <footer>
+        <p>
+            <strong>Créé par:</strong> <a href="https://www.verisav.fr">Verisav</a><br>
+            <strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a><br>
+            <strong>Vocabulaire complémentaire:</strong> <a href="https://ns.verisav.fr/dpp">DPP Vocabulary</a>
+        </p>
+    </footer>
+</body>
+</html>
+

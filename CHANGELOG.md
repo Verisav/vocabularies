@@ -5,6 +5,35 @@ All notable changes to Verisav Semantic Vocabularies will be documented in this 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.2] - 2026-05-07
+
+### DPP Vocabulary v1.5.2
+
+#### Added
+- EU policy alignment: ESPR, Data Act, Interoperable Europe Act, JRC 2026 methodology, CIRPASS-2, GS1 Digital Link / EPCIS, W3C DID 1.0
+- SHACL shapes and JSON Schema (`validation/dpp.shacl.ttl`, `validation/dpp.schema.json`)
+- Distribution checksums (`CHECKSUMS.sha256`)
+- Multi-format publication: Turtle, JSON-LD, RDF/XML
+
+#### Changed
+- Canonical artefact names: `dpp.ttl`, `dpp.jsonld`, `dpp.xml` (replaces legacy `verisav-dpp.ttl`)
+- OWL-DL consistency fixes (v1.5.0+)
+
+#### Fixed
+- TraceabilityEvent ISO reference link
+
+### Repository
+
+- README aligned with ESPR 2026–2030 implementation timeline
+- Project overview and technical documentation (FR/EN)
+
+## [1.2.0] - 2026-01-23
+
+### DPP Vocabulary v1.2.0
+
+#### Added
+- EU Business Wallet (EBW) and W3C Verifiable Credentials (VCDM 2.0) support
+
 ## [1.1.0] - 2025-12-22
 
 ### DPP Vocabulary

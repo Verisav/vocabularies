@@ -22,28 +22,35 @@
     rdfs:label "Verisav RMA Vocabulary"@en ;
     rdfs:label "Vocabulaire RMA Verisav"@fr ;
     dcterms:title "Verisav RMA / Ticketing Vocabulary"@en ;
-    dcterms:description "Vocabulary for Return Merchandise Authorization (RMA) and service ticket management, standardizing communication between consumers, retailers, and repairers."@en ;
-    dcterms:description "Vocabulaire pour les Autorisations de Retour de Marchandise (RMA) et la gestion de tickets SAV, standardisant la communication entre consommateurs, distributeurs et réparateurs."@fr ;
+    dcterms:description "Vocabulary for Return Merchandise Authorization (RMA) and service ticket management in the EU Digital Product Passport and ESPR context: interoperable tickets linked to product passports, operators, and repair workflows."@en ;
+    dcterms:description "Vocabulaire RMA / tickets SAV aligné sur le passeport produit numérique et l’ESPR : tickets interopérables liés aux passeports produit, opérateurs et flux de réparation."@fr ;
+    rdfs:comment "Version 1.2.2 (2026-05-07): Aligned rdfs:seeAlso with dpp 1.5.2 — Data Act, Interoperable Europe Act, CIRPASS-2, CircularData, data.europa.eu & GS1 Europe DPP, GS1 URI syntax, W3C DID 1.0, LOV/W3ID/GitHub/Zenodo for RMA. Version 1.2.1: DPP policy block. Version 1.2.0: initial seeAlso."@en ;
+    rdfs:comment "Version 1.2.2 (2026-05-07): rdfs:seeAlso aligné sur dpp 1.5.2. Voir 1.2.1–1.0.0."@fr ;
     
     # Technical Metadata (VOAF/VANN)
     vann:preferredNamespacePrefix "rma" ;
     vann:preferredNamespaceUri "https://ns.verisav.fr/rma#" ;
     
     # Versioning & Dates
-    owl:versionInfo "1.0.0" ;
+    owl:versionInfo "1.2.2" ;
+    owl:versionIRI <https://ns.verisav.fr/rma/1.2.2> ;
     dcterms:created "2025-12-16"^^xsd:date ;
-    dcterms:modified "2025-12-16"^^xsd:date ;
+    dcterms:issued "2026-05-07"^^xsd:date ;
+    dcterms:modified "2026-05-07"^^xsd:date ;
     
     # Authors & Rights
     dcterms:creator [
         a foaf:Person ;
         foaf:name "Kévin Boutillier" ;
+        rdfs:seeAlso <https://orcid.org/0009-0001-0356-4421> ;
         rdfs:seeAlso <https://www.verisav.fr/en/founders/kevin-boutillier> ;
         rdfs:seeAlso <https://www.linkedin.com/in/kévinboutillier>
     ] ;
     dcterms:publisher <https://www.verisav.fr> ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     cc:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:rights "Copyright © 2025 Verisav SAS. All rights reserved."@en ;
+    dcterms:rights "Copyright © 2025 Verisav SAS. Tous droits réservés."@fr ;
     
     # Distributions (formats disponibles)
     dcat:distribution [
@@ -58,28 +65,93 @@
     ] ;
     dcat:distribution [
         a dcat:Distribution ;
+        dcterms:format "application/rdf+xml" ;
+        dcat:downloadURL <https://ns.verisav.fr/rma/rma.xml>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "text/plain" ;
+        dcterms:title "SHA-256 checksums"@en ;
+        dcat:downloadURL <https://ns.verisav.fr/rma/CHECKSUMS.sha256>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "text/turtle" ;
+        dcterms:title "SHACL validation shapes (RMA)"@en ;
+        dcat:downloadURL <https://ns.verisav.fr/rma/validation/rma.shacl.ttl>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/schema+json" ;
+        dcterms:title "JSON Schema validation (RMA)"@en ;
+        dcat:downloadURL <https://ns.verisav.fr/rma/validation/rma.schema.json>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
         dcterms:format "application/ld+json" ;
-        dcat:accessURL <https://api.verisav.fr/rma/rma.jsonld> ;
+        dcat:accessURL <https://www.verisav.fr/api/rma/rma.jsonld> ;
         dcterms:title "RMA Vocabulary (JSON-LD via API)"@en
     ] ;
     dcat:distribution [
         a dcat:Distribution ;
         dcterms:format "application/graphql" ;
         dcat:accessURL <https://www.verisav.fr/api/graphql> ;
+        dcat:endpointURL <https://www.verisav.fr/api/graphql> ;
         dcterms:title "Verisav Vocabularies GraphQL API"@en ;
-        dcterms:description "GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY)"@en
+        dcterms:title "API GraphQL Vocabulaires Verisav"@fr ;
+        dcterms:description "GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY). Supports introspection, multilingual labels, and real-time vocabulary access."@en ;
+        dcterms:description "API GraphQL pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). Supporte l'introspection, les labels multilingues et l'accès en temps réel aux vocabulaires."@fr
     ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/sparql-results+json" ;
+        dcat:accessURL <https://www.verisav.fr/api/sparql> ;
+        dcat:endpointURL <https://www.verisav.fr/api/sparql> ;
+        dcterms:title "Verisav Vocabularies SPARQL Endpoint"@en ;
+        dcterms:title "Endpoint SPARQL Vocabulaires Verisav"@fr ;
+        dcterms:description "Public SPARQL 1.1 endpoint for querying all Verisav vocabularies (DPP, RMA, WTY). GET/POST with query parameter; responses in application/sparql-results+json or application/sparql-results+xml."@en ;
+        dcterms:description "Endpoint SPARQL 1.1 public pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). GET/POST avec paramètre query ; réponses en application/sparql-results+json ou application/sparql-results+xml."@fr
+    ] ;
+    
+    # API GraphQL endpoint (direct reference)
+    dcat:endpointURL <https://www.verisav.fr/api/graphql> ;
+    dcat:accessURL <https://www.verisav.fr/api/graphql> ;
+    # API SPARQL endpoint (direct reference)
+    dcat:endpointURL <https://www.verisav.fr/api/sparql> ;
+    dcat:accessURL <https://www.verisav.fr/api/sparql> ;
+    rdfs:comment "This vocabulary is accessible via GraphQL API at https://www.verisav.fr/api/graphql and via SPARQL endpoint at https://www.verisav.fr/api/sparql. Use vocabulary(id: \"rma\") for GraphQL, or SPARQL over the combined DPP, RMA, WTY graph."@en ;
+    rdfs:comment "Ce vocabulaire est accessible via l'API GraphQL à https://www.verisav.fr/api/graphql et via l'endpoint SPARQL à https://www.verisav.fr/api/sparql. Utilisez vocabulary(id: \"rma\") pour GraphQL, ou SPARQL sur le graphe combiné DPP, RMA, WTY."@fr ;
     
     # API de recherche
     schema:potentialAction [
         a schema:SearchAction ;
-        schema:target <https://api.verisav.fr/api/v1/vocabulary/rma/search?q={query}> ;
+        schema:target <https://www.verisav.fr/api/v1/vocabulary/rma/search?q=%7Bquery%7D> ;
         schema:query-input "required name=query"
     ] ;
     
     # Relations
     owl:imports <https://schema.org/> ;
-    owl:imports <https://ns.verisav.fr/dpp#> .
+    owl:imports <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1781> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52025DC0187> ;
+    rdfs:seeAlso <https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/ecodesign-sustainable-products-regulation_en> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1542> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R2854> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R903> ;
+    rdfs:seeAlso <https://publications.jrc.ec.europa.eu/repository/handle/JRC145830> ;
+    rdfs:seeAlso <https://standards.cencenelec.eu/dyn/www/f?p=305:7:0:25:::FSP_ORG_ID,FSP_LANG_ID:3342699> ;
+    rdfs:seeAlso <https://www.cencenelec.eu/news-events/news/2025/brief-news/2025-12-19-moving-forward-with-espr/> ;
+    rdfs:seeAlso <https://cirpass2.eu/> ;
+    rdfs:seeAlso <https://circular-data.org/> ;
+    rdfs:seeAlso <https://data.europa.eu/en/news-events/news/eus-digital-product-passport-advancing-transparency-and-sustainability> ;
+    rdfs:seeAlso <https://gs1.eu/activities/digital-product-passport/on-the-eu-digital-product-passport/> ;
+    rdfs:seeAlso <https://ref.gs1.org/standards/digital-link/uri-syntax> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    rdfs:seeAlso <https://www.w3.org/TR/did-1.0/> ;
+    rdfs:seeAlso <https://lov.linkeddata.es/dataset/lov/vocabs/rma> ;
+    rdfs:seeAlso <https://w3id.org/verisav/rma> ;
+    rdfs:seeAlso <https://github.com/Verisav/vocabularies> ;
+    rdfs:seeAlso <https://doi.org/10.5281/zenodo.18352147> .
 
 # ============================================================================
 # CLASSES

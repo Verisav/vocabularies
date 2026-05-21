@@ -1,0 +1,240 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://ns.verisav.fr/wty#",
+    
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "dpp": "https://ns.verisav.fr/dpp#",
+    "rma": "https://ns.verisav.fr/rma#",
+    
+    "wty": "https://ns.verisav.fr/wty#",
+    
+    "Warranty": {
+      "@id": "wty:Warranty",
+      "@type": "@id"
+    },
+    "Contract": {
+      "@id": "wty:Contract",
+      "@type": "@id"
+    },
+    "Coverage": {
+      "@id": "wty:Coverage",
+      "@type": "@id"
+    },
+    "Exclusion": {
+      "@id": "wty:Exclusion",
+      "@type": "@id"
+    },
+    "PaymentRule": {
+      "@id": "wty:PaymentRule",
+      "@type": "@id"
+    },
+    "Condition": {
+      "@id": "wty:Condition",
+      "@type": "@id"
+    },
+    "Limit": {
+      "@id": "wty:Limit",
+      "@type": "@id"
+    },
+    "ClaimAssessment": {
+      "@id": "wty:ClaimAssessment",
+      "@type": "@id"
+    },
+    "Invoice": {
+      "@id": "wty:Invoice",
+      "@type": "@id"
+    },
+    
+    "definesCoverage": {
+      "@id": "wty:definesCoverage",
+      "@type": "@id"
+    },
+    "definesExclusions": {
+      "@id": "wty:definesExclusions",
+      "@type": "@id"
+    },
+    "definesPaymentRule": {
+      "@id": "wty:definesPaymentRule",
+      "@type": "@id"
+    },
+    "definesConditions": {
+      "@id": "wty:definesConditions",
+      "@type": "@id"
+    },
+    "definesLimits": {
+      "@id": "wty:definesLimits",
+      "@type": "@id"
+    },
+    "triggersAssessment": {
+      "@id": "wty:triggersAssessment",
+      "@type": "@id"
+    },
+    "assessesClaim": {
+      "@id": "wty:assessesClaim",
+      "@type": "@id"
+    },
+    "checksCoverage": {
+      "@id": "wty:checksCoverage",
+      "@type": "@id"
+    },
+    "checksExclusions": {
+      "@id": "wty:checksExclusions",
+      "@type": "@id"
+    },
+    "determinesPayment": {
+      "@id": "wty:determinesPayment",
+      "@type": "@id"
+    },
+    "generatesInvoice": {
+      "@id": "wty:generatesInvoice",
+      "@type": "@id"
+    },
+    "invoices": {
+      "@id": "wty:invoices",
+      "@type": "@id"
+    },
+    "paysFor": {
+      "@id": "wty:paysFor",
+      "@type": "@id"
+    },
+    "firstParty": {
+      "@id": "wty:firstParty",
+      "@type": "@id"
+    },
+    "payer": {
+      "@id": "wty:payer",
+      "@type": "@id"
+    },
+    "coversComponent": {
+      "@id": "wty:coversComponent",
+      "@type": "@id"
+    },
+    "coversDefectType": {
+      "@id": "wty:coversDefectType",
+      "@type": "@id"
+    },
+    "coversRepairType": {
+      "@id": "wty:coversRepairType",
+      "@type": "@id"
+    },
+    "excludedDefectType": {
+      "@id": "wty:excludedDefectType",
+      "@type": "@id"
+    },
+    "excludedCause": {
+      "@id": "wty:excludedCause",
+      "@type": "@id"
+    },
+    "excludedComponent": {
+      "@id": "wty:excludedComponent",
+      "@type": "@id"
+    },
+    "appliedCoverage": {
+      "@id": "wty:appliedCoverage",
+      "@type": "@id"
+    },
+    "appliedExclusions": {
+      "@id": "wty:appliedExclusions",
+      "@type": "@id"
+    },
+    "paymentDecision": {
+      "@id": "wty:paymentDecision",
+      "@type": "@id"
+    },
+    
+    "coveragePeriod": "wty:coveragePeriod",
+    "coverageStartDate": {
+      "@id": "wty:coverageStartDate",
+      "@type": "xsd:date"
+    },
+    "coverageEndDate": {
+      "@id": "wty:coverageEndDate",
+      "@type": "xsd:date"
+    },
+    
+    "paymentPercentage": {
+      "@id": "wty:paymentPercentage",
+      "@type": "xsd:decimal"
+    },
+    "paymentSplit": "wty:paymentSplit",
+    "invoicePaymentSplit": "wty:invoicePaymentSplit",
+    "hasPaymentLimit": {
+      "@id": "wty:hasPaymentLimit",
+      "@type": "xsd:boolean"
+    },
+    
+    "conditionType": "wty:conditionType",
+    "conditionDescription": "wty:conditionDescription",
+    "requiresDocumentation": {
+      "@id": "wty:requiresDocumentation",
+      "@type": "xsd:boolean"
+    },
+    "requiresProof": {
+      "@id": "wty:requiresProof",
+      "@type": "xsd:boolean"
+    },
+    "validityPeriod": "wty:validityPeriod",
+    
+    "limitType": "wty:limitType",
+    "limitAmount": {
+      "@id": "wty:limitAmount",
+      "@type": "xsd:decimal"
+    },
+    "limitCurrency": "wty:limitCurrency",
+    "limitQuantity": {
+      "@id": "wty:limitQuantity",
+      "@type": "xsd:integer"
+    },
+    "limitPeriod": "wty:limitPeriod",
+    
+    "contractType": "wty:contractType",
+    "contractNumber": "wty:contractNumber",
+    "contractStartDate": {
+      "@id": "wty:contractStartDate",
+      "@type": "xsd:date"
+    },
+    "contractEndDate": {
+      "@id": "wty:contractEndDate",
+      "@type": "xsd:date"
+    },
+    "contractStatus": "wty:contractStatus",
+    "autoRenewal": {
+      "@id": "wty:autoRenewal",
+      "@type": "xsd:boolean"
+    },
+    
+    "assessmentDate": {
+      "@id": "wty:assessmentDate",
+      "@type": "xsd:dateTime"
+    },
+    "assessmentResult": "wty:assessmentResult",
+    "assessmentReason": "wty:assessmentReason",
+    "coveredAmount": {
+      "@id": "wty:coveredAmount",
+      "@type": "xsd:decimal"
+    },
+    "coveredCurrency": "wty:coveredCurrency",
+    "customerResponsibility": {
+      "@id": "wty:customerResponsibility",
+      "@type": "xsd:decimal"
+    },
+    
+    "invoiceNumber": "wty:invoiceNumber",
+    "invoiceAmount": {
+      "@id": "wty:invoiceAmount",
+      "@type": "xsd:decimal"
+    },
+    "invoiceCurrency": "wty:invoiceCurrency",
+    "invoiceDate": {
+      "@id": "wty:invoiceDate",
+      "@type": "xsd:dateTime"
+    },
+    "invoiceStatus": "wty:invoiceStatus"
+  }
+}
+

@@ -1,0 +1,198 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://ns.verisav.fr/rma#",
+    
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "dpp": "https://ns.verisav.fr/dpp#",
+    
+    "rma": "https://ns.verisav.fr/rma#",
+    
+    "ReturnRequest": {
+      "@id": "rma:ReturnRequest",
+      "@type": "@id"
+    },
+    "Ticket": {
+      "@id": "rma:Ticket",
+      "@type": "@id"
+    },
+    "Dispute": {
+      "@id": "rma:Dispute",
+      "@type": "@id"
+    },
+    "Resolution": {
+      "@id": "rma:Resolution",
+      "@type": "@id"
+    },
+    "ShippingLabel": {
+      "@id": "rma:ShippingLabel",
+      "@type": "@id"
+    },
+    "Message": {
+      "@id": "rma:Message",
+      "@type": "@id"
+    },
+    "Approval": {
+      "@id": "rma:Approval",
+      "@type": "@id"
+    },
+    "Tracking": {
+      "@id": "rma:Tracking",
+      "@type": "@id"
+    },
+    
+    "hasReturnRequest": {
+      "@id": "rma:hasReturnRequest",
+      "@type": "@id"
+    },
+    "hasTicket": {
+      "@id": "rma:hasTicket",
+      "@type": "@id"
+    },
+    "hasDispute": {
+      "@id": "rma:hasDispute",
+      "@type": "@id"
+    },
+    "hasResolution": {
+      "@id": "rma:hasResolution",
+      "@type": "@id"
+    },
+    "hasShippingLabel": {
+      "@id": "rma:hasShippingLabel",
+      "@type": "@id"
+    },
+    "hasMessage": {
+      "@id": "rma:hasMessage",
+      "@type": "@id"
+    },
+    "hasApproval": {
+      "@id": "rma:hasApproval",
+      "@type": "@id"
+    },
+    "hasTracking": {
+      "@id": "rma:hasTracking",
+      "@type": "@id"
+    },
+    "concernsProduct": {
+      "@id": "rma:concernsProduct",
+      "@type": "@id"
+    },
+    "resultsInWorkOrder": {
+      "@id": "rma:resultsInWorkOrder",
+      "@type": "@id"
+    },
+    "requestedBy": {
+      "@id": "rma:requestedBy",
+      "@type": "@id"
+    },
+    "handledBy": {
+      "@id": "rma:handledBy",
+      "@type": "@id"
+    },
+    "approvedBy": {
+      "@id": "rma:approvedBy",
+      "@type": "@id"
+    },
+    "authoredBy": {
+      "@id": "rma:authoredBy",
+      "@type": "@id"
+    },
+    
+    "returnRequestNumber": "rma:returnRequestNumber",
+    "returnReason": "rma:returnReason",
+    "returnRequestDate": {
+      "@id": "rma:returnRequestDate",
+      "@type": "xsd:dateTime"
+    },
+    "returnRequestStatus": "rma:returnRequestStatus",
+    "expectedReturnDate": {
+      "@id": "rma:expectedReturnDate",
+      "@type": "xsd:date"
+    },
+    
+    "ticketNumber": "rma:ticketNumber",
+    "ticketStatus": "rma:ticketStatus",
+    "ticketPriority": "rma:ticketPriority",
+    "ticketCreatedDate": {
+      "@id": "rma:ticketCreatedDate",
+      "@type": "xsd:dateTime"
+    },
+    "ticketClosedDate": {
+      "@id": "rma:ticketClosedDate",
+      "@type": "xsd:dateTime"
+    },
+    
+    "disputeType": "rma:disputeType",
+    "disputeDescription": "rma:disputeDescription",
+    "disputeDate": {
+      "@id": "rma:disputeDate",
+      "@type": "xsd:dateTime"
+    },
+    
+    "resolutionType": "rma:resolutionType",
+    "resolutionAmount": {
+      "@id": "rma:resolutionAmount",
+      "@type": "xsd:decimal"
+    },
+    "resolutionCurrency": "rma:resolutionCurrency",
+    "resolutionDescription": "rma:resolutionDescription",
+    "resolutionDate": {
+      "@id": "rma:resolutionDate",
+      "@type": "xsd:dateTime"
+    },
+    "resolutionStatus": "rma:resolutionStatus",
+    
+    "labelUrl": {
+      "@id": "rma:labelUrl",
+      "@type": "@id"
+    },
+    "carrierName": "rma:carrierName",
+    "carrierService": "rma:carrierService",
+    "labelCreatedDate": {
+      "@id": "rma:labelCreatedDate",
+      "@type": "xsd:dateTime"
+    },
+    "labelExpiryDate": {
+      "@id": "rma:labelExpiryDate",
+      "@type": "xsd:date"
+    },
+    
+    "messageText": "rma:messageText",
+    "messageDate": {
+      "@id": "rma:messageDate",
+      "@type": "xsd:dateTime"
+    },
+    "messageType": "rma:messageType",
+    "isInternal": {
+      "@id": "rma:isInternal",
+      "@type": "xsd:boolean"
+    },
+    
+    "approvalDate": {
+      "@id": "rma:approvalDate",
+      "@type": "xsd:dateTime"
+    },
+    "approvalStatus": "rma:approvalStatus",
+    "approvalComment": "rma:approvalComment",
+    
+    "trackingNumber": "rma:trackingNumber",
+    "trackingUrl": {
+      "@id": "rma:trackingUrl",
+      "@type": "@id"
+    },
+    "trackingStatus": "rma:trackingStatus",
+    "lastTrackingUpdate": {
+      "@id": "rma:lastTrackingUpdate",
+      "@type": "xsd:dateTime"
+    },
+    "estimatedDeliveryDate": {
+      "@id": "rma:estimatedDeliveryDate",
+      "@type": "xsd:date"
+    }
+  }
+}
+

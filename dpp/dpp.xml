@@ -1,0 +1,1955 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dcat="http://www.w3.org/ns/dcat#"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:schema="https://schema.org/"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#ProductDimensions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Product Dimensions</rdfs:label>
+    <rdfs:label xml:lang="fr">Dimensions Produit</rdfs:label>
+    <rdfs:comment xml:lang="en">Key product dimensions (length, width, height, weight, volume) for customs declarations and conformity calculations. Aligned with UNTP DPP-05.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Dimensions clés du produit (longueur, largeur, hauteur, poids, volume) pour déclarations douanières et calculs de conformité. Aligné avec UNTP DPP-05.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/QuantitativeValue"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#partReference">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">part reference</rdfs:label>
+    <rdfs:label xml:lang="fr">référence de pièce</rdfs:label>
+    <rdfs:comment xml:lang="en">The reference number of the replacement part.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le numéro de référence de la pièce de rechange.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ReplacementPart"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#ConformityClaim">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Conformity Claim</rdfs:label>
+    <rdfs:label xml:lang="fr">Déclaration de Conformité</rdfs:label>
+    <rdfs:comment xml:lang="en">Claim of conformity to a standard or regulation. Aligned with UNTP DPP.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Déclaration de conformité à un standard ou réglementation. Aligné avec UNTP DPP.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Claim"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#laborCost">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">labor cost</rdfs:label>
+    <rdfs:label xml:lang="fr">coût main d'œuvre</rdfs:label>
+    <rdfs:comment xml:lang="en">The cost of labor for the intervention.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le coût de la main d'œuvre pour l'intervention.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasWarrantyClaim">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has warranty claim</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour réclamation</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to a WarrantyClaim.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à une Réclamation de Garantie.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#WarrantyClaim"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#repairStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">repair status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut de réparation</rdfs:label>
+    <rdfs:comment xml:lang="en">The status of a repair event (pending, in_progress, completed, failed).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le statut d'un événement de réparation (en attente, en cours, complété, échoué).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#RepairEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#carbonFootprint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">carbon footprint</rdfs:label>
+    <rdfs:label xml:lang="fr">empreinte carbone</rdfs:label>
+    <rdfs:comment xml:lang="en">Carbon footprint of the product in kg CO2eq per declared unit.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Empreinte carbone du produit en kg CO2eq par unité déclarée.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#EmissionsPerformance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#metricValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">metric value</rdfs:label>
+    <rdfs:label xml:lang="fr">valeur de la métrique</rdfs:label>
+    <rdfs:comment xml:lang="en">Value of the metric with unit.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Valeur de la métrique avec unité.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Metric"/>
+    <rdfs:range rdf:resource="https://schema.org/QuantitativeValue"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#assessmentCriteria">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">assessment criteria</rdfs:label>
+    <rdfs:label xml:lang="fr">critères d'évaluation</rdfs:label>
+    <rdfs:comment xml:lang="en">Criteria within the standard or regulation against which the claim is evaluated.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Critères dans le standard ou réglementation contre lesquels la déclaration est évaluée.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ConformityClaim"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Criterion"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#TraceabilityPerformance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Traceability Performance</rdfs:label>
+    <rdfs:label xml:lang="fr">Performance Traçabilité</rdfs:label>
+    <rdfs:comment xml:lang="en">Traceability information for a specific value chain process. Aligned with UNTP DPP.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Information de traçabilité pour un processus spécifique de la chaîne de valeur. Aligné avec UNTP DPP.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#serialNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">serial number</rdfs:label>
+    <rdfs:label xml:lang="fr">numéro de série</rdfs:label>
+    <rdfs:comment xml:lang="en">The serial number of the product.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le numéro de série du produit.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b9">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/graphql</dcterms:format>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcterms:title xml:lang="en">Verisav Vocabularies GraphQL API</dcterms:title>
+    <dcterms:title xml:lang="fr">API GraphQL Vocabulaires Verisav</dcterms:title>
+    <dcterms:description xml:lang="en">GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY). Supports introspection, multilingual labels, and real-time vocabulary access.</dcterms:description>
+    <dcterms:description xml:lang="fr">API GraphQL pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). Supporte l'introspection, les labels multilingues et l'accès en temps réel aux vocabulaires.</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#diagnosticDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">diagnostic description</rdfs:label>
+    <rdfs:label xml:lang="fr">description du diagnostic</rdfs:label>
+    <rdfs:comment xml:lang="en">A description of the diagnostic process and findings.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une description du processus de diagnostic et des résultats.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Diagnostic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasWorkOrder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has work order</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour ordre de travail</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to a WorkOrder.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à un Ordre de Travail.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#WorkOrder"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#repairInformation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">repair information</rdfs:label>
+    <rdfs:label xml:lang="fr">information réparation</rdfs:label>
+    <rdfs:comment xml:lang="en">Link to repair instructions for end users or repair service centers.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lien vers instructions de réparation pour utilisateurs finaux ou centres de service de réparation.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#CircularityPerformance"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#SecureLink"/>
+    <rdfs:range rdf:resource="https://schema.org/URL"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#conformance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">conformance</rdfs:label>
+    <rdfs:label xml:lang="fr">conformité</rdfs:label>
+    <rdfs:comment xml:lang="en">Indicates whether the product meets the specified criteria (true/false).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Indique si le produit est conforme aux critères spécifiés (true/false).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ConformityClaim"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#ProductPassport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Product Passport</rdfs:label>
+    <rdfs:label xml:lang="fr">Passeport Produit</rdfs:label>
+    <rdfs:comment xml:lang="en">A Digital Product Passport that tracks a product throughout its entire lifecycle.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Un Passeport Produit Numérique qui suit un produit tout au long de son cycle de vie.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Product"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#assessmentDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">assessment date</rdfs:label>
+    <rdfs:label xml:lang="fr">date d'évaluation</rdfs:label>
+    <rdfs:comment xml:lang="en">Date when the claim was assessed.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Date à laquelle la déclaration a été évaluée.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ConformityClaim"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Manufacturer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Manufacturer</rdfs:label>
+    <rdfs:label xml:lang="fr">Fabricant</rdfs:label>
+    <rdfs:comment xml:lang="en">The manufacturer of a product.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le fabricant d'un produit.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#warrantyDurationMonths">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">warranty duration in months</rdfs:label>
+    <rdfs:label xml:lang="fr">durée de garantie en mois</rdfs:label>
+    <rdfs:comment xml:lang="en">The duration of the warranty in months.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La durée de la garantie en mois.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Warranty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#CircularityPerformance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Circularity Performance</rdfs:label>
+    <rdfs:label xml:lang="fr">Performance Circularité</rdfs:label>
+    <rdfs:comment xml:lang="en">Product circularity scorecard. Aligned with UNTP DPP.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Tableau de bord de la circularité du produit. Aligné avec UNTP DPP.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <rdfs:seeAlso rdf:resource="https://www.ellenmacarthurfoundation.org/resources/apply/material-circularity-indicator"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#massFraction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">mass fraction</rdfs:label>
+    <rdfs:label xml:lang="fr">fraction massique</rdfs:label>
+    <rdfs:comment xml:lang="en">Mass fraction of the material in the product (decimal value between 0 and 1).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Fraction massique du matériau dans le produit (valeur décimale entre 0 et 1).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#MaterialProvenance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#lengthCm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">length in cm</rdfs:label>
+    <rdfs:label xml:lang="fr">longueur en cm</rdfs:label>
+    <rdfs:comment xml:lang="en">Product length in centimetres.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Longueur du produit en centimètres.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductDimensions"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasReplacementPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has replacement part</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour pièce de rechange</rdfs:label>
+    <rdfs:comment xml:lang="en">Links an Intervention to a ReplacementPart.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie une Intervention à une Pièce de Rechange.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ReplacementPart"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#WorkOrder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Work Order</rdfs:label>
+    <rdfs:label xml:lang="fr">Ordre de Travail</rdfs:label>
+    <rdfs:comment xml:lang="en">An order for work to be performed on a product (repair, maintenance, etc.).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Un ordre de travail à effectuer sur un produit (réparation, maintenance, etc.).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Service"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Consumer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Consumer</rdfs:label>
+    <rdfs:label xml:lang="fr">Consommateur</rdfs:label>
+    <rdfs:comment xml:lang="en">A consumer who owns or uses a product.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Un consommateur qui possède ou utilise un produit.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#materialCircularityIndicator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">material circularity indicator</rdfs:label>
+    <rdfs:label xml:lang="fr">indicateur de circularité matérielle</rdfs:label>
+    <rdfs:comment xml:lang="en">Overall circularity score (MCI) calculated as 1 - (V + W) / (2 * D), where V = virgin material proportion, W = waste leakage proportion, D = utility factor (0-1).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Score global de circularité (MCI) calculé comme 1 - (V + W) / (2 * D), où V = proportion matériaux vierges, W = proportion pertes, D = facteur d'utilité (0-1).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#CircularityPerformance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://www.ellenmacarthurfoundation.org/resources/apply/material-circularity-indicator"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#TraceabilityEventHost">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Traceability event host</rdfs:label>
+    <owl:equivalentClass rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b27"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#declaredUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">declared unit</rdfs:label>
+    <rdfs:label xml:lang="fr">unité déclarée</rdfs:label>
+    <rdfs:comment xml:lang="en">Unit of measure for carbon footprint (e.g., 'KGM' for kg, 'C62' for unit).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Unité de mesure pour l'empreinte carbone (ex: 'KGM' pour kg, 'C62' pour unité).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#EmissionsPerformance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#euid">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">European Unique Identifier (EUID)</rdfs:label>
+    <rdfs:label xml:lang="fr">Identifiant Unique Européen (EUID)</rdfs:label>
+    <rdfs:comment xml:lang="en">The European Unique Identifier (EUID) for a legal entity, issued via EU Business Wallet (EBW). Provides a unified digital identity across all 27 EU member states.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">L'Identifiant Unique Européen (EUID) pour une entité légale, émis via EU Business Wallet (EBW). Fournit une identité numérique unifiée dans les 27 États membres de l'UE.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#EconomicOperator"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#conformityEvidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">conformity evidence</rdfs:label>
+    <rdfs:label xml:lang="fr">preuve de conformité</rdfs:label>
+    <rdfs:comment xml:lang="en">Link to second or third party attestation, such as a UNTP Digital Conformity Credential, PDF, or other evidence format.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lien vers attestation de deuxième ou troisième partie, comme un Digital Conformity Credential UNTP, PDF, ou autre format de preuve.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ConformityClaim"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#SecureLink"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Document"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#issuingParty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">issuing party</rdfs:label>
+    <rdfs:label xml:lang="fr">partie émettrice</rdfs:label>
+    <rdfs:comment xml:lang="en">Organization that issued the standard or regulation.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Organisation qui a publié le standard ou réglementation.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#NormativeInstrument"/>
+    <rdfs:range rdf:resource="https://schema.org/Organization"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#lifecycleStageDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">lifecycle stage date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de l'étape du cycle de vie</rdfs:label>
+    <rdfs:comment xml:lang="en">The date when the product entered this lifecycle stage.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La date à laquelle le produit est entré dans cette étape du cycle de vie.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductLifecycleStage"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#granularityLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">Granularity Level</rdfs:label>
+    <rdfs:label xml:lang="fr">Niveau de Granularité</rdfs:label>
+    <rdfs:comment xml:lang="en">The level of identification granularity: 'model' (GTIN only), 'batch' (GTIN + batch/lot number), or 'serial' (GTIN + serial number). Determined by EU delegated acts per product category.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le niveau de granularité d'identification : 'model' (GTIN seul), 'batch' (GTIN + numéro de lot), ou 'serial' (GTIN + numéro de série). Déterminé par les actes délégués UE par catégorie de produit.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#dataIntegrityHash">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">data integrity hash</rdfs:label>
+    <rdfs:label xml:lang="fr">hash d'intégrité des données</rdfs:label>
+    <rdfs:comment xml:lang="en">Cryptographic hash digest ensuring the integrity of shared DPP data via EU Business Wallet (EBW). Used in SecureDataShare for tamper detection.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Digest de hash cryptographique garantissant l'intégrité des données DPP partagées via EU Business Wallet (EBW). Utilisé dans SecureDataShare pour la détection de falsification.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#SecureDataShare"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasRecyclingInstructions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has recycling instructions</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour consignes de recyclage</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to RecyclingInstructions.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à des Consignes de Recyclage.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#RecyclingInstructions"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Standard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Standard</rdfs:label>
+    <rdfs:label xml:lang="fr">Standard</rdfs:label>
+    <rdfs:comment xml:lang="en">Standard, norm, or reference scheme for a conformity claim.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Standard, norme ou schéma de référence pour une déclaration de conformité.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#verifiedRatio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">verified ratio</rdfs:label>
+    <rdfs:label xml:lang="fr">ratio vérifié</rdfs:label>
+    <rdfs:comment xml:lang="en">Proportion of materials or components in this step that have been verifiably traced using digital traceability events (0-1).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Proportion de matériaux ou composants dans cette étape qui ont été tracés de manière vérifiable avec des événements de traçabilité numériques (0-1).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#TraceabilityPerformance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#referenceStandard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">reference standard</rdfs:label>
+    <rdfs:label xml:lang="fr">référence standard</rdfs:label>
+    <rdfs:comment xml:lang="en">Reference standard for the conformity claim.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Standard de référence pour la déclaration de conformité.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ConformityClaim"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Standard"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasTraceabilityEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has traceability event</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour événement de traçabilité</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport or TraceabilityPerformance to a traceability event. Aligned with UNTP DPP-06.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport ou TraceabilityPerformance à un événement de traçabilité. Aligné avec UNTP DPP-06.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#TraceabilityEventHost"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#TraceabilityEvent"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    <rdfs:label xml:lang="en">Verisav Digital Product Passport Vocabulary</rdfs:label>
+    <rdfs:label xml:lang="fr">Vocabulaire Passeport Produit Numérique Verisav</rdfs:label>
+    <dcterms:title xml:lang="en">Verisav DPP Vocabulary</dcterms:title>
+    <dcterms:description xml:lang="en">Vocabulary for Digital Product Passports (DPP) aligned with the EU Ecodesign for Sustainable Products Regulation (ESPR, Regulation (EU) 2024/1781): product identification, economic operators, compliance and sustainability information, and interoperable machine-readable formats as further specified in delegated acts and EU registry plans. Complements UNCEFACT UNTP DPP (B2B transparency feedstock) and GS1 identifiers (GTIN, GLN, Digital Link). Covers granularity (model, batch, serial per category rules), JRC 2026 methodology themes (essential vs recommended data tiers, need-to-know access), material provenance, emissions and circularity scorecards, traceability, conformity claims, W3C Verifiable Credentials (VCDM 2.0), and EU Business Wallet / EUID-oriented operator identity.</dcterms:description>
+    <dcterms:description xml:lang="fr">Vocabulaire pour passeports produit numériques aligné sur le règlement ESPR (UE 2024/1781) : identification, opérateurs économiques, conformité et informations durabilité, formats ouverts, complété par actes délégués et registre DPP UE. Complète l’UNTP DPP (UN/CEFACT) et les identifiants GS1. Couvre la granularité (modèle, lot, série), les thèmes de la méthodologie JRC 2026, la provenance matériaux, émissions et circularité, traçabilité, conformité, VCDM 2.0 et identité opérateur (EBW / EUID).</dcterms:description>
+    <rdfs:comment xml:lang="en">Version 1.5.2 (2026-05-07): Additional rdfs:seeAlso — LOV/W3ID/Zenodo/GitHub, Data Act (32023R2854), Interoperable Europe Act (32024R903), GS1 Digital Link URI syntax (ref.gs1.org), ISO/IEC 19987:2024 (EPCIS), CIRPASS-2, CircularData hub, data.europa.eu &amp; GS1 in Europe DPP pages, W3C DID 1.0. Fixed TraceabilityEvent ISO link (was wrong standard). Version 1.5.1: EU policy &amp; CEN block. Version 1.5.0: OWL-DL fixes.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Version 1.5.2 (2026-05-07): Nouveaux rdfs:seeAlso — LOV/W3ID/Zenodo/GitHub, Data Act, règlement Interopérable Europe, syntaxe URI GS1 Digital Link, ISO/IEC 19987 (EPCIS), CIRPASS-2, CircularData, portails data.europa.eu et GS1 Europe, W3C DID 1.0. Correction du lien ISO sur TraceabilityEvent. Voir 1.5.1 et antérieur.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This vocabulary is accessible via GraphQL API at https://www.verisav.fr/api/graphql and via SPARQL endpoint at https://www.verisav.fr/api/sparql. Use vocabulary(id: "dpp") for GraphQL, or SPARQL over the combined DPP, RMA, WTY graph.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Ce vocabulaire est accessible via l'API GraphQL à https://www.verisav.fr/api/graphql et via l'endpoint SPARQL à https://www.verisav.fr/api/sparql. Utilisez vocabulary(id: "dpp") pour GraphQL, ou SPARQL sur le graphe combiné DPP, RMA, WTY.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This vocabulary is aligned with UNTP DPP specification for sustainability and traceability, EU Business Wallet (EBW) for verifiable credentials and enterprise identity, while maintaining a specific focus on after-sales service (SAV).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Ce vocabulaire est aligné avec la spécification UNTP DPP pour la durabilité et la traçabilité, EU Business Wallet (EBW) pour les credentials vérifiables et l'identité d'entreprise, tout en conservant un focus spécifique sur le service après-vente (SAV).</rdfs:comment>
+    <vann:preferredNamespacePrefix>dpp</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://ns.verisav.fr/dpp#</vann:preferredNamespaceUri>
+    <owl:versionInfo>1.5.2</owl:versionInfo>
+    <owl:versionIRI rdf:resource="https://ns.verisav.fr/dpp/1.5.2"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-16</dcterms:created>
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-07</dcterms:issued>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-07</dcterms:modified>
+    <dcterms:creator rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b1"/>
+    <dcterms:publisher rdf:resource="https://www.verisav.fr"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <cc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:rights xml:lang="en">Copyright © 2025 Verisav SAS. All rights reserved.</dcterms:rights>
+    <dcterms:rights xml:lang="fr">Copyright © 2025 Verisav SAS. Tous droits réservés.</dcterms:rights>
+    <dcat:distribution rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b2"/>
+    <dcat:distribution rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b3"/>
+    <dcat:distribution rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b4"/>
+    <dcat:distribution rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b5"/>
+    <dcat:distribution rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b6"/>
+    <dcat:distribution rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b7"/>
+    <dcat:distribution rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b8"/>
+    <dcat:distribution rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b9"/>
+    <dcat:distribution rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b10"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <schema:potentialAction rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b11"/>
+    <owl:imports rdf:resource="https://schema.org/"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1781"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52025DC0187"/>
+    <rdfs:seeAlso rdf:resource="https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/ecodesign-sustainable-products-regulation_en"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1542"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R2854"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R903"/>
+    <rdfs:seeAlso rdf:resource="https://publications.jrc.ec.europa.eu/repository/handle/JRC145830"/>
+    <rdfs:seeAlso rdf:resource="https://standards.cencenelec.eu/dyn/www/f?p=305:7:0:25:::FSP_ORG_ID,FSP_LANG_ID:3342699"/>
+    <rdfs:seeAlso rdf:resource="https://www.cencenelec.eu/news-events/news/2025/brief-news/2025-12-19-moving-forward-with-espr/"/>
+    <rdfs:seeAlso rdf:resource="https://cirpass2.eu/"/>
+    <rdfs:seeAlso rdf:resource="https://circular-data.org/"/>
+    <rdfs:seeAlso rdf:resource="https://data.europa.eu/en/news-events/news/eus-digital-product-passport-advancing-transparency-and-sustainability"/>
+    <rdfs:seeAlso rdf:resource="https://gs1.eu/activities/digital-product-passport/on-the-eu-digital-product-passport/"/>
+    <rdfs:seeAlso rdf:resource="https://ref.gs1.org/standards/digital-link/uri-syntax"/>
+    <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/85557.html"/>
+    <rdfs:seeAlso rdf:resource="https://www.gs1.org/standards/Digital-Link/"/>
+    <rdfs:seeAlso rdf:resource="https://www.gs1.org/standards/id-keys"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/did-1.0/"/>
+    <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/vc-data-model-2.0/"/>
+    <rdfs:seeAlso rdf:resource="https://lov.linkeddata.es/dataset/lov/vocabs/dpp"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/verisav/dpp"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/Verisav/vocabularies"/>
+    <rdfs:seeAlso rdf:resource="https://doi.org/10.5281/zenodo.18352147"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has document</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour document</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to a Document.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à un Document.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#GlnCarrier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">GLN carrier</rdfs:label>
+    <rdfs:label xml:lang="fr">Porteur de GLN</rdfs:label>
+    <rdfs:comment xml:lang="en">Any organization or place that may carry a GS1 GLN (covers EconomicOperator ⊑ Organization, Facility ⊑ Place).</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b15"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b13"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#sharedWith">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">shared with</rdfs:label>
+    <rdfs:label xml:lang="fr">partagé avec</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a SecureDataShare to the EconomicOperator with whom DPP data is shared via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un SecureDataShare à l'Opérateur Économique avec qui les données DPP sont partagées via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#SecureDataShare"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#EconomicOperator"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasEconomicOperator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has economic operator</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour opérateur économique</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to its EconomicOperator (manufacturer, importer, distributor, etc.).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à son Opérateur Économique (fabricant, importateur, distributeur, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#EconomicOperator"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#lifecycleStageName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">lifecycle stage name</rdfs:label>
+    <rdfs:label xml:lang="fr">nom de l'étape du cycle de vie</rdfs:label>
+    <rdfs:comment xml:lang="en">The name of the lifecycle stage (manufacturing, purchase, usage, end_of_life, recycling).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le nom de l'étape du cycle de vie (fabrication, achat, usage, fin de vie, recyclage).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductLifecycleStage"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b17">
+    <rdf:first rdf:resource="https://schema.org/Place"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b3">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/ld+json</dcterms:format>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/dpp/dpp.jsonld"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#valueChainProcess">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">value chain process</rdfs:label>
+    <rdfs:label xml:lang="fr">processus chaîne de valeur</rdfs:label>
+    <rdfs:comment xml:lang="en">Human-readable description of the specific value chain step (e.g., 'Canning', 'Assembly').</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Description lisible par humain de l'étape spécifique de la chaîne de valeur (ex: 'Mise en conserve', 'Assemblage').</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#TraceabilityPerformance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#metricName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">metric name</rdfs:label>
+    <rdfs:label xml:lang="fr">nom de la métrique</rdfs:label>
+    <rdfs:comment xml:lang="en">Name of the metric (e.g., 'GHG Emissions Intensity').</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Nom de la métrique (ex: 'Intensité Émissions GES').</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Metric"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#RecyclingInstructions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Recycling Instructions</rdfs:label>
+    <rdfs:label xml:lang="fr">Consignes de Recyclage</rdfs:label>
+    <rdfs:comment xml:lang="en">Instructions for recycling or disposing of a product at end of life.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Instructions pour recycler ou éliminer un produit en fin de vie.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/CreativeWork"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#materialName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">material name</rdfs:label>
+    <rdfs:label xml:lang="fr">nom du matériau</rdfs:label>
+    <rdfs:comment xml:lang="en">Name of the material (e.g., 'Aluminum', 'Steel', 'Plastic').</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Nom du matériau (ex: 'Aluminium', 'Acier', 'Plastique').</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#MaterialProvenance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasCircularityScorecard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has circularity scorecard</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour tableau de bord circularité</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to its circularity scorecard. Aligned with UNTP DPP.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à son tableau de bord de circularité. Aligné avec UNTP DPP.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#CircularityPerformance"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Gs1IdentifiedItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">GS1 identified item</rdfs:label>
+    <rdfs:label xml:lang="fr">Article identifié GS1</rdfs:label>
+    <rdfs:comment xml:lang="en">Product passport or compound identifier node that may bear GTIN-related attributes.</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b18"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#originRegion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">origin region</rdfs:label>
+    <rdfs:label xml:lang="fr">région d'origine</rdfs:label>
+    <rdfs:comment xml:lang="en">Specific region of origin for the material (optional).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Région spécifique d'origine du matériau (optionnel).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#MaterialProvenance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#standardName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">standard name</rdfs:label>
+    <rdfs:label xml:lang="fr">nom du standard</rdfs:label>
+    <rdfs:comment xml:lang="en">Name of the standard.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Nom du standard.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Standard"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#VerifiableProductPassport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Verifiable Product Passport</rdfs:label>
+    <rdfs:label xml:lang="fr">Passeport Produit Vérifiable</rdfs:label>
+    <rdfs:comment xml:lang="en">A Digital Product Passport issued as a W3C Verifiable Credential (VCDM 2.0) via EU Business Wallet (EBW). Provides cryptographic proof of authenticity and integrity.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Un Passeport Produit Numérique émis comme W3C Verifiable Credential (VCDM 2.0) via EU Business Wallet (EBW). Fournit une preuve cryptographique d'authenticité et d'intégrité.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/vc-data-model-2.0/"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#WarrantyClaim">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Warranty Claim</rdfs:label>
+    <rdfs:label xml:lang="fr">Réclamation de Garantie</rdfs:label>
+    <rdfs:comment xml:lang="en">A claim made under a warranty.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une réclamation effectuée sous garantie.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Claim"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasCompoundIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has compound identifier</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour identifiant composé</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to a CompoundIdentifier (GTIN + variant/batch/serial).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à un Identifiant Composé (GTIN + variant/lot/série).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#CompoundIdentifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#heightCm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">height in cm</rdfs:label>
+    <rdfs:label xml:lang="fr">hauteur en cm</rdfs:label>
+    <rdfs:comment xml:lang="en">Product height in centimetres.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Hauteur du produit en centimètres.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductDimensions"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#purchasePrice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">purchase price</rdfs:label>
+    <rdfs:label xml:lang="fr">prix d'achat</rdfs:label>
+    <rdfs:comment xml:lang="en">The price paid for the product.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le prix payé pour le produit.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#originCountry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">origin country</rdfs:label>
+    <rdfs:label xml:lang="fr">pays d'origine</rdfs:label>
+    <rdfs:comment xml:lang="en">Origin country code of the material (ISO 3166-1 alpha-2 or alpha-3).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Code pays d'origine du matériau (ISO 3166-1 alpha-2 ou alpha-3).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#MaterialProvenance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#VerifiableCredential">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Verifiable Credential</rdfs:label>
+    <rdfs:label xml:lang="fr">Credential Vérifiable</rdfs:label>
+    <rdfs:comment xml:lang="en">A W3C Verifiable Credential (VCDM 2.0) that can be used to verify claims about a product passport or economic operator. Stored and managed via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Un W3C Verifiable Credential (VCDM 2.0) qui peut être utilisé pour vérifier des déclarations sur un passeport produit ou un opérateur économique. Stocké et géré via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/vc-data-model-2.0/"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#utilityFactor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">utility factor</rdfs:label>
+    <rdfs:label xml:lang="fr">facteur d'utilité</rdfs:label>
+    <rdfs:comment xml:lang="en">Product durability relative to industry average (e.g., 1.2 = 20% more durable).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Durabilité du produit relative à la moyenne de l'industrie (ex: 1.2 = 20% plus durable).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#CircularityPerformance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#countryOfProduction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">country of production</rdfs:label>
+    <rdfs:label xml:lang="fr">pays de fabrication</rdfs:label>
+    <rdfs:comment xml:lang="en">ISO 3166-1 alpha-2 country code where the product was manufactured. Required for customs declarations and rules of origin. Aligned with UNTP DPP.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Code pays ISO 3166-1 alpha-2 où le produit a été fabriqué. Requis pour déclarations douanières et règles d'origine. Aligné avec UNTP DPP.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b7">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/schema+json</dcterms:format>
+    <dcterms:title xml:lang="en">JSON Schema validation (DPP)</dcterms:title>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/dpp/validation/dpp.schema.json"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#ReplacementPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Replacement Part</rdfs:label>
+    <rdfs:label xml:lang="fr">Pièce de Rechange</rdfs:label>
+    <rdfs:comment xml:lang="en">A part used to replace a component in a product during repair or maintenance.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une pièce utilisée pour remplacer un composant dans un produit lors d'une réparation ou maintenance.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Product"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasDiagnostic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has diagnostic</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour diagnostic</rdfs:label>
+    <rdfs:comment xml:lang="en">Links an Intervention to a Diagnostic.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie une Intervention à un Diagnostic.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Diagnostic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#criterionId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">criterion ID</rdfs:label>
+    <rdfs:label xml:lang="fr">ID critère</rdfs:label>
+    <rdfs:comment xml:lang="en">Unique identifier for the criterion (typically a URI).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Identifiant unique du critère (typiquement une URI).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Criterion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#interventionDuration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">intervention duration</rdfs:label>
+    <rdfs:label xml:lang="fr">durée d'intervention</rdfs:label>
+    <rdfs:comment xml:lang="en">The duration of the intervention in minutes.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La durée de l'intervention en minutes.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b6">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>text/turtle</dcterms:format>
+    <dcterms:title xml:lang="en">SHACL validation shapes (DPP)</dcterms:title>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/dpp/validation/dpp.shacl.ttl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#ProductClassification">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Product Classification</rdfs:label>
+    <rdfs:label xml:lang="fr">Classification Produit</rdfs:label>
+    <rdfs:comment xml:lang="en">Product classification according to a standardized scheme (UN-CPC, GS1, NACE, etc.). Aligned with UNTP DPP-02.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Classification d'un produit selon un schéma standardisé (UN-CPC, GS1, NACE, etc.). Aligné avec UNTP DPP-02.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#diagnosticResult">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">diagnostic result</rdfs:label>
+    <rdfs:label xml:lang="fr">résultat du diagnostic</rdfs:label>
+    <rdfs:comment xml:lang="en">The result or conclusion of the diagnostic.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le résultat ou conclusion du diagnostic.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Diagnostic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Retailer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Retailer</rdfs:label>
+    <rdfs:label xml:lang="fr">Distributeur</rdfs:label>
+    <rdfs:comment xml:lang="en">A retailer or distributor who sells products.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Un distributeur qui vend des produits.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#credentialIssuer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">credential issuer</rdfs:label>
+    <rdfs:label xml:lang="fr">émetteur de credential</rdfs:label>
+    <rdfs:comment xml:lang="en">The authority or EconomicOperator that issued a VerifiableCredential via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">L'autorité ou Opérateur Économique qui a émis un VerifiableCredential via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#CredentialIssuanceSubject"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#EconomicOperator"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasConformityClaim">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has conformity claim</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour déclaration de conformité</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to a conformity claim. Aligned with UNTP DPP.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à une déclaration de conformité. Aligné avec UNTP DPP.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ConformityClaim"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#workOrderStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">work order status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut de l'ordre de travail</rdfs:label>
+    <rdfs:comment xml:lang="en">The status of the work order (cree, assigne, en_cours, en_attente_pieces, complete, facture, annule).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le statut de l'ordre de travail (créé, assigné, en cours, en attente de pièces, complété, facturé, annulé).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#WorkOrder"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b21">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b22"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasTraceabilityInformation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has traceability information</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour information traçabilité</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to traceability information. Aligned with UNTP DPP-06.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à des informations de traçabilité. Aligné avec UNTP DPP-06.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#TraceabilityPerformance"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#warrantyEndDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">warranty end date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de fin de garantie</rdfs:label>
+    <rdfs:comment xml:lang="en">The end date of the warranty.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La date de fin de la garantie.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Warranty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasCurrentStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has current status</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour statut actuel</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to its current ProductStatus.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à son ProductStatus actuel.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ProductStatus"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#CompoundIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Compound Identifier</rdfs:label>
+    <rdfs:label xml:lang="fr">Identifiant Composé</rdfs:label>
+    <rdfs:comment xml:lang="en">A complex identifier combining a GTIN with a variant, batch, or serial number (Made-to-Order products).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Un identifiant complexe combinant un GTIN avec un variant, lot ou numéro de série (produits sur mesure).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/PropertyValue"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#dueDiligenceDeclaration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">due diligence declaration</rdfs:label>
+    <rdfs:label xml:lang="fr">déclaration de vigilance</rdfs:label>
+    <rdfs:comment xml:lang="en">Link to a due diligence declaration document meeting legal requirements of the importing market (e.g. EUDR, conflict minerals). Aligned with UNTP DPP.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lien vers un document de déclaration de vigilance conforme aux exigences légales du marché importateur (ex. EUDR, minerais de conflit). Aligné avec UNTP DPP.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#SecureLink"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#manufacturingLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">manufacturing location</rdfs:label>
+    <rdfs:label xml:lang="fr">lieu de fabrication</rdfs:label>
+    <rdfs:comment xml:lang="en">The location where the product was manufactured.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le lieu où le produit a été fabriqué.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Regulation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Regulation</rdfs:label>
+    <rdfs:label xml:lang="fr">Réglementation</rdfs:label>
+    <rdfs:comment xml:lang="en">Reference regulation for a conformity claim.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Réglementation de référence pour une déclaration de conformité.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasGln">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">Global Location Number (GLN)</rdfs:label>
+    <rdfs:label xml:lang="fr">Code Lieu International (GLN)</rdfs:label>
+    <rdfs:comment xml:lang="en">The GS1 Global Location Number identifying the organization or facility. Used for economic operators and facilities per EU ESPR regulation.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le Code Lieu International GS1 identifiant l'organisation ou l'installation. Utilisé pour les opérateurs économiques et installations selon la réglementation européenne ESPR.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#GlnCarrier"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:subPropertyOf rdf:resource="https://schema.org/globalLocationNumber"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://www.gs1.org/standards/id-keys/gln"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Metric">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Metric</rdfs:label>
+    <rdfs:label xml:lang="fr">Métrique</rdfs:label>
+    <rdfs:comment xml:lang="en">A metric defining actual measured values, optionally including accuracy.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Métrique définissant les valeurs mesurées réelles, incluant optionnellement la précision.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/QuantitativeValue"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#reportingStandard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">reporting standard</rdfs:label>
+    <rdfs:label xml:lang="fr">standard de reporting</rdfs:label>
+    <rdfs:comment xml:lang="en">Standard used for emissions reporting.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Standard utilisé pour le reporting des émissions.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#EmissionsPerformance"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Standard"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#classificationScheme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">classification scheme</rdfs:label>
+    <rdfs:label xml:lang="fr">schéma de classification</rdfs:label>
+    <rdfs:comment xml:lang="en">URI or identifier of the classification scheme (e.g., 'UN-CPC', 'GS1', 'NACE').</rdfs:comment>
+    <rdfs:comment xml:lang="fr">URI ou identifiant du schéma de classification (ex: 'UN-CPC', 'GS1', 'NACE').</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductClassification"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#weightKg">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">weight in kg</rdfs:label>
+    <rdfs:label xml:lang="fr">poids en kg</rdfs:label>
+    <rdfs:comment xml:lang="en">Product weight in kilograms.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Poids du produit en kilogrammes.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductDimensions"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#interventionEndDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">intervention end date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de fin d'intervention</rdfs:label>
+    <rdfs:comment xml:lang="en">The end date and time of the intervention.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La date et heure de fin de l'intervention.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b5">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>text/plain</dcterms:format>
+    <dcterms:title xml:lang="en">SHA-256 checksums</dcterms:title>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/dpp/CHECKSUMS.sha256"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#warrantyStartDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">warranty start date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de début de garantie</rdfs:label>
+    <rdfs:comment xml:lang="en">The start date of the warranty.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La date de début de la garantie.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Warranty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasVerifiableCredential">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has verifiable credential</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour credential vérifiable</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a VerifiableProductPassport or ConformityClaim to its W3C Verifiable Credential (VCDM 2.0) stored in EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un VerifiableProductPassport ou ConformityClaim à son W3C Verifiable Credential (VCDM 2.0) stocké dans EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#VerifiableCredentialAttachmentSubject"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#VerifiableCredential"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/vc-data-model-2.0/"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#claimDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">claim description</rdfs:label>
+    <rdfs:label xml:lang="fr">description de la réclamation</rdfs:label>
+    <rdfs:comment xml:lang="en">A description of the service request or claim.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une description de la demande de service ou réclamation.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ServiceRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Diagnostic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Diagnostic</rdfs:label>
+    <rdfs:label xml:lang="fr">Diagnostic</rdfs:label>
+    <rdfs:comment xml:lang="en">A diagnostic assessment performed on a product to identify issues.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une évaluation de diagnostic effectuée sur un produit pour identifier les problèmes.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#recyclableContent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">recyclable content</rdfs:label>
+    <rdfs:label xml:lang="fr">contenu recyclable</rdfs:label>
+    <rdfs:comment xml:lang="en">Proportion of product mass designed to be recyclable or reusable (0-1).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Proportion de la masse du produit conçue pour être recyclable ou réutilisable (0-1).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#CircularityPerformance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b10">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/sparql-results+json</dcterms:format>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <dcterms:title xml:lang="en">Verisav Vocabularies SPARQL Endpoint</dcterms:title>
+    <dcterms:title xml:lang="fr">Endpoint SPARQL Vocabulaires Verisav</dcterms:title>
+    <dcterms:description xml:lang="en">Public SPARQL 1.1 endpoint for querying all Verisav vocabularies (DPP, RMA, WTY). GET/POST with query parameter; responses in application/sparql-results+json or application/sparql-results+xml.</dcterms:description>
+    <dcterms:description xml:lang="fr">Endpoint SPARQL 1.1 public pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). GET/POST avec paramètre query ; réponses en application/sparql-results+json ou application/sparql-results+xml.</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasRetailer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has retailer</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour distributeur</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to its Retailer.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à son Distributeur.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Retailer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#linkURL">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">link URL</rdfs:label>
+    <rdfs:label xml:lang="fr">URL du lien</rdfs:label>
+    <rdfs:comment xml:lang="en">URL or link to a resource.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">URL ou lien vers une ressource.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#LinkMetadataResource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasMaterialProvenance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has material provenance</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour provenance de matériau</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to material provenance information. Aligned with UNTP DPP-03.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à des informations de provenance des matériaux. Aligné avec UNTP DPP-03.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#MaterialProvenance"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#claimPriority">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">claim priority</rdfs:label>
+    <rdfs:label xml:lang="fr">priorité de la réclamation</rdfs:label>
+    <rdfs:comment xml:lang="en">The priority of the service request (normal, high, urgent).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La priorité de la demande de service (normal, haute, urgente).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ServiceRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasManufacturer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has manufacturer</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour fabricant</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to its Manufacturer.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à son Fabricant.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Manufacturer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#partsCost">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">parts cost</rdfs:label>
+    <rdfs:label xml:lang="fr">coût des pièces</rdfs:label>
+    <rdfs:comment xml:lang="en">The cost of replacement parts for the intervention.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le coût des pièces de rechange pour l'intervention.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#warrantyStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">warranty status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut de garantie</rdfs:label>
+    <rdfs:comment xml:lang="en">The status of the warranty (active, expiree, suspendue, annulee).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le statut de la garantie (active, expirée, suspendue, annulée).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Warranty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#declaredValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">declared value</rdfs:label>
+    <rdfs:label xml:lang="fr">valeur déclarée</rdfs:label>
+    <rdfs:comment xml:lang="en">Actual measured values, optionally including accuracy.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Valeurs mesurées réelles, incluant optionnellement la précision.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ConformityClaim"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Metric"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#MaterialProvenance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Material Provenance</rdfs:label>
+    <rdfs:label xml:lang="fr">Provenance des Matériaux</rdfs:label>
+    <rdfs:comment xml:lang="en">Information about material provenance: name, mass fraction, origin country. Aligned with UNTP DPP-03.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Information sur la provenance d'un matériau : nom, fraction massique, pays d'origine. Aligné avec UNTP DPP-03.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasGtin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">Global Trade Item Number (GTIN)</rdfs:label>
+    <rdfs:label xml:lang="fr">Numéro d'Article Global (GTIN)</rdfs:label>
+    <rdfs:comment xml:lang="en">The GS1 Global Trade Item Number (GTIN) in one of the formats: GTIN-8, GTIN-12, GTIN-13, or GTIN-14. Used with AI (01) for Made-to-Stock products or AI (03) for Made-to-Order products.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le Numéro d'Article Global GS1 (GTIN) dans l'un des formats : GTIN-8, GTIN-12, GTIN-13 ou GTIN-14. Utilisé avec AI (01) pour produits Made-to-Stock ou AI (03) pour produits Made-to-Order.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Gs1IdentifiedItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:subPropertyOf rdf:resource="https://schema.org/gtin"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://www.gs1.org/standards/id-keys/gtin"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasLifecycleStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has lifecycle stage</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour étape de cycle de vie</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to a ProductLifecycleStage.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à une Étape du Cycle de Vie.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ProductLifecycleStage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#batchLotNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">Batch/Lot Number</rdfs:label>
+    <rdfs:label xml:lang="fr">Numéro de Lot</rdfs:label>
+    <rdfs:comment xml:lang="en">The batch or lot number (GS1 AI 10) for production batches. Used with GTIN for batch-level granularity.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le numéro de lot ou batch (GS1 AI 10) pour les lots de production. Utilisé avec GTIN pour la granularité au niveau lot.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Gs1IdentifiedItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://www.gs1.org/standards/barcodes/application-identifiers/10"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#VerifiableCredentialAttachmentSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Subject that may attach a verifiable credential</rdfs:label>
+    <owl:equivalentClass rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b21"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#interventionStartDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">intervention start date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de début d'intervention</rdfs:label>
+    <rdfs:comment xml:lang="en">The start date and time of the intervention.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La date et heure de début de l'intervention.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#operationalScope">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">operational scope</rdfs:label>
+    <rdfs:label xml:lang="fr">périmètre opérationnel</rdfs:label>
+    <rdfs:comment xml:lang="en">Scope of emissions calculation (e.g., 'CradleToGate', 'CradleToGrave', 'GateToGate').</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Périmètre du calcul d'émissions (ex: 'CradleToGate', 'CradleToGrave', 'GateToGate').</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#EmissionsPerformance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#recycledContent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">recycled content</rdfs:label>
+    <rdfs:label xml:lang="fr">contenu recyclé</rdfs:label>
+    <rdfs:comment xml:lang="en">Proportion of product mass made from recycled or repurposed materials (0-1).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Proportion de la masse du produit faite de matériaux recyclés ou réutilisés (0-1).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#CircularityPerformance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#totalCost">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">total cost</rdfs:label>
+    <rdfs:label xml:lang="fr">coût total</rdfs:label>
+    <rdfs:comment xml:lang="en">The total cost of the intervention (labor + parts).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le coût total de l'intervention (main d'œuvre + pièces).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasWarranty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has warranty</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour garantie</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to its Warranty.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à sa Garantie.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Warranty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Facility">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Facility</rdfs:label>
+    <rdfs:label xml:lang="fr">Installation</rdfs:label>
+    <rdfs:comment xml:lang="en">A location or building involved in the value chain of a product (manufacturing facility, warehouse, etc.) as per EU ESPR regulation. Aligned with UNTP DPP-04.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Un lieu ou bâtiment impliqué dans la chaîne de valeur d'un produit (usine de fabrication, entrepôt, etc.) selon la réglementation européenne ESPR. Aligné avec UNTP DPP-04.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Place"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#encryptionMethod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">encryption method</rdfs:label>
+    <rdfs:label xml:lang="fr">méthode de cryptage</rdfs:label>
+    <rdfs:comment xml:lang="en">Encryption method if applicable (e.g., 'AES', 'none').</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Méthode de cryptage si applicable (ex: 'AES', 'none').</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#SecureLink"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#productStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">product status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut du produit</rdfs:label>
+    <rdfs:comment xml:lang="en">The status of the product (sous_garantie, hors_garantie, contrat_maintenance, en_panne, repare).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le statut du produit (sous garantie, hors garantie, contrat maintenance, en panne, réparé).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductStatus"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#linkType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">link type</rdfs:label>
+    <rdfs:label xml:lang="fr">type de lien</rdfs:label>
+    <rdfs:comment xml:lang="en">Type identifier for the link (e.g., URI to a vocabulary term).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Identifiant de type pour le lien (ex: URI vers un terme de vocabulaire).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#LinkMetadataResource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasServiceRequest">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has service request</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour demande de service</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to a ServiceRequest.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à une Demande de Service.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ServiceRequest"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#conformityTopic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">conformity topic</rdfs:label>
+    <rdfs:label xml:lang="fr">thème de conformité</rdfs:label>
+    <rdfs:comment xml:lang="en">Topic category of the claim (e.g., 'environment.emissions', 'social.working_conditions').</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Catégorie thématique de la déclaration (ex: 'environment.emissions', 'social.working_conditions').</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ConformityClaim"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#manufacturingDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">manufacturing date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de fabrication</rdfs:label>
+    <rdfs:comment xml:lang="en">The date when the product was manufactured.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La date à laquelle le produit a été fabriqué.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#issuedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">issued by</rdfs:label>
+    <rdfs:label xml:lang="fr">émis par</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a VerifiableProductPassport to the EconomicOperator that issued it via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un VerifiableProductPassport à l'Opérateur Économique qui l'a émis via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#VerifiableProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#EconomicOperator"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#productStatusDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">product status date</rdfs:label>
+    <rdfs:label xml:lang="fr">date du statut produit</rdfs:label>
+    <rdfs:comment xml:lang="en">The date when the product status was set.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La date à laquelle le statut du produit a été défini.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductStatus"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#claimStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">claim status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut de la réclamation</rdfs:label>
+    <rdfs:comment xml:lang="en">The status of a service request (soumise, en_cours, approuvee, resolue).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le statut d'une demande de service (soumise, en cours, approuvée, résolue).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ServiceRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#widthCm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">width in cm</rdfs:label>
+    <rdfs:label xml:lang="fr">largeur en cm</rdfs:label>
+    <rdfs:comment xml:lang="en">Product width in centimetres.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Largeur du produit en centimètres.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductDimensions"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasVerifiedIdentity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">has verified identity</rdfs:label>
+    <rdfs:label xml:lang="fr">a identité vérifiée</rdfs:label>
+    <rdfs:comment xml:lang="en">Indicates whether the EconomicOperator's identity has been verified via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Indique si l'identité de l'Opérateur Économique a été vérifiée via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#EconomicOperator"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#standardId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">standard ID</rdfs:label>
+    <rdfs:label xml:lang="fr">ID standard</rdfs:label>
+    <rdfs:comment xml:lang="en">Unique identifier for the standard (URI or string).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Identifiant unique du standard (URI ou chaîne).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Standard"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasEmissionsScorecard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has emissions scorecard</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour tableau de bord émissions</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to its emissions scorecard. Aligned with UNTP DPP.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à son tableau de bord d'émissions. Aligné avec UNTP DPP.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#EmissionsPerformance"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#gs1DigitalLink">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">GS1 Digital Link URI</rdfs:label>
+    <rdfs:label xml:lang="fr">URI GS1 Digital Link</rdfs:label>
+    <rdfs:comment xml:lang="en">The standard GS1 Digital Link URI for the product, resolving to the DPP. Uses uncompressed GS1 Digital Link URI syntax per GS1 standards.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">L'URI standard GS1 Digital Link pour le produit, résolvant vers le DPP. Utilise la syntaxe GS1 Digital Link URI non compressée selon les standards GS1.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://www.gs1.org/standards/Digital-Link/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#follows">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">follows</rdfs:label>
+    <rdfs:label xml:lang="fr">suit</rdfs:label>
+    <rdfs:comment xml:lang="en">Links an Intervention to a previous Intervention (creates a chain of interventions).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie une Intervention à une Intervention précédente (crée une chaîne d'interventions).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#EmissionsPerformance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Emissions Performance</rdfs:label>
+    <rdfs:label xml:lang="fr">Performance Émissions</rdfs:label>
+    <rdfs:comment xml:lang="en">Greenhouse gas emissions scorecard for a product. Aligned with UNTP DPP.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Tableau de bord des émissions de gaz à effet de serre du produit. Aligné avec UNTP DPP.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/QuantitativeValue"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasSecureDataShare">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has secure data share</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour partage de données sécurisé</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to a SecureDataShare action via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à une action SecureDataShare via EU Business Wallet (EBW).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#SecureDataShare"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#RepairEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Repair Event</rdfs:label>
+    <rdfs:label xml:lang="fr">Événement de Réparation</rdfs:label>
+    <rdfs:comment xml:lang="en">A specific repair or maintenance intervention performed on a product.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une intervention de réparation ou maintenance spécifique effectuée sur un produit.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Service"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hashDigest">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">hash digest</rdfs:label>
+    <rdfs:label xml:lang="fr">digest de hash</rdfs:label>
+    <rdfs:comment xml:lang="en">Hash digest for verification of link integrity.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Digest de hash pour vérification de l'intégrité du lien.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#SecureLink"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#CredentialIssuanceSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Subject that may declare a credential issuer</rdfs:label>
+    <owl:equivalentClass rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b24"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#interventionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">intervention type</rdfs:label>
+    <rdfs:label xml:lang="fr">type d'intervention</rdfs:label>
+    <rdfs:comment xml:lang="en">The type of intervention (diagnostic, reparation, maintenance, remplacement, retour_fabricant).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le type d'intervention (diagnostic, réparation, maintenance, remplacement, retour fabricant).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasDimensions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has dimensions</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour dimensions</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to its physical dimensions. Aligned with UNTP DPP-05.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à ses dimensions physiques. Aligné avec UNTP DPP-05.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ProductDimensions"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#referenceRegulation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">reference regulation</rdfs:label>
+    <rdfs:label xml:lang="fr">référence réglementation</rdfs:label>
+    <rdfs:comment xml:lang="en">Reference regulation for the conformity claim.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Réglementation de référence pour la déclaration de conformité.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ConformityClaim"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Regulation"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b30">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b31"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#ServiceRequest">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Service Request</rdfs:label>
+    <rdfs:label xml:lang="fr">Demande de Service</rdfs:label>
+    <rdfs:comment xml:lang="en">A request for after-sales service (SAV) for a product.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une demande de service après-vente (SAV) pour un produit.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Service"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasConstituentProduct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has constituent product</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour produit constituant</rdfs:label>
+    <rdfs:comment xml:lang="en">Link to a DPP of a constituent product in the value chain. Enables multi-level traceability.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lien vers un DPP de produit constituant dans la chaîne de valeur. Permet la traçabilité multi-niveau.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#LinkMetadataResource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Resource with UNTP-style link metadata</rdfs:label>
+    <owl:equivalentClass rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b30"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#workOrderForPassport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">work order for passport</rdfs:label>
+    <rdfs:label xml:lang="fr">ordre de travail pour passeport</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a WorkOrder to the ProductPassport it belongs to; inverse of dpp:hasWorkOrder.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ordre de travail au ProductPassport concerné ; inverse de dpp:hasWorkOrder.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#WorkOrder"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <owl:inverseOf rdf:resource="https://ns.verisav.fr/dpp#hasWorkOrder"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hashMethod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">hash method</rdfs:label>
+    <rdfs:label xml:lang="fr">méthode de hash</rdfs:label>
+    <rdfs:comment xml:lang="en">Method used for hashing (e.g., 'SHA-256', 'SHA-512').</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Méthode utilisée pour le hash (ex: 'SHA-256', 'SHA-512').</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#SecureLink"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b16">
+    <rdf:first rdf:resource="https://schema.org/Organization"/>
+    <rdf:rest rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b17"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#resolutionDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">resolution description</rdfs:label>
+    <rdfs:label xml:lang="fr">description de la résolution</rdfs:label>
+    <rdfs:comment xml:lang="en">A description of how the issue was resolved.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une description de la façon dont le problème a été résolu.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b32">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#CircularityPerformance"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#classificationCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">classification code</rdfs:label>
+    <rdfs:label xml:lang="fr">code de classification</rdfs:label>
+    <rdfs:comment xml:lang="en">Classification code according to the specified scheme.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Code de classification selon le schéma spécifié.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductClassification"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#replaces">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">replaces</rdfs:label>
+    <rdfs:label xml:lang="fr">remplace</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ReplacementPart to the original part it replaces.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie une Pièce de Rechange à la pièce originale qu'elle remplace.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ReplacementPart"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ReplacementPart"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#primarySourcedRatio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">primary sourced ratio</rdfs:label>
+    <rdfs:label xml:lang="fr">ratio de sourcing primaire</rdfs:label>
+    <rdfs:comment xml:lang="en">Ratio of materials from primary sources (0-1).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Ratio de matériaux provenant de sources primaires (0-1).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#EmissionsPerformance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#linkName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">link name</rdfs:label>
+    <rdfs:label xml:lang="fr">nom du lien</rdfs:label>
+    <rdfs:comment xml:lang="en">Human-readable name for the link.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Nom lisible par humain pour le lien.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#LinkMetadataResource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b1">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:name>Kévin Boutillier</foaf:name>
+    <rdfs:seeAlso rdf:resource="https://orcid.org/0009-0001-0356-4421"/>
+    <rdfs:seeAlso rdf:resource="https://www.verisav.fr/en/founders/kevin-boutillier"/>
+    <rdfs:seeAlso rdf:resource="https://www.linkedin.com/in/kévinboutillier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Criterion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Criterion</rdfs:label>
+    <rdfs:label xml:lang="fr">Critère</rdfs:label>
+    <rdfs:comment xml:lang="en">A criterion or rule within a standard or regulation against which a claim is evaluated.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Critère ou règle dans un standard ou réglementation contre lequel une déclaration est évaluée.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#purchaseDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">purchase date</rdfs:label>
+    <rdfs:label xml:lang="fr">date d'achat</rdfs:label>
+    <rdfs:comment xml:lang="en">The date when the product was purchased.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La date à laquelle le produit a été acheté.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#interventionForWorkOrder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">intervention for work order</rdfs:label>
+    <rdfs:label xml:lang="fr">intervention pour ordre de travail</rdfs:label>
+    <rdfs:comment xml:lang="en">Links an Intervention to its WorkOrder; inverse of dpp:hasIntervention (Intervention is scoped under WorkOrder, not directly under ProductPassport).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie une intervention à son ordre de travail ; inverse de dpp:hasIntervention.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#WorkOrder"/>
+    <owl:inverseOf rdf:resource="https://ns.verisav.fr/dpp#hasIntervention"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#SecureDataShare">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Secure Data Share</rdfs:label>
+    <rdfs:label xml:lang="fr">Partage de Données Sécurisé</rdfs:label>
+    <rdfs:comment xml:lang="en">A secure sharing of DPP data between economic operators via EU Business Wallet (EBW). Includes cryptographic integrity verification and timestamping.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Un partage sécurisé de données DPP entre opérateurs économiques via EU Business Wallet (EBW). Inclut la vérification d'intégrité cryptographique et l'horodatage.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Action"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Warranty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Warranty</rdfs:label>
+    <rdfs:label xml:lang="fr">Garantie</rdfs:label>
+    <rdfs:comment xml:lang="en">A warranty covering a product, which can be of different types (manufacturer, retailer, extension, maintenance).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une garantie couvrant un produit, qui peut être de différents types (constructeur, distributeur, extension, maintenance).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/WarrantyScope"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#versionNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">Version Number</rdfs:label>
+    <rdfs:label xml:lang="fr">Numéro de Version</rdfs:label>
+    <rdfs:comment xml:lang="en">The GTIN version number (GS1 AI 22) for product changes that do not require a GTIN change per GTIN Management Standard.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le numéro de version GTIN (GS1 AI 22) pour les changements de produit qui ne nécessitent pas un changement de GTIN selon le GTIN Management Standard.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Gs1IdentifiedItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://www.gs1.org/standards/barcodes/application-identifiers/22"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b33">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b34"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#criterionName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">criterion name</rdfs:label>
+    <rdfs:label xml:lang="fr">nom du critère</rdfs:label>
+    <rdfs:comment xml:lang="en">Name of the criterion.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Nom du critère.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Criterion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b18">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b19"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasRepairer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has repairer</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour réparateur</rdfs:label>
+    <rdfs:comment xml:lang="en">Links an Intervention to its Repairer.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie une Intervention à son Réparateur.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Repairer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#workOrderNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">work order number</rdfs:label>
+    <rdfs:label xml:lang="fr">numéro d'ordre de travail</rdfs:label>
+    <rdfs:comment xml:lang="en">The unique identifier for the work order.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">L'identifiant unique de l'ordre de travail.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#WorkOrder"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#partName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">part name</rdfs:label>
+    <rdfs:label xml:lang="fr">nom de la pièce</rdfs:label>
+    <rdfs:comment xml:lang="en">The name of the replacement part.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le nom de la pièce de rechange.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ReplacementPart"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#workOrderPriority">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">work order priority</rdfs:label>
+    <rdfs:label xml:lang="fr">priorité de l'ordre de travail</rdfs:label>
+    <rdfs:comment xml:lang="en">The priority of the work order (basse, normale, haute, urgente).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">La priorité de l'ordre de travail (basse, normale, haute, urgente).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#WorkOrder"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#TraceabilityEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Traceability Event</rdfs:label>
+    <rdfs:label xml:lang="fr">Événement de Traçabilité</rdfs:label>
+    <rdfs:comment xml:lang="en">Traceability event based on ISO/IEC 19987 (EPCIS) or similar standards. Aligned with UNTP DPP-06.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Événement de traçabilité basé sur ISO/IEC 19987 (EPCIS) ou standards similaires. Aligné avec UNTP DPP-06.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Event"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <rdfs:seeAlso rdf:resource="https://www.iso.org/standard/85557.html"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasConsumer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has consumer</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour consommateur</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to its Consumer.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à son Consommateur.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Consumer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#volumeL">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">volume in litres</rdfs:label>
+    <rdfs:label xml:lang="fr">volume en litres</rdfs:label>
+    <rdfs:comment xml:lang="en">Product volume in litres.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Volume du produit en litres.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductDimensions"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#warrantyType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">warranty type</rdfs:label>
+    <rdfs:label xml:lang="fr">type de garantie</rdfs:label>
+    <rdfs:comment xml:lang="en">The type of warranty (constructeur, retailer, extension, maintenance).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le type de garantie (constructeur, distributeur, extension, maintenance).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Warranty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#issueDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">issue date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de publication</rdfs:label>
+    <rdfs:comment xml:lang="en">Date when the standard or regulation was issued.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Date à laquelle le standard ou réglementation a été publié.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#NormativeInstrument"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasProductClassification">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has product classification</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour classification produit</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to product classification. Aligned with UNTP DPP-02.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à une classification produit. Aligné avec UNTP DPP-02.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ProductClassification"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasFacility">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has facility</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour installation</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ProductPassport to the Facility where it was produced.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un ProductPassport à l'Installation où il a été produit.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Facility"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b19">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdf:rest rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b20"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#ProductStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Product Status</rdfs:label>
+    <rdfs:label xml:lang="fr">Statut Produit</rdfs:label>
+    <rdfs:comment xml:lang="en">The current status of a product (under warranty, out of warranty, broken, repaired, etc.).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Le statut actuel d'un produit (sous garantie, hors garantie, en panne, réparé, etc.).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Enumeration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#EconomicOperator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Economic Operator</rdfs:label>
+    <rdfs:label xml:lang="fr">Opérateur Économique</rdfs:label>
+    <rdfs:comment xml:lang="en">An economic operator in the value chain (manufacturer, importer, distributor, dealer, repairer) as per EU ESPR regulation. Can be authenticated via EU Business Wallet (EBW) with EUID (European Unique Identifier).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Un opérateur économique dans la chaîne de valeur (fabricant, importateur, distributeur, revendeur, réparateur) selon la réglementation européenne ESPR. Peut être authentifié via EU Business Wallet (EBW) avec EUID (European Unique Identifier).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Organization"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <rdfs:seeAlso rdf:resource="https://digital-strategy.ec.europa.eu/en/policies/business-wallets"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b23">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#ConformityClaim"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Intervention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Intervention</rdfs:label>
+    <rdfs:label xml:lang="fr">Intervention</rdfs:label>
+    <rdfs:comment xml:lang="en">A technical intervention on a product (diagnostic, repair, maintenance, replacement, return to manufacturer).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une intervention technique sur un produit (diagnostic, réparation, maintenance, remplacement, retour fabricant).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ns.verisav.fr/dpp#RepairEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b22">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#VerifiableProductPassport"/>
+    <rdf:rest rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b23"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Document">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Document</rdfs:label>
+    <rdfs:label xml:lang="fr">Document</rdfs:label>
+    <rdfs:comment xml:lang="en">A document associated with a product (manuals, invoices, certificates, etc.).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Un document associé à un produit (manuels, factures, certificats, etc.).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/DigitalDocument"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#hasIntervention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has intervention</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour intervention</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a WorkOrder to an Intervention.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lie un WorkOrder à une Intervention.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#WorkOrder"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b35">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#Regulation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b34">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#Standard"/>
+    <rdf:rest rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b35"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b20">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#CompoundIdentifier"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#NormativeInstrument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Normative instrument</rdfs:label>
+    <rdfs:label xml:lang="fr">Instrument normatif</rdfs:label>
+    <rdfs:comment xml:lang="en">A standard or regulation document for conformity referencing.</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b33"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#SecureLink">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Secure Link</rdfs:label>
+    <rdfs:label xml:lang="fr">Lien Sécurisé</rdfs:label>
+    <rdfs:comment xml:lang="en">A secure link with hash digest and encryption method for verification.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Lien sécurisé avec digest de hash et méthode de cryptage pour vérification.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/URL"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b4">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/rdf+xml</dcterms:format>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/dpp/dpp.xml"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b26">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#ConformityClaim"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b28">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdf:rest rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b29"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#accuracy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">accuracy</rdfs:label>
+    <rdfs:label xml:lang="fr">précision</rdfs:label>
+    <rdfs:comment xml:lang="en">Accuracy or uncertainty of the metric value (optional).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Précision ou incertitude de la valeur de la métrique (optionnel).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#Metric"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b11">
+    <rdf:type rdf:resource="https://schema.org/SearchAction"/>
+    <schema:target rdf:resource="https://www.verisav.fr/api/v1/vocabulary/dpp/search?q=%7Bquery%7D"/>
+    <schema:query-input>required name=query</schema:query-input>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b25">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#VerifiableCredential"/>
+    <rdf:rest rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b26"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b2">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>text/turtle</dcterms:format>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/dpp/dpp.ttl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#ProductLifecycleStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Product Lifecycle Stage</rdfs:label>
+    <rdfs:label xml:lang="fr">Étape du Cycle de Vie du Produit</rdfs:label>
+    <rdfs:comment xml:lang="en">A stage in the product lifecycle (manufacturing, purchase, usage, end of life, recycling).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une étape dans le cycle de vie du produit (fabrication, achat, usage, fin de vie, recyclage).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Enumeration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/dpp#Repairer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Repairer</rdfs:label>
+    <rdfs:label xml:lang="fr">Réparateur</rdfs:label>
+    <rdfs:comment xml:lang="en">A person or organization that repairs products (union: agent may be a person or an organization, not both at once).</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Une personne ou une organisation qui répare des produits (union : l’agent est une personne ou une organisation, pas les deux simultanément).</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b12"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b8">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/ld+json</dcterms:format>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/dpp/dpp.jsonld"/>
+    <dcterms:title xml:lang="en">DPP Vocabulary (JSON-LD via API)</dcterms:title>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b14">
+    <rdf:first rdf:resource="https://schema.org/Organization"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b29">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#TraceabilityPerformance"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b24">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b25"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b13">
+    <rdf:first rdf:resource="https://schema.org/Person"/>
+    <rdf:rest rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b14"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b15">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b16"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b31">
+    <rdf:first rdf:resource="https://ns.verisav.fr/dpp#SecureLink"/>
+    <rdf:rest rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b32"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b27">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n74caae66e9ab447c878bff6f1c88e477b28"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "Verisav Semantic Vocabularies: DPP, RMA, WTY"
-version: "1.1.0"
-doi: "10.5281/zenodo.18328444"
-date-released: "2026-01-21"
+version: "1.5.2"
+doi: "10.5281/zenodo.18352147"
+date-released: "2026-05-07"
 authors:
   - given-names: Kévin
     family-names: Boutillier

@@ -1,0 +1,1826 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dpp: <https://ns.verisav.fr/dpp#> .
+
+# ============================================================================
+# Verisav Digital Product Passport (DPP) Vocabulary
+# ============================================================================
+
+<https://ns.verisav.fr/dpp#> a owl:Ontology, voaf:Vocabulary ;
+    rdfs:label "Verisav Digital Product Passport Vocabulary"@en ;
+    rdfs:label "Vocabulaire Passeport Produit Numérique Verisav"@fr ;
+    dcterms:title "Verisav DPP Vocabulary"@en ;
+    dcterms:description "Vocabulary for Digital Product Passports (DPP) aligned with the EU Ecodesign for Sustainable Products Regulation (ESPR, Regulation (EU) 2024/1781): product identification, economic operators, compliance and sustainability information, and interoperable machine-readable formats as further specified in delegated acts and EU registry plans. Complements UNCEFACT UNTP DPP (B2B transparency feedstock) and GS1 identifiers (GTIN, GLN, Digital Link). Covers granularity (model, batch, serial per category rules), JRC 2026 methodology themes (essential vs recommended data tiers, need-to-know access), material provenance, emissions and circularity scorecards, traceability, conformity claims, W3C Verifiable Credentials (VCDM 2.0), and EU Business Wallet / EUID-oriented operator identity."@en ;
+    dcterms:description "Vocabulaire pour passeports produit numériques aligné sur le règlement ESPR (UE 2024/1781) : identification, opérateurs économiques, conformité et informations durabilité, formats ouverts, complété par actes délégués et registre DPP UE. Complète l’UNTP DPP (UN/CEFACT) et les identifiants GS1. Couvre la granularité (modèle, lot, série), les thèmes de la méthodologie JRC 2026, la provenance matériaux, émissions et circularité, traçabilité, conformité, VCDM 2.0 et identité opérateur (EBW / EUID)."@fr ;
+    rdfs:comment "Version 1.5.2 (2026-05-07): Additional rdfs:seeAlso — LOV/W3ID/Zenodo/GitHub, Data Act (32023R2854), Interoperable Europe Act (32024R903), GS1 Digital Link URI syntax (ref.gs1.org), ISO/IEC 19987:2024 (EPCIS), CIRPASS-2, CircularData hub, data.europa.eu & GS1 in Europe DPP pages, W3C DID 1.0. Fixed TraceabilityEvent ISO link (was wrong standard). Version 1.5.1: EU policy & CEN block. Version 1.5.0: OWL-DL fixes."@en ;
+    rdfs:comment "Version 1.5.2 (2026-05-07): Nouveaux rdfs:seeAlso — LOV/W3ID/Zenodo/GitHub, Data Act, règlement Interopérable Europe, syntaxe URI GS1 Digital Link, ISO/IEC 19987 (EPCIS), CIRPASS-2, CircularData, portails data.europa.eu et GS1 Europe, W3C DID 1.0. Correction du lien ISO sur TraceabilityEvent. Voir 1.5.1 et antérieur."@fr ;
+    
+    # Technical Metadata (VOAF/VANN)
+    vann:preferredNamespacePrefix "dpp" ;
+    vann:preferredNamespaceUri "https://ns.verisav.fr/dpp#" ;
+    
+    # Versioning & Dates
+    owl:versionInfo "1.5.2" ;
+    owl:versionIRI <https://ns.verisav.fr/dpp/1.5.2> ;
+    dcterms:created "2025-12-16"^^xsd:date ;
+    dcterms:issued "2026-05-07"^^xsd:date ;
+    dcterms:modified "2026-05-07"^^xsd:date ;
+    
+    # Authors & Rights
+    dcterms:creator [
+        a foaf:Person ;
+        foaf:name "Kévin Boutillier" ;
+        rdfs:seeAlso <https://orcid.org/0009-0001-0356-4421> ;
+        rdfs:seeAlso <https://www.verisav.fr/en/founders/kevin-boutillier> ;
+        rdfs:seeAlso <https://www.linkedin.com/in/kévinboutillier>
+    ] ;
+    dcterms:publisher <https://www.verisav.fr> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    cc:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:rights "Copyright © 2025 Verisav SAS. All rights reserved."@en ;
+    dcterms:rights "Copyright © 2025 Verisav SAS. Tous droits réservés."@fr ;
+    
+    # Distributions (formats disponibles)
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "text/turtle" ;
+        dcat:downloadURL <https://ns.verisav.fr/dpp/dpp.ttl>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/ld+json" ;
+        dcat:downloadURL <https://ns.verisav.fr/dpp/dpp.jsonld>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/rdf+xml" ;
+        dcat:downloadURL <https://ns.verisav.fr/dpp/dpp.xml>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "text/plain" ;
+        dcterms:title "SHA-256 checksums"@en ;
+        dcat:downloadURL <https://ns.verisav.fr/dpp/CHECKSUMS.sha256>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "text/turtle" ;
+        dcterms:title "SHACL validation shapes (DPP)"@en ;
+        dcat:downloadURL <https://ns.verisav.fr/dpp/validation/dpp.shacl.ttl>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/schema+json" ;
+        dcterms:title "JSON Schema validation (DPP)"@en ;
+        dcat:downloadURL <https://ns.verisav.fr/dpp/validation/dpp.schema.json>
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/ld+json" ;
+        dcat:accessURL <https://www.verisav.fr/api/dpp/dpp.jsonld> ;
+        dcterms:title "DPP Vocabulary (JSON-LD via API)"@en
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/graphql" ;
+        dcat:accessURL <https://www.verisav.fr/api/graphql> ;
+        dcat:endpointURL <https://www.verisav.fr/api/graphql> ;
+        dcterms:title "Verisav Vocabularies GraphQL API"@en ;
+        dcterms:title "API GraphQL Vocabulaires Verisav"@fr ;
+        dcterms:description "GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY). Supports introspection, multilingual labels, and real-time vocabulary access."@en ;
+        dcterms:description "API GraphQL pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). Supporte l'introspection, les labels multilingues et l'accès en temps réel aux vocabulaires."@fr
+    ] ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcterms:format "application/sparql-results+json" ;
+        dcat:accessURL <https://www.verisav.fr/api/sparql> ;
+        dcat:endpointURL <https://www.verisav.fr/api/sparql> ;
+        dcterms:title "Verisav Vocabularies SPARQL Endpoint"@en ;
+        dcterms:title "Endpoint SPARQL Vocabulaires Verisav"@fr ;
+        dcterms:description "Public SPARQL 1.1 endpoint for querying all Verisav vocabularies (DPP, RMA, WTY). GET/POST with query parameter; responses in application/sparql-results+json or application/sparql-results+xml."@en ;
+        dcterms:description "Endpoint SPARQL 1.1 public pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). GET/POST avec paramètre query ; réponses en application/sparql-results+json ou application/sparql-results+xml."@fr
+    ] ;
+    
+    # API GraphQL endpoint (direct reference)
+    dcat:endpointURL <https://www.verisav.fr/api/graphql> ;
+    dcat:accessURL <https://www.verisav.fr/api/graphql> ;
+    # API SPARQL endpoint (direct reference)
+    dcat:endpointURL <https://www.verisav.fr/api/sparql> ;
+    dcat:accessURL <https://www.verisav.fr/api/sparql> ;
+    rdfs:comment "This vocabulary is accessible via GraphQL API at https://www.verisav.fr/api/graphql and via SPARQL endpoint at https://www.verisav.fr/api/sparql. Use vocabulary(id: \"dpp\") for GraphQL, or SPARQL over the combined DPP, RMA, WTY graph."@en ;
+    rdfs:comment "Ce vocabulaire est accessible via l'API GraphQL à https://www.verisav.fr/api/graphql et via l'endpoint SPARQL à https://www.verisav.fr/api/sparql. Utilisez vocabulary(id: \"dpp\") pour GraphQL, ou SPARQL sur le graphe combiné DPP, RMA, WTY."@fr ;
+    
+    # API de recherche
+    schema:potentialAction [
+        a schema:SearchAction ;
+        schema:target <https://www.verisav.fr/api/v1/vocabulary/dpp/search?q=%7Bquery%7D> ;
+        schema:query-input "required name=query"
+    ] ;
+    
+    # Imports
+    owl:imports <https://schema.org/> ;
+    
+    # EU policy & legal (ESPR, working plan, batteries, data, interoperability)
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1781> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52025DC0187> ;
+    rdfs:seeAlso <https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/ecodesign-sustainable-products-regulation_en> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1542> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R2854> ;
+    rdfs:seeAlso <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R903> ;
+    rdfs:seeAlso <https://publications.jrc.ec.europa.eu/repository/handle/JRC145830> ;
+    # European harmonised standards development (DPP framework — CEN/CENELEC JTC 24)
+    rdfs:seeAlso <https://standards.cencenelec.eu/dyn/www/f?p=305:7:0:25:::FSP_ORG_ID,FSP_LANG_ID:3342699> ;
+    rdfs:seeAlso <https://www.cencenelec.eu/news-events/news/2025/brief-news/2025-12-19-moving-forward-with-espr/> ;
+    # EU R&I pilots & community (semantic / sector deployment)
+    rdfs:seeAlso <https://cirpass2.eu/> ;
+    rdfs:seeAlso <https://circular-data.org/> ;
+    rdfs:seeAlso <https://data.europa.eu/en/news-events/news/eus-digital-product-passport-advancing-transparency-and-sustainability> ;
+    rdfs:seeAlso <https://gs1.eu/activities/digital-product-passport/on-the-eu-digital-product-passport/> ;
+    # Identifiers, traceability, B2B transparency, trust
+    rdfs:seeAlso <https://ref.gs1.org/standards/digital-link/uri-syntax> ;
+    rdfs:seeAlso <https://www.iso.org/standard/85557.html> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/Digital-Link/> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/id-keys> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    rdfs:seeAlso <https://www.w3.org/TR/did-1.0/> ;
+    rdfs:seeAlso <https://www.w3.org/TR/vc-data-model-2.0/> ;
+    # FAIR publication & persistent discovery
+    rdfs:seeAlso <https://lov.linkeddata.es/dataset/lov/vocabs/dpp> ;
+    rdfs:seeAlso <https://w3id.org/verisav/dpp> ;
+    rdfs:seeAlso <https://github.com/Verisav/vocabularies> ;
+    rdfs:seeAlso <https://doi.org/10.5281/zenodo.18352147> ;
+    rdfs:comment "This vocabulary is aligned with UNTP DPP specification for sustainability and traceability, EU Business Wallet (EBW) for verifiable credentials and enterprise identity, while maintaining a specific focus on after-sales service (SAV)."@en ;
+    rdfs:comment "Ce vocabulaire est aligné avec la spécification UNTP DPP pour la durabilité et la traçabilité, EU Business Wallet (EBW) pour les credentials vérifiables et l'identité d'entreprise, tout en conservant un focus spécifique sur le service après-vente (SAV)."@fr .
+
+# ============================================================================
+# CLASSES
+# ============================================================================
+
+dpp:ProductPassport a owl:Class ;
+    rdfs:label "Product Passport"@en ;
+    rdfs:label "Passeport Produit"@fr ;
+    rdfs:comment "A Digital Product Passport that tracks a product throughout its entire lifecycle."@en ;
+    rdfs:comment "Un Passeport Produit Numérique qui suit un produit tout au long de son cycle de vie."@fr ;
+    rdfs:subClassOf schema:Product .
+
+# ============================================================================
+# EU BUSINESS WALLET (EBW) & VERIFIABLE CREDENTIALS SUPPORT
+# ============================================================================
+
+dpp:VerifiableProductPassport a owl:Class ;
+    rdfs:label "Verifiable Product Passport"@en ;
+    rdfs:label "Passeport Produit Vérifiable"@fr ;
+    rdfs:comment "A Digital Product Passport issued as a W3C Verifiable Credential (VCDM 2.0) via EU Business Wallet (EBW). Provides cryptographic proof of authenticity and integrity."@en ;
+    rdfs:comment "Un Passeport Produit Numérique émis comme W3C Verifiable Credential (VCDM 2.0) via EU Business Wallet (EBW). Fournit une preuve cryptographique d'authenticité et d'intégrité."@fr ;
+    rdfs:subClassOf dpp:ProductPassport ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.w3.org/TR/vc-data-model-2.0/> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+dpp:VerifiableCredential a owl:Class ;
+    rdfs:label "Verifiable Credential"@en ;
+    rdfs:label "Credential Vérifiable"@fr ;
+    rdfs:comment "A W3C Verifiable Credential (VCDM 2.0) that can be used to verify claims about a product passport or economic operator. Stored and managed via EU Business Wallet (EBW)."@en ;
+    rdfs:comment "Un W3C Verifiable Credential (VCDM 2.0) qui peut être utilisé pour vérifier des déclarations sur un passeport produit ou un opérateur économique. Stocké et géré via EU Business Wallet (EBW)."@fr ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.w3.org/TR/vc-data-model-2.0/> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+dpp:SecureDataShare a owl:Class ;
+    rdfs:label "Secure Data Share"@en ;
+    rdfs:label "Partage de Données Sécurisé"@fr ;
+    rdfs:comment "A secure sharing of DPP data between economic operators via EU Business Wallet (EBW). Includes cryptographic integrity verification and timestamping."@en ;
+    rdfs:comment "Un partage sécurisé de données DPP entre opérateurs économiques via EU Business Wallet (EBW). Inclut la vérification d'intégrité cryptographique et l'horodatage."@fr ;
+    rdfs:subClassOf schema:Action ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+dpp:Warranty a owl:Class ;
+    rdfs:label "Warranty"@en ;
+    rdfs:label "Garantie"@fr ;
+    rdfs:comment "A warranty covering a product, which can be of different types (manufacturer, retailer, extension, maintenance)."@en ;
+    rdfs:comment "Une garantie couvrant un produit, qui peut être de différents types (constructeur, distributeur, extension, maintenance)."@fr ;
+    rdfs:subClassOf schema:WarrantyScope .
+
+dpp:WarrantyClaim a owl:Class ;
+    rdfs:label "Warranty Claim"@en ;
+    rdfs:label "Réclamation de Garantie"@fr ;
+    rdfs:comment "A claim made under a warranty."@en ;
+    rdfs:comment "Une réclamation effectuée sous garantie."@fr ;
+    rdfs:subClassOf schema:Claim .
+
+dpp:ServiceRequest a owl:Class ;
+    rdfs:label "Service Request"@en ;
+    rdfs:label "Demande de Service"@fr ;
+    rdfs:comment "A request for after-sales service (SAV) for a product."@en ;
+    rdfs:comment "Une demande de service après-vente (SAV) pour un produit."@fr ;
+    rdfs:subClassOf schema:Service .
+
+dpp:WorkOrder a owl:Class ;
+    rdfs:label "Work Order"@en ;
+    rdfs:label "Ordre de Travail"@fr ;
+    rdfs:comment "An order for work to be performed on a product (repair, maintenance, etc.)."@en ;
+    rdfs:comment "Un ordre de travail à effectuer sur un produit (réparation, maintenance, etc.)."@fr ;
+    rdfs:subClassOf schema:Service .
+
+dpp:RepairEvent a owl:Class ;
+    rdfs:label "Repair Event"@en ;
+    rdfs:label "Événement de Réparation"@fr ;
+    rdfs:comment "A specific repair or maintenance intervention performed on a product."@en ;
+    rdfs:comment "Une intervention de réparation ou maintenance spécifique effectuée sur un produit."@fr ;
+    rdfs:subClassOf schema:Service .
+
+dpp:Intervention a owl:Class ;
+    rdfs:label "Intervention"@en ;
+    rdfs:label "Intervention"@fr ;
+    rdfs:comment "A technical intervention on a product (diagnostic, repair, maintenance, replacement, return to manufacturer)."@en ;
+    rdfs:comment "Une intervention technique sur un produit (diagnostic, réparation, maintenance, remplacement, retour fabricant)."@fr ;
+    rdfs:subClassOf dpp:RepairEvent .
+
+dpp:Diagnostic a owl:Class ;
+    rdfs:label "Diagnostic"@en ;
+    rdfs:label "Diagnostic"@fr ;
+    rdfs:comment "A diagnostic assessment performed on a product to identify issues."@en ;
+    rdfs:comment "Une évaluation de diagnostic effectuée sur un produit pour identifier les problèmes."@fr ;
+    rdfs:subClassOf schema:Thing .
+
+dpp:ReplacementPart a owl:Class ;
+    rdfs:label "Replacement Part"@en ;
+    rdfs:label "Pièce de Rechange"@fr ;
+    rdfs:comment "A part used to replace a component in a product during repair or maintenance."@en ;
+    rdfs:comment "Une pièce utilisée pour remplacer un composant dans un produit lors d'une réparation ou maintenance."@fr ;
+    rdfs:subClassOf schema:Product .
+
+dpp:ProductStatus a owl:Class ;
+    rdfs:label "Product Status"@en ;
+    rdfs:label "Statut Produit"@fr ;
+    rdfs:comment "The current status of a product (under warranty, out of warranty, broken, repaired, etc.)."@en ;
+    rdfs:comment "Le statut actuel d'un produit (sous garantie, hors garantie, en panne, réparé, etc.)."@fr ;
+    rdfs:subClassOf schema:Enumeration .
+
+dpp:ProductLifecycleStage a owl:Class ;
+    rdfs:label "Product Lifecycle Stage"@en ;
+    rdfs:label "Étape du Cycle de Vie du Produit"@fr ;
+    rdfs:comment "A stage in the product lifecycle (manufacturing, purchase, usage, end of life, recycling)."@en ;
+    rdfs:comment "Une étape dans le cycle de vie du produit (fabrication, achat, usage, fin de vie, recyclage)."@fr ;
+    rdfs:subClassOf schema:Enumeration .
+
+dpp:Retailer a owl:Class ;
+    rdfs:label "Retailer"@en ;
+    rdfs:label "Distributeur"@fr ;
+    rdfs:comment "A retailer or distributor who sells products."@en ;
+    rdfs:comment "Un distributeur qui vend des produits."@fr ;
+    rdfs:subClassOf schema:Organization .
+
+dpp:Repairer a owl:Class ;
+    rdfs:label "Repairer"@en ;
+    rdfs:label "Réparateur"@fr ;
+    rdfs:comment "A person or organization that repairs products (union: agent may be a person or an organization, not both at once)."@en ;
+    rdfs:comment "Une personne ou une organisation qui répare des produits (union : l’agent est une personne ou une organisation, pas les deux simultanément)."@fr ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:unionOf ( schema:Person schema:Organization )
+    ] .
+
+dpp:Manufacturer a owl:Class ;
+    rdfs:label "Manufacturer"@en ;
+    rdfs:label "Fabricant"@fr ;
+    rdfs:comment "The manufacturer of a product."@en ;
+    rdfs:comment "Le fabricant d'un produit."@fr ;
+    rdfs:subClassOf schema:Organization .
+
+dpp:Consumer a owl:Class ;
+    rdfs:label "Consumer"@en ;
+    rdfs:label "Consommateur"@fr ;
+    rdfs:comment "A consumer who owns or uses a product."@en ;
+    rdfs:comment "Un consommateur qui possède ou utilise un produit."@fr ;
+    rdfs:subClassOf schema:Person .
+
+dpp:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:label "Document"@fr ;
+    rdfs:comment "A document associated with a product (manuals, invoices, certificates, etc.)."@en ;
+    rdfs:comment "Un document associé à un produit (manuels, factures, certificats, etc.)."@fr ;
+    rdfs:subClassOf schema:DigitalDocument .
+
+dpp:RecyclingInstructions a owl:Class ;
+    rdfs:label "Recycling Instructions"@en ;
+    rdfs:label "Consignes de Recyclage"@fr ;
+    rdfs:comment "Instructions for recycling or disposing of a product at end of life."@en ;
+    rdfs:comment "Instructions pour recycler ou éliminer un produit en fin de vie."@fr ;
+    rdfs:subClassOf schema:CreativeWork .
+
+dpp:CompoundIdentifier a owl:Class ;
+    rdfs:label "Compound Identifier"@en ;
+    rdfs:label "Identifiant Composé"@fr ;
+    rdfs:comment "A complex identifier combining a GTIN with a variant, batch, or serial number (Made-to-Order products)."@en ;
+    rdfs:comment "Un identifiant complexe combinant un GTIN avec un variant, lot ou numéro de série (produits sur mesure)."@fr ;
+    rdfs:subClassOf schema:PropertyValue ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:EconomicOperator a owl:Class ;
+    rdfs:label "Economic Operator"@en ;
+    rdfs:label "Opérateur Économique"@fr ;
+    rdfs:comment "An economic operator in the value chain (manufacturer, importer, distributor, dealer, repairer) as per EU ESPR regulation. Can be authenticated via EU Business Wallet (EBW) with EUID (European Unique Identifier)."@en ;
+    rdfs:comment "Un opérateur économique dans la chaîne de valeur (fabricant, importateur, distributeur, revendeur, réparateur) selon la réglementation européenne ESPR. Peut être authentifié via EU Business Wallet (EBW) avec EUID (European Unique Identifier)."@fr ;
+    rdfs:subClassOf schema:Organization ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+dpp:Facility a owl:Class ;
+    rdfs:label "Facility"@en ;
+    rdfs:label "Installation"@fr ;
+    rdfs:comment "A location or building involved in the value chain of a product (manufacturing facility, warehouse, etc.) as per EU ESPR regulation. Aligned with UNTP DPP-04."@en ;
+    rdfs:comment "Un lieu ou bâtiment impliqué dans la chaîne de valeur d'un produit (usine de fabrication, entrepôt, etc.) selon la réglementation européenne ESPR. Aligné avec UNTP DPP-04."@fr ;
+    rdfs:subClassOf schema:Place ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT CLASSES - PRODUCT DIMENSIONS (DPP-05) & CUSTOMS
+# ============================================================================
+
+dpp:ProductDimensions a owl:Class ;
+    rdfs:label "Product Dimensions"@en ;
+    rdfs:label "Dimensions Produit"@fr ;
+    rdfs:comment "Key product dimensions (length, width, height, weight, volume) for customs declarations and conformity calculations. Aligned with UNTP DPP-05."@en ;
+    rdfs:comment "Dimensions clés du produit (longueur, largeur, hauteur, poids, volume) pour déclarations douanières et calculs de conformité. Aligné avec UNTP DPP-05."@fr ;
+    rdfs:subClassOf schema:QuantitativeValue ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT CLASSES - MATERIAL PROVENANCE (DPP-03)
+# ============================================================================
+
+dpp:MaterialProvenance a owl:Class ;
+    rdfs:label "Material Provenance"@en ;
+    rdfs:label "Provenance des Matériaux"@fr ;
+    rdfs:comment "Information about material provenance: name, mass fraction, origin country. Aligned with UNTP DPP-03."@en ;
+    rdfs:comment "Information sur la provenance d'un matériau : nom, fraction massique, pays d'origine. Aligné avec UNTP DPP-03."@fr ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT CLASSES - PRODUCT CLASSIFICATION (DPP-02)
+# ============================================================================
+
+dpp:ProductClassification a owl:Class ;
+    rdfs:label "Product Classification"@en ;
+    rdfs:label "Classification Produit"@fr ;
+    rdfs:comment "Product classification according to a standardized scheme (UN-CPC, GS1, NACE, etc.). Aligned with UNTP DPP-02."@en ;
+    rdfs:comment "Classification d'un produit selon un schéma standardisé (UN-CPC, GS1, NACE, etc.). Aligné avec UNTP DPP-02."@fr ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT CLASSES - EMISSIONS PERFORMANCE
+# ============================================================================
+
+dpp:EmissionsPerformance a owl:Class ;
+    rdfs:label "Emissions Performance"@en ;
+    rdfs:label "Performance Émissions"@fr ;
+    rdfs:comment "Greenhouse gas emissions scorecard for a product. Aligned with UNTP DPP."@en ;
+    rdfs:comment "Tableau de bord des émissions de gaz à effet de serre du produit. Aligné avec UNTP DPP."@fr ;
+    rdfs:subClassOf schema:QuantitativeValue ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT CLASSES - CIRCULARITY PERFORMANCE
+# ============================================================================
+
+dpp:CircularityPerformance a owl:Class ;
+    rdfs:label "Circularity Performance"@en ;
+    rdfs:label "Performance Circularité"@fr ;
+    rdfs:comment "Product circularity scorecard. Aligned with UNTP DPP."@en ;
+    rdfs:comment "Tableau de bord de la circularité du produit. Aligné avec UNTP DPP."@fr ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    rdfs:seeAlso <https://www.ellenmacarthurfoundation.org/resources/apply/material-circularity-indicator> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT CLASSES - CONFORMITY CLAIMS
+# ============================================================================
+
+dpp:ConformityClaim a owl:Class ;
+    rdfs:label "Conformity Claim"@en ;
+    rdfs:label "Déclaration de Conformité"@fr ;
+    rdfs:comment "Claim of conformity to a standard or regulation. Aligned with UNTP DPP."@en ;
+    rdfs:comment "Déclaration de conformité à un standard ou réglementation. Aligné avec UNTP DPP."@fr ;
+    rdfs:subClassOf schema:Claim ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:Standard a owl:Class ;
+    rdfs:label "Standard"@en ;
+    rdfs:label "Standard"@fr ;
+    rdfs:comment "Standard, norm, or reference scheme for a conformity claim."@en ;
+    rdfs:comment "Standard, norme ou schéma de référence pour une déclaration de conformité."@fr ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:Regulation a owl:Class ;
+    rdfs:label "Regulation"@en ;
+    rdfs:label "Réglementation"@fr ;
+    rdfs:comment "Reference regulation for a conformity claim."@en ;
+    rdfs:comment "Réglementation de référence pour une déclaration de conformité."@fr ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:Criterion a owl:Class ;
+    rdfs:label "Criterion"@en ;
+    rdfs:label "Critère"@fr ;
+    rdfs:comment "A criterion or rule within a standard or regulation against which a claim is evaluated."@en ;
+    rdfs:comment "Critère ou règle dans un standard ou réglementation contre lequel une déclaration est évaluée."@fr ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:Metric a owl:Class ;
+    rdfs:label "Metric"@en ;
+    rdfs:label "Métrique"@fr ;
+    rdfs:comment "A metric defining actual measured values, optionally including accuracy."@en ;
+    rdfs:comment "Métrique définissant les valeurs mesurées réelles, incluant optionnellement la précision."@fr ;
+    rdfs:subClassOf schema:QuantitativeValue ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT CLASSES - TRACEABILITY (DPP-06)
+# ============================================================================
+
+dpp:TraceabilityEvent a owl:Class ;
+    rdfs:label "Traceability Event"@en ;
+    rdfs:label "Événement de Traçabilité"@fr ;
+    rdfs:comment "Traceability event based on ISO/IEC 19987 (EPCIS) or similar standards. Aligned with UNTP DPP-06."@en ;
+    rdfs:comment "Événement de traçabilité basé sur ISO/IEC 19987 (EPCIS) ou standards similaires. Aligné avec UNTP DPP-06."@fr ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    rdfs:seeAlso <https://www.iso.org/standard/85557.html> ;
+    vs:term_status "stable" .
+
+dpp:TraceabilityPerformance a owl:Class ;
+    rdfs:label "Traceability Performance"@en ;
+    rdfs:label "Performance Traçabilité"@fr ;
+    rdfs:comment "Traceability information for a specific value chain process. Aligned with UNTP DPP."@en ;
+    rdfs:comment "Information de traçabilité pour un processus spécifique de la chaîne de valeur. Aligné avec UNTP DPP."@fr ;
+    rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:SecureLink a owl:Class ;
+    rdfs:label "Secure Link"@en ;
+    rdfs:label "Lien Sécurisé"@fr ;
+    rdfs:comment "A secure link with hash digest and encryption method for verification."@en ;
+    rdfs:comment "Lien sécurisé avec digest de hash et méthode de cryptage pour vérification."@fr ;
+    rdfs:subClassOf schema:URL ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# DOMAIN UNION CLASSES (OWL DL — explicit disjunctive domains)
+# Multiple rdfs:domain axioms on one property imply intersection; these classes
+# restore the intended “subject may be A or B” semantics.
+# ============================================================================
+
+dpp:GlnCarrier a owl:Class ;
+    rdfs:label "GLN carrier"@en ;
+    rdfs:label "Porteur de GLN"@fr ;
+    rdfs:comment "Any organization or place that may carry a GS1 GLN (covers EconomicOperator ⊑ Organization, Facility ⊑ Place)."@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:unionOf ( schema:Organization schema:Place )
+    ] ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:Gs1IdentifiedItem a owl:Class ;
+    rdfs:label "GS1 identified item"@en ;
+    rdfs:label "Article identifié GS1"@fr ;
+    rdfs:comment "Product passport or compound identifier node that may bear GTIN-related attributes."@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:unionOf ( dpp:ProductPassport dpp:CompoundIdentifier )
+    ] ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:VerifiableCredentialAttachmentSubject a owl:Class ;
+    rdfs:label "Subject that may attach a verifiable credential"@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:unionOf ( dpp:VerifiableProductPassport dpp:ConformityClaim )
+    ] ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:CredentialIssuanceSubject a owl:Class ;
+    rdfs:label "Subject that may declare a credential issuer"@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:unionOf ( dpp:VerifiableCredential dpp:ConformityClaim )
+    ] ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:TraceabilityEventHost a owl:Class ;
+    rdfs:label "Traceability event host"@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:unionOf ( dpp:ProductPassport dpp:TraceabilityPerformance )
+    ] ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:LinkMetadataResource a owl:Class ;
+    rdfs:label "Resource with UNTP-style link metadata"@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:unionOf ( dpp:SecureLink dpp:CircularityPerformance )
+    ] ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:NormativeInstrument a owl:Class ;
+    rdfs:label "Normative instrument"@en ;
+    rdfs:label "Instrument normatif"@fr ;
+    rdfs:comment "A standard or regulation document for conformity referencing."@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:unionOf ( dpp:Standard dpp:Regulation )
+    ] ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# PROPERTIES
+# ============================================================================
+
+dpp:hasWarranty a owl:ObjectProperty ;
+    rdfs:label "has warranty"@en ;
+    rdfs:label "a pour garantie"@fr ;
+    rdfs:comment "Links a ProductPassport to its Warranty."@en ;
+    rdfs:comment "Lie un ProductPassport à sa Garantie."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Warranty .
+
+dpp:hasWarrantyClaim a owl:ObjectProperty ;
+    rdfs:label "has warranty claim"@en ;
+    rdfs:label "a pour réclamation"@fr ;
+    rdfs:comment "Links a ProductPassport to a WarrantyClaim."@en ;
+    rdfs:comment "Lie un ProductPassport à une Réclamation de Garantie."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:WarrantyClaim .
+
+dpp:hasWorkOrder a owl:ObjectProperty ;
+    rdfs:label "has work order"@en ;
+    rdfs:label "a pour ordre de travail"@fr ;
+    rdfs:comment "Links a ProductPassport to a WorkOrder."@en ;
+    rdfs:comment "Lie un ProductPassport à un Ordre de Travail."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:WorkOrder .
+
+dpp:hasIntervention a owl:ObjectProperty ;
+    rdfs:label "has intervention"@en ;
+    rdfs:label "a pour intervention"@fr ;
+    rdfs:comment "Links a WorkOrder to an Intervention."@en ;
+    rdfs:comment "Lie un WorkOrder à une Intervention."@fr ;
+    rdfs:domain dpp:WorkOrder ;
+    rdfs:range dpp:Intervention .
+
+dpp:hasServiceRequest a owl:ObjectProperty ;
+    rdfs:label "has service request"@en ;
+    rdfs:label "a pour demande de service"@fr ;
+    rdfs:comment "Links a ProductPassport to a ServiceRequest."@en ;
+    rdfs:comment "Lie un ProductPassport à une Demande de Service."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:ServiceRequest .
+
+dpp:hasReplacementPart a owl:ObjectProperty ;
+    rdfs:label "has replacement part"@en ;
+    rdfs:label "a pour pièce de rechange"@fr ;
+    rdfs:comment "Links an Intervention to a ReplacementPart."@en ;
+    rdfs:comment "Lie une Intervention à une Pièce de Rechange."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range dpp:ReplacementPart .
+
+dpp:hasDiagnostic a owl:ObjectProperty ;
+    rdfs:label "has diagnostic"@en ;
+    rdfs:label "a pour diagnostic"@fr ;
+    rdfs:comment "Links an Intervention to a Diagnostic."@en ;
+    rdfs:comment "Lie une Intervention à un Diagnostic."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range dpp:Diagnostic .
+
+dpp:hasLifecycleStage a owl:ObjectProperty ;
+    rdfs:label "has lifecycle stage"@en ;
+    rdfs:label "a pour étape de cycle de vie"@fr ;
+    rdfs:comment "Links a ProductPassport to a ProductLifecycleStage."@en ;
+    rdfs:comment "Lie un ProductPassport à une Étape du Cycle de Vie."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:ProductLifecycleStage .
+
+dpp:hasCurrentStatus a owl:ObjectProperty ;
+    rdfs:label "has current status"@en ;
+    rdfs:label "a pour statut actuel"@fr ;
+    rdfs:comment "Links a ProductPassport to its current ProductStatus."@en ;
+    rdfs:comment "Lie un ProductPassport à son ProductStatus actuel."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:ProductStatus .
+
+dpp:hasRetailer a owl:ObjectProperty ;
+    rdfs:label "has retailer"@en ;
+    rdfs:label "a pour distributeur"@fr ;
+    rdfs:comment "Links a ProductPassport to its Retailer."@en ;
+    rdfs:comment "Lie un ProductPassport à son Distributeur."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Retailer .
+
+dpp:hasRepairer a owl:ObjectProperty ;
+    rdfs:label "has repairer"@en ;
+    rdfs:label "a pour réparateur"@fr ;
+    rdfs:comment "Links an Intervention to its Repairer."@en ;
+    rdfs:comment "Lie une Intervention à son Réparateur."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range dpp:Repairer .
+
+dpp:hasManufacturer a owl:ObjectProperty ;
+    rdfs:label "has manufacturer"@en ;
+    rdfs:label "a pour fabricant"@fr ;
+    rdfs:comment "Links a ProductPassport to its Manufacturer."@en ;
+    rdfs:comment "Lie un ProductPassport à son Fabricant."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Manufacturer .
+
+dpp:hasConsumer a owl:ObjectProperty ;
+    rdfs:label "has consumer"@en ;
+    rdfs:label "a pour consommateur"@fr ;
+    rdfs:comment "Links a ProductPassport to its Consumer."@en ;
+    rdfs:comment "Lie un ProductPassport à son Consommateur."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Consumer .
+
+dpp:hasDocument a owl:ObjectProperty ;
+    rdfs:label "has document"@en ;
+    rdfs:label "a pour document"@fr ;
+    rdfs:comment "Links a ProductPassport to a Document."@en ;
+    rdfs:comment "Lie un ProductPassport à un Document."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Document .
+
+dpp:hasRecyclingInstructions a owl:ObjectProperty ;
+    rdfs:label "has recycling instructions"@en ;
+    rdfs:label "a pour consignes de recyclage"@fr ;
+    rdfs:comment "Links a ProductPassport to RecyclingInstructions."@en ;
+    rdfs:comment "Lie un ProductPassport à des Consignes de Recyclage."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:RecyclingInstructions .
+
+dpp:hasEconomicOperator a owl:ObjectProperty ;
+    rdfs:label "has economic operator"@en ;
+    rdfs:label "a pour opérateur économique"@fr ;
+    rdfs:comment "Links a ProductPassport to its EconomicOperator (manufacturer, importer, distributor, etc.)."@en ;
+    rdfs:comment "Lie un ProductPassport à son Opérateur Économique (fabricant, importateur, distributeur, etc.)."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:EconomicOperator .
+
+dpp:hasFacility a owl:ObjectProperty ;
+    rdfs:label "has facility"@en ;
+    rdfs:label "a pour installation"@fr ;
+    rdfs:comment "Links a ProductPassport to the Facility where it was produced."@en ;
+    rdfs:comment "Lie un ProductPassport à l'Installation où il a été produit."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:Facility .
+
+dpp:hasCompoundIdentifier a owl:ObjectProperty ;
+    rdfs:label "has compound identifier"@en ;
+    rdfs:label "a pour identifiant composé"@fr ;
+    rdfs:comment "Links a ProductPassport to a CompoundIdentifier (GTIN + variant/batch/serial)."@en ;
+    rdfs:comment "Lie un ProductPassport à un Identifiant Composé (GTIN + variant/lot/série)."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:CompoundIdentifier .
+
+# ============================================================================
+# UNTP ALIGNMENT PROPERTIES - CUSTOMS & DIMENSIONS (DPP-05)
+# ============================================================================
+
+dpp:countryOfProduction a owl:DatatypeProperty ;
+    rdfs:label "country of production"@en ;
+    rdfs:label "pays de fabrication"@fr ;
+    rdfs:comment "ISO 3166-1 alpha-2 country code where the product was manufactured. Required for customs declarations and rules of origin. Aligned with UNTP DPP."@en ;
+    rdfs:comment "Code pays ISO 3166-1 alpha-2 où le produit a été fabriqué. Requis pour déclarations douanières et règles d'origine. Aligné avec UNTP DPP."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:dueDiligenceDeclaration a owl:ObjectProperty ;
+    rdfs:label "due diligence declaration"@en ;
+    rdfs:label "déclaration de vigilance"@fr ;
+    rdfs:comment "Link to a due diligence declaration document meeting legal requirements of the importing market (e.g. EUDR, conflict minerals). Aligned with UNTP DPP."@en ;
+    rdfs:comment "Lien vers un document de déclaration de vigilance conforme aux exigences légales du marché importateur (ex. EUDR, minerais de conflit). Aligné avec UNTP DPP."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:SecureLink ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:hasDimensions a owl:ObjectProperty ;
+    rdfs:label "has dimensions"@en ;
+    rdfs:label "a pour dimensions"@fr ;
+    rdfs:comment "Links a ProductPassport to its physical dimensions. Aligned with UNTP DPP-05."@en ;
+    rdfs:comment "Lie un ProductPassport à ses dimensions physiques. Aligné avec UNTP DPP-05."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:ProductDimensions ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:weightKg a owl:DatatypeProperty ;
+    rdfs:label "weight in kg"@en ;
+    rdfs:label "poids en kg"@fr ;
+    rdfs:comment "Product weight in kilograms."@en ;
+    rdfs:comment "Poids du produit en kilogrammes."@fr ;
+    rdfs:domain dpp:ProductDimensions ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:lengthCm a owl:DatatypeProperty ;
+    rdfs:label "length in cm"@en ;
+    rdfs:label "longueur en cm"@fr ;
+    rdfs:comment "Product length in centimetres."@en ;
+    rdfs:comment "Longueur du produit en centimètres."@fr ;
+    rdfs:domain dpp:ProductDimensions ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:widthCm a owl:DatatypeProperty ;
+    rdfs:label "width in cm"@en ;
+    rdfs:label "largeur en cm"@fr ;
+    rdfs:comment "Product width in centimetres."@en ;
+    rdfs:comment "Largeur du produit en centimètres."@fr ;
+    rdfs:domain dpp:ProductDimensions ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:heightCm a owl:DatatypeProperty ;
+    rdfs:label "height in cm"@en ;
+    rdfs:label "hauteur en cm"@fr ;
+    rdfs:comment "Product height in centimetres."@en ;
+    rdfs:comment "Hauteur du produit en centimètres."@fr ;
+    rdfs:domain dpp:ProductDimensions ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:volumeL a owl:DatatypeProperty ;
+    rdfs:label "volume in litres"@en ;
+    rdfs:label "volume en litres"@fr ;
+    rdfs:comment "Product volume in litres."@en ;
+    rdfs:comment "Volume du produit en litres."@fr ;
+    rdfs:domain dpp:ProductDimensions ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# EU BUSINESS WALLET (EBW) & VERIFIABLE CREDENTIALS PROPERTIES
+# ============================================================================
+
+dpp:issuedBy a owl:ObjectProperty ;
+    rdfs:label "issued by"@en ;
+    rdfs:label "émis par"@fr ;
+    rdfs:comment "Links a VerifiableProductPassport to the EconomicOperator that issued it via EU Business Wallet (EBW)."@en ;
+    rdfs:comment "Lie un VerifiableProductPassport à l'Opérateur Économique qui l'a émis via EU Business Wallet (EBW)."@fr ;
+    rdfs:domain dpp:VerifiableProductPassport ;
+    rdfs:range dpp:EconomicOperator ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+dpp:hasVerifiableCredential a owl:ObjectProperty ;
+    rdfs:label "has verifiable credential"@en ;
+    rdfs:label "a pour credential vérifiable"@fr ;
+    rdfs:comment "Links a VerifiableProductPassport or ConformityClaim to its W3C Verifiable Credential (VCDM 2.0) stored in EU Business Wallet (EBW)."@en ;
+    rdfs:comment "Lie un VerifiableProductPassport ou ConformityClaim à son W3C Verifiable Credential (VCDM 2.0) stocké dans EU Business Wallet (EBW)."@fr ;
+    rdfs:domain dpp:VerifiableCredentialAttachmentSubject ;
+    rdfs:range dpp:VerifiableCredential ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.w3.org/TR/vc-data-model-2.0/> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+dpp:sharedWith a owl:ObjectProperty ;
+    rdfs:label "shared with"@en ;
+    rdfs:label "partagé avec"@fr ;
+    rdfs:comment "Links a SecureDataShare to the EconomicOperator with whom DPP data is shared via EU Business Wallet (EBW)."@en ;
+    rdfs:comment "Lie un SecureDataShare à l'Opérateur Économique avec qui les données DPP sont partagées via EU Business Wallet (EBW)."@fr ;
+    rdfs:domain dpp:SecureDataShare ;
+    rdfs:range dpp:EconomicOperator ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+dpp:hasSecureDataShare a owl:ObjectProperty ;
+    rdfs:label "has secure data share"@en ;
+    rdfs:label "a pour partage de données sécurisé"@fr ;
+    rdfs:comment "Links a ProductPassport to a SecureDataShare action via EU Business Wallet (EBW)."@en ;
+    rdfs:comment "Lie un ProductPassport à une action SecureDataShare via EU Business Wallet (EBW)."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:SecureDataShare ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+# Inverse relations (one owl:inverseOf per property — OWL 2 DL constraint)
+dpp:workOrderForPassport a owl:ObjectProperty ;
+    rdfs:label "work order for passport"@en ;
+    rdfs:label "ordre de travail pour passeport"@fr ;
+    rdfs:comment "Links a WorkOrder to the ProductPassport it belongs to; inverse of dpp:hasWorkOrder."@en ;
+    rdfs:comment "Lie un ordre de travail au ProductPassport concerné ; inverse de dpp:hasWorkOrder."@fr ;
+    rdfs:domain dpp:WorkOrder ;
+    rdfs:range dpp:ProductPassport ;
+    owl:inverseOf dpp:hasWorkOrder .
+
+dpp:interventionForWorkOrder a owl:ObjectProperty ;
+    rdfs:label "intervention for work order"@en ;
+    rdfs:label "intervention pour ordre de travail"@fr ;
+    rdfs:comment "Links an Intervention to its WorkOrder; inverse of dpp:hasIntervention (Intervention is scoped under WorkOrder, not directly under ProductPassport)."@en ;
+    rdfs:comment "Lie une intervention à son ordre de travail ; inverse de dpp:hasIntervention."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range dpp:WorkOrder ;
+    owl:inverseOf dpp:hasIntervention .
+
+dpp:replaces a owl:ObjectProperty ;
+    rdfs:label "replaces"@en ;
+    rdfs:label "remplace"@fr ;
+    rdfs:comment "Links a ReplacementPart to the original part it replaces."@en ;
+    rdfs:comment "Lie une Pièce de Rechange à la pièce originale qu'elle remplace."@fr ;
+    rdfs:domain dpp:ReplacementPart ;
+    rdfs:range dpp:ReplacementPart .
+
+dpp:follows a owl:ObjectProperty ;
+    rdfs:label "follows"@en ;
+    rdfs:label "suit"@fr ;
+    rdfs:comment "Links an Intervention to a previous Intervention (creates a chain of interventions)."@en ;
+    rdfs:comment "Lie une Intervention à une Intervention précédente (crée une chaîne d'interventions)."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range dpp:Intervention .
+
+# ============================================================================
+# DATA PROPERTIES
+# ============================================================================
+
+dpp:serialNumber a owl:DatatypeProperty ;
+    rdfs:label "serial number"@en ;
+    rdfs:label "numéro de série"@fr ;
+    rdfs:comment "The serial number of the product."@en ;
+    rdfs:comment "Le numéro de série du produit."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:string .
+
+dpp:purchaseDate a owl:DatatypeProperty ;
+    rdfs:label "purchase date"@en ;
+    rdfs:label "date d'achat"@fr ;
+    rdfs:comment "The date when the product was purchased."@en ;
+    rdfs:comment "La date à laquelle le produit a été acheté."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:date .
+
+dpp:purchasePrice a owl:DatatypeProperty ;
+    rdfs:label "purchase price"@en ;
+    rdfs:label "prix d'achat"@fr ;
+    rdfs:comment "The price paid for the product."@en ;
+    rdfs:comment "Le prix payé pour le produit."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:decimal .
+
+dpp:manufacturingDate a owl:DatatypeProperty ;
+    rdfs:label "manufacturing date"@en ;
+    rdfs:label "date de fabrication"@fr ;
+    rdfs:comment "The date when the product was manufactured."@en ;
+    rdfs:comment "La date à laquelle le produit a été fabriqué."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:date .
+
+dpp:manufacturingLocation a owl:DatatypeProperty ;
+    rdfs:label "manufacturing location"@en ;
+    rdfs:label "lieu de fabrication"@fr ;
+    rdfs:comment "The location where the product was manufactured."@en ;
+    rdfs:comment "Le lieu où le produit a été fabriqué."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:string .
+
+dpp:warrantyStartDate a owl:DatatypeProperty ;
+    rdfs:label "warranty start date"@en ;
+    rdfs:label "date de début de garantie"@fr ;
+    rdfs:comment "The start date of the warranty."@en ;
+    rdfs:comment "La date de début de la garantie."@fr ;
+    rdfs:domain dpp:Warranty ;
+    rdfs:range xsd:date .
+
+dpp:warrantyEndDate a owl:DatatypeProperty ;
+    rdfs:label "warranty end date"@en ;
+    rdfs:label "date de fin de garantie"@fr ;
+    rdfs:comment "The end date of the warranty."@en ;
+    rdfs:comment "La date de fin de la garantie."@fr ;
+    rdfs:domain dpp:Warranty ;
+    rdfs:range xsd:date .
+
+dpp:warrantyDurationMonths a owl:DatatypeProperty ;
+    rdfs:label "warranty duration in months"@en ;
+    rdfs:label "durée de garantie en mois"@fr ;
+    rdfs:comment "The duration of the warranty in months."@en ;
+    rdfs:comment "La durée de la garantie en mois."@fr ;
+    rdfs:domain dpp:Warranty ;
+    rdfs:range xsd:integer .
+
+dpp:warrantyType a owl:DatatypeProperty ;
+    rdfs:label "warranty type"@en ;
+    rdfs:label "type de garantie"@fr ;
+    rdfs:comment "The type of warranty (constructeur, retailer, extension, maintenance)."@en ;
+    rdfs:comment "Le type de garantie (constructeur, distributeur, extension, maintenance)."@fr ;
+    rdfs:domain dpp:Warranty ;
+    rdfs:range xsd:string .
+
+dpp:warrantyStatus a owl:DatatypeProperty ;
+    rdfs:label "warranty status"@en ;
+    rdfs:label "statut de garantie"@fr ;
+    rdfs:comment "The status of the warranty (active, expiree, suspendue, annulee)."@en ;
+    rdfs:comment "Le statut de la garantie (active, expirée, suspendue, annulée)."@fr ;
+    rdfs:domain dpp:Warranty ;
+    rdfs:range xsd:string .
+
+dpp:workOrderNumber a owl:DatatypeProperty ;
+    rdfs:label "work order number"@en ;
+    rdfs:label "numéro d'ordre de travail"@fr ;
+    rdfs:comment "The unique identifier for the work order."@en ;
+    rdfs:comment "L'identifiant unique de l'ordre de travail."@fr ;
+    rdfs:domain dpp:WorkOrder ;
+    rdfs:range xsd:string .
+
+dpp:workOrderPriority a owl:DatatypeProperty ;
+    rdfs:label "work order priority"@en ;
+    rdfs:label "priorité de l'ordre de travail"@fr ;
+    rdfs:comment "The priority of the work order (basse, normale, haute, urgente)."@en ;
+    rdfs:comment "La priorité de l'ordre de travail (basse, normale, haute, urgente)."@fr ;
+    rdfs:domain dpp:WorkOrder ;
+    rdfs:range xsd:string .
+
+dpp:workOrderStatus a owl:DatatypeProperty ;
+    rdfs:label "work order status"@en ;
+    rdfs:label "statut de l'ordre de travail"@fr ;
+    rdfs:comment "The status of the work order (cree, assigne, en_cours, en_attente_pieces, complete, facture, annule)."@en ;
+    rdfs:comment "Le statut de l'ordre de travail (créé, assigné, en cours, en attente de pièces, complété, facturé, annulé)."@fr ;
+    rdfs:domain dpp:WorkOrder ;
+    rdfs:range xsd:string .
+
+dpp:interventionType a owl:DatatypeProperty ;
+    rdfs:label "intervention type"@en ;
+    rdfs:label "type d'intervention"@fr ;
+    rdfs:comment "The type of intervention (diagnostic, reparation, maintenance, remplacement, retour_fabricant)."@en ;
+    rdfs:comment "Le type d'intervention (diagnostic, réparation, maintenance, remplacement, retour fabricant)."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:string .
+
+dpp:interventionStartDate a owl:DatatypeProperty ;
+    rdfs:label "intervention start date"@en ;
+    rdfs:label "date de début d'intervention"@fr ;
+    rdfs:comment "The start date and time of the intervention."@en ;
+    rdfs:comment "La date et heure de début de l'intervention."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:dateTime .
+
+dpp:interventionEndDate a owl:DatatypeProperty ;
+    rdfs:label "intervention end date"@en ;
+    rdfs:label "date de fin d'intervention"@fr ;
+    rdfs:comment "The end date and time of the intervention."@en ;
+    rdfs:comment "La date et heure de fin de l'intervention."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:dateTime .
+
+dpp:interventionDuration a owl:DatatypeProperty ;
+    rdfs:label "intervention duration"@en ;
+    rdfs:label "durée d'intervention"@fr ;
+    rdfs:comment "The duration of the intervention in minutes."@en ;
+    rdfs:comment "La durée de l'intervention en minutes."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:integer .
+
+dpp:laborCost a owl:DatatypeProperty ;
+    rdfs:label "labor cost"@en ;
+    rdfs:label "coût main d'œuvre"@fr ;
+    rdfs:comment "The cost of labor for the intervention."@en ;
+    rdfs:comment "Le coût de la main d'œuvre pour l'intervention."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:decimal .
+
+dpp:partsCost a owl:DatatypeProperty ;
+    rdfs:label "parts cost"@en ;
+    rdfs:label "coût des pièces"@fr ;
+    rdfs:comment "The cost of replacement parts for the intervention."@en ;
+    rdfs:comment "Le coût des pièces de rechange pour l'intervention."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:decimal .
+
+dpp:totalCost a owl:DatatypeProperty ;
+    rdfs:label "total cost"@en ;
+    rdfs:label "coût total"@fr ;
+    rdfs:comment "The total cost of the intervention (labor + parts)."@en ;
+    rdfs:comment "Le coût total de l'intervention (main d'œuvre + pièces)."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:decimal .
+
+dpp:resolutionDescription a owl:DatatypeProperty ;
+    rdfs:label "resolution description"@en ;
+    rdfs:label "description de la résolution"@fr ;
+    rdfs:comment "A description of how the issue was resolved."@en ;
+    rdfs:comment "Une description de la façon dont le problème a été résolu."@fr ;
+    rdfs:domain dpp:Intervention ;
+    rdfs:range xsd:string .
+
+dpp:repairStatus a owl:DatatypeProperty ;
+    rdfs:label "repair status"@en ;
+    rdfs:label "statut de réparation"@fr ;
+    rdfs:comment "The status of a repair event (pending, in_progress, completed, failed)."@en ;
+    rdfs:comment "Le statut d'un événement de réparation (en attente, en cours, complété, échoué)."@fr ;
+    rdfs:domain dpp:RepairEvent ;
+    rdfs:range xsd:string .
+
+dpp:partReference a owl:DatatypeProperty ;
+    rdfs:label "part reference"@en ;
+    rdfs:label "référence de pièce"@fr ;
+    rdfs:comment "The reference number of the replacement part."@en ;
+    rdfs:comment "Le numéro de référence de la pièce de rechange."@fr ;
+    rdfs:domain dpp:ReplacementPart ;
+    rdfs:range xsd:string .
+
+dpp:partName a owl:DatatypeProperty ;
+    rdfs:label "part name"@en ;
+    rdfs:label "nom de la pièce"@fr ;
+    rdfs:comment "The name of the replacement part."@en ;
+    rdfs:comment "Le nom de la pièce de rechange."@fr ;
+    rdfs:domain dpp:ReplacementPart ;
+    rdfs:range xsd:string .
+
+dpp:diagnosticDescription a owl:DatatypeProperty ;
+    rdfs:label "diagnostic description"@en ;
+    rdfs:label "description du diagnostic"@fr ;
+    rdfs:comment "A description of the diagnostic process and findings."@en ;
+    rdfs:comment "Une description du processus de diagnostic et des résultats."@fr ;
+    rdfs:domain dpp:Diagnostic ;
+    rdfs:range xsd:string .
+
+dpp:diagnosticResult a owl:DatatypeProperty ;
+    rdfs:label "diagnostic result"@en ;
+    rdfs:label "résultat du diagnostic"@fr ;
+    rdfs:comment "The result or conclusion of the diagnostic."@en ;
+    rdfs:comment "Le résultat ou conclusion du diagnostic."@fr ;
+    rdfs:domain dpp:Diagnostic ;
+    rdfs:range xsd:string .
+
+dpp:claimStatus a owl:DatatypeProperty ;
+    rdfs:label "claim status"@en ;
+    rdfs:label "statut de la réclamation"@fr ;
+    rdfs:comment "The status of a service request (soumise, en_cours, approuvee, resolue)."@en ;
+    rdfs:comment "Le statut d'une demande de service (soumise, en cours, approuvée, résolue)."@fr ;
+    rdfs:domain dpp:ServiceRequest ;
+    rdfs:range xsd:string .
+
+dpp:claimDescription a owl:DatatypeProperty ;
+    rdfs:label "claim description"@en ;
+    rdfs:label "description de la réclamation"@fr ;
+    rdfs:comment "A description of the service request or claim."@en ;
+    rdfs:comment "Une description de la demande de service ou réclamation."@fr ;
+    rdfs:domain dpp:ServiceRequest ;
+    rdfs:range xsd:string .
+
+dpp:claimPriority a owl:DatatypeProperty ;
+    rdfs:label "claim priority"@en ;
+    rdfs:label "priorité de la réclamation"@fr ;
+    rdfs:comment "The priority of the service request (normal, high, urgent)."@en ;
+    rdfs:comment "La priorité de la demande de service (normal, haute, urgente)."@fr ;
+    rdfs:domain dpp:ServiceRequest ;
+    rdfs:range xsd:string .
+
+dpp:productStatus a owl:DatatypeProperty ;
+    rdfs:label "product status"@en ;
+    rdfs:label "statut du produit"@fr ;
+    rdfs:comment "The status of the product (sous_garantie, hors_garantie, contrat_maintenance, en_panne, repare)."@en ;
+    rdfs:comment "Le statut du produit (sous garantie, hors garantie, contrat maintenance, en panne, réparé)."@fr ;
+    rdfs:domain dpp:ProductStatus ;
+    rdfs:range xsd:string .
+
+dpp:productStatusDate a owl:DatatypeProperty ;
+    rdfs:label "product status date"@en ;
+    rdfs:label "date du statut produit"@fr ;
+    rdfs:comment "The date when the product status was set."@en ;
+    rdfs:comment "La date à laquelle le statut du produit a été défini."@fr ;
+    rdfs:domain dpp:ProductStatus ;
+    rdfs:range xsd:date .
+
+dpp:lifecycleStageName a owl:DatatypeProperty ;
+    rdfs:label "lifecycle stage name"@en ;
+    rdfs:label "nom de l'étape du cycle de vie"@fr ;
+    rdfs:comment "The name of the lifecycle stage (manufacturing, purchase, usage, end_of_life, recycling)."@en ;
+    rdfs:comment "Le nom de l'étape du cycle de vie (fabrication, achat, usage, fin de vie, recyclage)."@fr ;
+    rdfs:domain dpp:ProductLifecycleStage ;
+    rdfs:range xsd:string .
+
+dpp:lifecycleStageDate a owl:DatatypeProperty ;
+    rdfs:label "lifecycle stage date"@en ;
+    rdfs:label "date de l'étape du cycle de vie"@fr ;
+    rdfs:comment "The date when the product entered this lifecycle stage."@en ;
+    rdfs:comment "La date à laquelle le produit est entré dans cette étape du cycle de vie."@fr ;
+    rdfs:domain dpp:ProductLifecycleStage ;
+    rdfs:range xsd:date .
+
+# ============================================================================
+# GS1 STANDARDS ALIGNMENT
+# ============================================================================
+
+dpp:gs1DigitalLink a owl:DatatypeProperty ;
+    rdfs:label "GS1 Digital Link URI"@en ;
+    rdfs:label "URI GS1 Digital Link"@fr ;
+    rdfs:comment "The standard GS1 Digital Link URI for the product, resolving to the DPP. Uses uncompressed GS1 Digital Link URI syntax per GS1 standards."@en ;
+    rdfs:comment "L'URI standard GS1 Digital Link pour le produit, résolvant vers le DPP. Utilise la syntaxe GS1 Digital Link URI non compressée selon les standards GS1."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/Digital-Link/> ;
+    vs:term_status "stable" .
+
+dpp:hasGln a owl:DatatypeProperty ;
+    rdfs:label "Global Location Number (GLN)"@en ;
+    rdfs:label "Code Lieu International (GLN)"@fr ;
+    rdfs:comment "The GS1 Global Location Number identifying the organization or facility. Used for economic operators and facilities per EU ESPR regulation."@en ;
+    rdfs:comment "Le Code Lieu International GS1 identifiant l'organisation ou l'installation. Utilisé pour les opérateurs économiques et installations selon la réglementation européenne ESPR."@fr ;
+    rdfs:domain dpp:GlnCarrier ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf schema:globalLocationNumber ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/id-keys/gln> ;
+    vs:term_status "stable" .
+
+dpp:hasGtin a owl:DatatypeProperty ;
+    rdfs:label "Global Trade Item Number (GTIN)"@en ;
+    rdfs:label "Numéro d'Article Global (GTIN)"@fr ;
+    rdfs:comment "The GS1 Global Trade Item Number (GTIN) in one of the formats: GTIN-8, GTIN-12, GTIN-13, or GTIN-14. Used with AI (01) for Made-to-Stock products or AI (03) for Made-to-Order products."@en ;
+    rdfs:comment "Le Numéro d'Article Global GS1 (GTIN) dans l'un des formats : GTIN-8, GTIN-12, GTIN-13 ou GTIN-14. Utilisé avec AI (01) pour produits Made-to-Stock ou AI (03) pour produits Made-to-Order."@fr ;
+    rdfs:domain dpp:Gs1IdentifiedItem ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf schema:gtin ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/id-keys/gtin> ;
+    vs:term_status "stable" .
+
+dpp:granularityLevel a owl:DatatypeProperty ;
+    rdfs:label "Granularity Level"@en ;
+    rdfs:label "Niveau de Granularité"@fr ;
+    rdfs:comment "The level of identification granularity: 'model' (GTIN only), 'batch' (GTIN + batch/lot number), or 'serial' (GTIN + serial number). Determined by EU delegated acts per product category."@en ;
+    rdfs:comment "Le niveau de granularité d'identification : 'model' (GTIN seul), 'batch' (GTIN + numéro de lot), ou 'serial' (GTIN + numéro de série). Déterminé par les actes délégués UE par catégorie de produit."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:batchLotNumber a owl:DatatypeProperty ;
+    rdfs:label "Batch/Lot Number"@en ;
+    rdfs:label "Numéro de Lot"@fr ;
+    rdfs:comment "The batch or lot number (GS1 AI 10) for production batches. Used with GTIN for batch-level granularity."@en ;
+    rdfs:comment "Le numéro de lot ou batch (GS1 AI 10) pour les lots de production. Utilisé avec GTIN pour la granularité au niveau lot."@fr ;
+    rdfs:domain dpp:Gs1IdentifiedItem ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/barcodes/application-identifiers/10> ;
+    vs:term_status "stable" .
+
+dpp:versionNumber a owl:DatatypeProperty ;
+    rdfs:label "Version Number"@en ;
+    rdfs:label "Numéro de Version"@fr ;
+    rdfs:comment "The GTIN version number (GS1 AI 22) for product changes that do not require a GTIN change per GTIN Management Standard."@en ;
+    rdfs:comment "Le numéro de version GTIN (GS1 AI 22) pour les changements de produit qui ne nécessitent pas un changement de GTIN selon le GTIN Management Standard."@fr ;
+    rdfs:domain dpp:Gs1IdentifiedItem ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.gs1.org/standards/barcodes/application-identifiers/22> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# EU BUSINESS WALLET (EBW) DATA PROPERTIES
+# ============================================================================
+
+dpp:euid a owl:DatatypeProperty ;
+    rdfs:label "European Unique Identifier (EUID)"@en ;
+    rdfs:label "Identifiant Unique Européen (EUID)"@fr ;
+    rdfs:comment "The European Unique Identifier (EUID) for a legal entity, issued via EU Business Wallet (EBW). Provides a unified digital identity across all 27 EU member states."@en ;
+    rdfs:comment "L'Identifiant Unique Européen (EUID) pour une entité légale, émis via EU Business Wallet (EBW). Fournit une identité numérique unifiée dans les 27 États membres de l'UE."@fr ;
+    rdfs:domain dpp:EconomicOperator ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+dpp:hasVerifiedIdentity a owl:DatatypeProperty ;
+    rdfs:label "has verified identity"@en ;
+    rdfs:label "a identité vérifiée"@fr ;
+    rdfs:comment "Indicates whether the EconomicOperator's identity has been verified via EU Business Wallet (EBW)."@en ;
+    rdfs:comment "Indique si l'identité de l'Opérateur Économique a été vérifiée via EU Business Wallet (EBW)."@fr ;
+    rdfs:domain dpp:EconomicOperator ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+dpp:dataIntegrityHash a owl:DatatypeProperty ;
+    rdfs:label "data integrity hash"@en ;
+    rdfs:label "hash d'intégrité des données"@fr ;
+    rdfs:comment "Cryptographic hash digest ensuring the integrity of shared DPP data via EU Business Wallet (EBW). Used in SecureDataShare for tamper detection."@en ;
+    rdfs:comment "Digest de hash cryptographique garantissant l'intégrité des données DPP partagées via EU Business Wallet (EBW). Utilisé dans SecureDataShare pour la détection de falsification."@fr ;
+    rdfs:domain dpp:SecureDataShare ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+dpp:credentialIssuer a owl:ObjectProperty ;
+    rdfs:label "credential issuer"@en ;
+    rdfs:label "émetteur de credential"@fr ;
+    rdfs:comment "The authority or EconomicOperator that issued a VerifiableCredential via EU Business Wallet (EBW)."@en ;
+    rdfs:comment "L'autorité ou Opérateur Économique qui a émis un VerifiableCredential via EU Business Wallet (EBW)."@fr ;
+    rdfs:domain dpp:CredentialIssuanceSubject ;
+    rdfs:range dpp:EconomicOperator ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://digital-strategy.ec.europa.eu/en/policies/business-wallets> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT PROPERTIES - MATERIAL PROVENANCE (DPP-03)
+# ============================================================================
+
+dpp:hasMaterialProvenance a owl:ObjectProperty ;
+    rdfs:label "has material provenance"@en ;
+    rdfs:label "a pour provenance de matériau"@fr ;
+    rdfs:comment "Links a ProductPassport to material provenance information. Aligned with UNTP DPP-03."@en ;
+    rdfs:comment "Lie un ProductPassport à des informations de provenance des matériaux. Aligné avec UNTP DPP-03."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:MaterialProvenance ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:materialName a owl:DatatypeProperty ;
+    rdfs:label "material name"@en ;
+    rdfs:label "nom du matériau"@fr ;
+    rdfs:comment "Name of the material (e.g., 'Aluminum', 'Steel', 'Plastic')."@en ;
+    rdfs:comment "Nom du matériau (ex: 'Aluminium', 'Acier', 'Plastique')."@fr ;
+    rdfs:domain dpp:MaterialProvenance ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:massFraction a owl:DatatypeProperty ;
+    rdfs:label "mass fraction"@en ;
+    rdfs:label "fraction massique"@fr ;
+    rdfs:comment "Mass fraction of the material in the product (decimal value between 0 and 1)."@en ;
+    rdfs:comment "Fraction massique du matériau dans le produit (valeur décimale entre 0 et 1)."@fr ;
+    rdfs:domain dpp:MaterialProvenance ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:originCountry a owl:DatatypeProperty ;
+    rdfs:label "origin country"@en ;
+    rdfs:label "pays d'origine"@fr ;
+    rdfs:comment "Origin country code of the material (ISO 3166-1 alpha-2 or alpha-3)."@en ;
+    rdfs:comment "Code pays d'origine du matériau (ISO 3166-1 alpha-2 ou alpha-3)."@fr ;
+    rdfs:domain dpp:MaterialProvenance ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:originRegion a owl:DatatypeProperty ;
+    rdfs:label "origin region"@en ;
+    rdfs:label "région d'origine"@fr ;
+    rdfs:comment "Specific region of origin for the material (optional)."@en ;
+    rdfs:comment "Région spécifique d'origine du matériau (optionnel)."@fr ;
+    rdfs:domain dpp:MaterialProvenance ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT PROPERTIES - PRODUCT CLASSIFICATION (DPP-02)
+# ============================================================================
+
+dpp:hasProductClassification a owl:ObjectProperty ;
+    rdfs:label "has product classification"@en ;
+    rdfs:label "a pour classification produit"@fr ;
+    rdfs:comment "Links a ProductPassport to product classification. Aligned with UNTP DPP-02."@en ;
+    rdfs:comment "Lie un ProductPassport à une classification produit. Aligné avec UNTP DPP-02."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:ProductClassification ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:classificationScheme a owl:DatatypeProperty ;
+    rdfs:label "classification scheme"@en ;
+    rdfs:label "schéma de classification"@fr ;
+    rdfs:comment "URI or identifier of the classification scheme (e.g., 'UN-CPC', 'GS1', 'NACE')."@en ;
+    rdfs:comment "URI ou identifiant du schéma de classification (ex: 'UN-CPC', 'GS1', 'NACE')."@fr ;
+    rdfs:domain dpp:ProductClassification ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:classificationCode a owl:DatatypeProperty ;
+    rdfs:label "classification code"@en ;
+    rdfs:label "code de classification"@fr ;
+    rdfs:comment "Classification code according to the specified scheme."@en ;
+    rdfs:comment "Code de classification selon le schéma spécifié."@fr ;
+    rdfs:domain dpp:ProductClassification ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT PROPERTIES - EMISSIONS PERFORMANCE
+# ============================================================================
+
+dpp:hasEmissionsScorecard a owl:ObjectProperty ;
+    rdfs:label "has emissions scorecard"@en ;
+    rdfs:label "a pour tableau de bord émissions"@fr ;
+    rdfs:comment "Links a ProductPassport to its emissions scorecard. Aligned with UNTP DPP."@en ;
+    rdfs:comment "Lie un ProductPassport à son tableau de bord d'émissions. Aligné avec UNTP DPP."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:EmissionsPerformance ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:carbonFootprint a owl:DatatypeProperty ;
+    rdfs:label "carbon footprint"@en ;
+    rdfs:label "empreinte carbone"@fr ;
+    rdfs:comment "Carbon footprint of the product in kg CO2eq per declared unit."@en ;
+    rdfs:comment "Empreinte carbone du produit en kg CO2eq par unité déclarée."@fr ;
+    rdfs:domain dpp:EmissionsPerformance ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:declaredUnit a owl:DatatypeProperty ;
+    rdfs:label "declared unit"@en ;
+    rdfs:label "unité déclarée"@fr ;
+    rdfs:comment "Unit of measure for carbon footprint (e.g., 'KGM' for kg, 'C62' for unit)."@en ;
+    rdfs:comment "Unité de mesure pour l'empreinte carbone (ex: 'KGM' pour kg, 'C62' pour unité)."@fr ;
+    rdfs:domain dpp:EmissionsPerformance ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:operationalScope a owl:DatatypeProperty ;
+    rdfs:label "operational scope"@en ;
+    rdfs:label "périmètre opérationnel"@fr ;
+    rdfs:comment "Scope of emissions calculation (e.g., 'CradleToGate', 'CradleToGrave', 'GateToGate')."@en ;
+    rdfs:comment "Périmètre du calcul d'émissions (ex: 'CradleToGate', 'CradleToGrave', 'GateToGate')."@fr ;
+    rdfs:domain dpp:EmissionsPerformance ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:primarySourcedRatio a owl:DatatypeProperty ;
+    rdfs:label "primary sourced ratio"@en ;
+    rdfs:label "ratio de sourcing primaire"@fr ;
+    rdfs:comment "Ratio of materials from primary sources (0-1)."@en ;
+    rdfs:comment "Ratio de matériaux provenant de sources primaires (0-1)."@fr ;
+    rdfs:domain dpp:EmissionsPerformance ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:reportingStandard a owl:ObjectProperty ;
+    rdfs:label "reporting standard"@en ;
+    rdfs:label "standard de reporting"@fr ;
+    rdfs:comment "Standard used for emissions reporting."@en ;
+    rdfs:comment "Standard utilisé pour le reporting des émissions."@fr ;
+    rdfs:domain dpp:EmissionsPerformance ;
+    rdfs:range dpp:Standard ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT PROPERTIES - CIRCULARITY PERFORMANCE
+# ============================================================================
+
+dpp:hasCircularityScorecard a owl:ObjectProperty ;
+    rdfs:label "has circularity scorecard"@en ;
+    rdfs:label "a pour tableau de bord circularité"@fr ;
+    rdfs:comment "Links a ProductPassport to its circularity scorecard. Aligned with UNTP DPP."@en ;
+    rdfs:comment "Lie un ProductPassport à son tableau de bord de circularité. Aligné avec UNTP DPP."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:CircularityPerformance ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:recyclableContent a owl:DatatypeProperty ;
+    rdfs:label "recyclable content"@en ;
+    rdfs:label "contenu recyclable"@fr ;
+    rdfs:comment "Proportion of product mass designed to be recyclable or reusable (0-1)."@en ;
+    rdfs:comment "Proportion de la masse du produit conçue pour être recyclable ou réutilisable (0-1)."@fr ;
+    rdfs:domain dpp:CircularityPerformance ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:recycledContent a owl:DatatypeProperty ;
+    rdfs:label "recycled content"@en ;
+    rdfs:label "contenu recyclé"@fr ;
+    rdfs:comment "Proportion of product mass made from recycled or repurposed materials (0-1)."@en ;
+    rdfs:comment "Proportion de la masse du produit faite de matériaux recyclés ou réutilisés (0-1)."@fr ;
+    rdfs:domain dpp:CircularityPerformance ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:utilityFactor a owl:DatatypeProperty ;
+    rdfs:label "utility factor"@en ;
+    rdfs:label "facteur d'utilité"@fr ;
+    rdfs:comment "Product durability relative to industry average (e.g., 1.2 = 20% more durable)."@en ;
+    rdfs:comment "Durabilité du produit relative à la moyenne de l'industrie (ex: 1.2 = 20% plus durable)."@fr ;
+    rdfs:domain dpp:CircularityPerformance ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:materialCircularityIndicator a owl:DatatypeProperty ;
+    rdfs:label "material circularity indicator"@en ;
+    rdfs:label "indicateur de circularité matérielle"@fr ;
+    rdfs:comment "Overall circularity score (MCI) calculated as 1 - (V + W) / (2 * D), where V = virgin material proportion, W = waste leakage proportion, D = utility factor (0-1)."@en ;
+    rdfs:comment "Score global de circularité (MCI) calculé comme 1 - (V + W) / (2 * D), où V = proportion matériaux vierges, W = proportion pertes, D = facteur d'utilité (0-1)."@fr ;
+    rdfs:domain dpp:CircularityPerformance ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://www.ellenmacarthurfoundation.org/resources/apply/material-circularity-indicator> ;
+    vs:term_status "stable" .
+
+dpp:repairInformation a owl:ObjectProperty ;
+    rdfs:label "repair information"@en ;
+    rdfs:label "information réparation"@fr ;
+    rdfs:comment "Link to repair instructions for end users or repair service centers."@en ;
+    rdfs:comment "Lien vers instructions de réparation pour utilisateurs finaux ou centres de service de réparation."@fr ;
+    rdfs:domain dpp:CircularityPerformance ;
+    rdfs:range dpp:SecureLink, schema:URL ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT PROPERTIES - CONFORMITY CLAIMS
+# ============================================================================
+
+dpp:hasConformityClaim a owl:ObjectProperty ;
+    rdfs:label "has conformity claim"@en ;
+    rdfs:label "a pour déclaration de conformité"@fr ;
+    rdfs:comment "Links a ProductPassport to a conformity claim. Aligned with UNTP DPP."@en ;
+    rdfs:comment "Lie un ProductPassport à une déclaration de conformité. Aligné avec UNTP DPP."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:ConformityClaim ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:referenceStandard a owl:ObjectProperty ;
+    rdfs:label "reference standard"@en ;
+    rdfs:label "référence standard"@fr ;
+    rdfs:comment "Reference standard for the conformity claim."@en ;
+    rdfs:comment "Standard de référence pour la déclaration de conformité."@fr ;
+    rdfs:domain dpp:ConformityClaim ;
+    rdfs:range dpp:Standard ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:referenceRegulation a owl:ObjectProperty ;
+    rdfs:label "reference regulation"@en ;
+    rdfs:label "référence réglementation"@fr ;
+    rdfs:comment "Reference regulation for the conformity claim."@en ;
+    rdfs:comment "Réglementation de référence pour la déclaration de conformité."@fr ;
+    rdfs:domain dpp:ConformityClaim ;
+    rdfs:range dpp:Regulation ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:assessmentCriteria a owl:ObjectProperty ;
+    rdfs:label "assessment criteria"@en ;
+    rdfs:label "critères d'évaluation"@fr ;
+    rdfs:comment "Criteria within the standard or regulation against which the claim is evaluated."@en ;
+    rdfs:comment "Critères dans le standard ou réglementation contre lesquels la déclaration est évaluée."@fr ;
+    rdfs:domain dpp:ConformityClaim ;
+    rdfs:range dpp:Criterion ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:declaredValue a owl:ObjectProperty ;
+    rdfs:label "declared value"@en ;
+    rdfs:label "valeur déclarée"@fr ;
+    rdfs:comment "Actual measured values, optionally including accuracy."@en ;
+    rdfs:comment "Valeurs mesurées réelles, incluant optionnellement la précision."@fr ;
+    rdfs:domain dpp:ConformityClaim ;
+    rdfs:range dpp:Metric ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:conformance a owl:DatatypeProperty ;
+    rdfs:label "conformance"@en ;
+    rdfs:label "conformité"@fr ;
+    rdfs:comment "Indicates whether the product meets the specified criteria (true/false)."@en ;
+    rdfs:comment "Indique si le produit est conforme aux critères spécifiés (true/false)."@fr ;
+    rdfs:domain dpp:ConformityClaim ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:conformityTopic a owl:DatatypeProperty ;
+    rdfs:label "conformity topic"@en ;
+    rdfs:label "thème de conformité"@fr ;
+    rdfs:comment "Topic category of the claim (e.g., 'environment.emissions', 'social.working_conditions')."@en ;
+    rdfs:comment "Catégorie thématique de la déclaration (ex: 'environment.emissions', 'social.working_conditions')."@fr ;
+    rdfs:domain dpp:ConformityClaim ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:assessmentDate a owl:DatatypeProperty ;
+    rdfs:label "assessment date"@en ;
+    rdfs:label "date d'évaluation"@fr ;
+    rdfs:comment "Date when the claim was assessed."@en ;
+    rdfs:comment "Date à laquelle la déclaration a été évaluée."@fr ;
+    rdfs:domain dpp:ConformityClaim ;
+    rdfs:range xsd:date ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:conformityEvidence a owl:ObjectProperty ;
+    rdfs:label "conformity evidence"@en ;
+    rdfs:label "preuve de conformité"@fr ;
+    rdfs:comment "Link to second or third party attestation, such as a UNTP Digital Conformity Credential, PDF, or other evidence format."@en ;
+    rdfs:comment "Lien vers attestation de deuxième ou troisième partie, comme un Digital Conformity Credential UNTP, PDF, ou autre format de preuve."@fr ;
+    rdfs:domain dpp:ConformityClaim ;
+    rdfs:range dpp:SecureLink, dpp:Document ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT PROPERTIES - TRACEABILITY (DPP-06)
+# ============================================================================
+
+dpp:hasTraceabilityInformation a owl:ObjectProperty ;
+    rdfs:label "has traceability information"@en ;
+    rdfs:label "a pour information traçabilité"@fr ;
+    rdfs:comment "Links a ProductPassport to traceability information. Aligned with UNTP DPP-06."@en ;
+    rdfs:comment "Lie un ProductPassport à des informations de traçabilité. Aligné avec UNTP DPP-06."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:TraceabilityPerformance ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:hasTraceabilityEvent a owl:ObjectProperty ;
+    rdfs:label "has traceability event"@en ;
+    rdfs:label "a pour événement de traçabilité"@fr ;
+    rdfs:comment "Links a ProductPassport or TraceabilityPerformance to a traceability event. Aligned with UNTP DPP-06."@en ;
+    rdfs:comment "Lie un ProductPassport ou TraceabilityPerformance à un événement de traçabilité. Aligné avec UNTP DPP-06."@fr ;
+    rdfs:domain dpp:TraceabilityEventHost ;
+    rdfs:range dpp:TraceabilityEvent ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:hasConstituentProduct a owl:ObjectProperty ;
+    rdfs:label "has constituent product"@en ;
+    rdfs:label "a pour produit constituant"@fr ;
+    rdfs:comment "Link to a DPP of a constituent product in the value chain. Enables multi-level traceability."@en ;
+    rdfs:comment "Lien vers un DPP de produit constituant dans la chaîne de valeur. Permet la traçabilité multi-niveau."@fr ;
+    rdfs:domain dpp:ProductPassport ;
+    rdfs:range dpp:ProductPassport ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    rdfs:seeAlso <https://untp.unece.org/docs/specification/DigitalProductPassport/> ;
+    vs:term_status "stable" .
+
+dpp:valueChainProcess a owl:DatatypeProperty ;
+    rdfs:label "value chain process"@en ;
+    rdfs:label "processus chaîne de valeur"@fr ;
+    rdfs:comment "Human-readable description of the specific value chain step (e.g., 'Canning', 'Assembly')."@en ;
+    rdfs:comment "Description lisible par humain de l'étape spécifique de la chaîne de valeur (ex: 'Mise en conserve', 'Assemblage')."@fr ;
+    rdfs:domain dpp:TraceabilityPerformance ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:verifiedRatio a owl:DatatypeProperty ;
+    rdfs:label "verified ratio"@en ;
+    rdfs:label "ratio vérifié"@fr ;
+    rdfs:comment "Proportion of materials or components in this step that have been verifiably traced using digital traceability events (0-1)."@en ;
+    rdfs:comment "Proportion de matériaux ou composants dans cette étape qui ont été tracés de manière vérifiable avec des événements de traçabilité numériques (0-1)."@fr ;
+    rdfs:domain dpp:TraceabilityPerformance ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT PROPERTIES - SECURE LINK
+# ============================================================================
+
+dpp:linkURL a owl:DatatypeProperty ;
+    rdfs:label "link URL"@en ;
+    rdfs:label "URL du lien"@fr ;
+    rdfs:comment "URL or link to a resource."@en ;
+    rdfs:comment "URL ou lien vers une ressource."@fr ;
+    rdfs:domain dpp:LinkMetadataResource ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:linkName a owl:DatatypeProperty ;
+    rdfs:label "link name"@en ;
+    rdfs:label "nom du lien"@fr ;
+    rdfs:comment "Human-readable name for the link."@en ;
+    rdfs:comment "Nom lisible par humain pour le lien."@fr ;
+    rdfs:domain dpp:LinkMetadataResource ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:linkType a owl:DatatypeProperty ;
+    rdfs:label "link type"@en ;
+    rdfs:label "type de lien"@fr ;
+    rdfs:comment "Type identifier for the link (e.g., URI to a vocabulary term)."@en ;
+    rdfs:comment "Identifiant de type pour le lien (ex: URI vers un terme de vocabulaire)."@fr ;
+    rdfs:domain dpp:LinkMetadataResource ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:hashDigest a owl:DatatypeProperty ;
+    rdfs:label "hash digest"@en ;
+    rdfs:label "digest de hash"@fr ;
+    rdfs:comment "Hash digest for verification of link integrity."@en ;
+    rdfs:comment "Digest de hash pour vérification de l'intégrité du lien."@fr ;
+    rdfs:domain dpp:SecureLink ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:hashMethod a owl:DatatypeProperty ;
+    rdfs:label "hash method"@en ;
+    rdfs:label "méthode de hash"@fr ;
+    rdfs:comment "Method used for hashing (e.g., 'SHA-256', 'SHA-512')."@en ;
+    rdfs:comment "Méthode utilisée pour le hash (ex: 'SHA-256', 'SHA-512')."@fr ;
+    rdfs:domain dpp:SecureLink ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:encryptionMethod a owl:DatatypeProperty ;
+    rdfs:label "encryption method"@en ;
+    rdfs:label "méthode de cryptage"@fr ;
+    rdfs:comment "Encryption method if applicable (e.g., 'AES', 'none')."@en ;
+    rdfs:comment "Méthode de cryptage si applicable (ex: 'AES', 'none')."@fr ;
+    rdfs:domain dpp:SecureLink ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT PROPERTIES - STANDARD & REGULATION
+# ============================================================================
+
+dpp:standardId a owl:DatatypeProperty ;
+    rdfs:label "standard ID"@en ;
+    rdfs:label "ID standard"@fr ;
+    rdfs:comment "Unique identifier for the standard (URI or string)."@en ;
+    rdfs:comment "Identifiant unique du standard (URI ou chaîne)."@fr ;
+    rdfs:domain dpp:Standard ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:standardName a owl:DatatypeProperty ;
+    rdfs:label "standard name"@en ;
+    rdfs:label "nom du standard"@fr ;
+    rdfs:comment "Name of the standard."@en ;
+    rdfs:comment "Nom du standard."@fr ;
+    rdfs:domain dpp:Standard ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:issueDate a owl:DatatypeProperty ;
+    rdfs:label "issue date"@en ;
+    rdfs:label "date de publication"@fr ;
+    rdfs:comment "Date when the standard or regulation was issued."@en ;
+    rdfs:comment "Date à laquelle le standard ou réglementation a été publié."@fr ;
+    rdfs:domain dpp:NormativeInstrument ;
+    rdfs:range xsd:date ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:issuingParty a owl:ObjectProperty ;
+    rdfs:label "issuing party"@en ;
+    rdfs:label "partie émettrice"@fr ;
+    rdfs:comment "Organization that issued the standard or regulation."@en ;
+    rdfs:comment "Organisation qui a publié le standard ou réglementation."@fr ;
+    rdfs:domain dpp:NormativeInstrument ;
+    rdfs:range schema:Organization ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+# ============================================================================
+# UNTP ALIGNMENT PROPERTIES - CRITERION & METRIC
+# ============================================================================
+
+dpp:criterionId a owl:DatatypeProperty ;
+    rdfs:label "criterion ID"@en ;
+    rdfs:label "ID critère"@fr ;
+    rdfs:comment "Unique identifier for the criterion (typically a URI)."@en ;
+    rdfs:comment "Identifiant unique du critère (typiquement une URI)."@fr ;
+    rdfs:domain dpp:Criterion ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:criterionName a owl:DatatypeProperty ;
+    rdfs:label "criterion name"@en ;
+    rdfs:label "nom du critère"@fr ;
+    rdfs:comment "Name of the criterion."@en ;
+    rdfs:comment "Nom du critère."@fr ;
+    rdfs:domain dpp:Criterion ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:metricName a owl:DatatypeProperty ;
+    rdfs:label "metric name"@en ;
+    rdfs:label "nom de la métrique"@fr ;
+    rdfs:comment "Name of the metric (e.g., 'GHG Emissions Intensity')."@en ;
+    rdfs:comment "Nom de la métrique (ex: 'Intensité Émissions GES')."@fr ;
+    rdfs:domain dpp:Metric ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:metricValue a owl:ObjectProperty ;
+    rdfs:label "metric value"@en ;
+    rdfs:label "valeur de la métrique"@fr ;
+    rdfs:comment "Value of the metric with unit."@en ;
+    rdfs:comment "Valeur de la métrique avec unité."@fr ;
+    rdfs:domain dpp:Metric ;
+    rdfs:range schema:QuantitativeValue ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .
+
+dpp:accuracy a owl:DatatypeProperty ;
+    rdfs:label "accuracy"@en ;
+    rdfs:label "précision"@fr ;
+    rdfs:comment "Accuracy or uncertainty of the metric value (optional)."@en ;
+    rdfs:comment "Précision ou incertitude de la valeur de la métrique (optionnel)."@fr ;
+    rdfs:domain dpp:Metric ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <https://ns.verisav.fr/dpp#> ;
+    vs:term_status "stable" .

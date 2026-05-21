@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ns.verisav.fr/dpp/validation/dpp.schema.json",
+  "title": "Verisav DPP JSON-LD payload",
+  "description": "Pragmatic JSON Schema used for enterprise pre-validation of DPP payloads before RDF/SHACL validation.",
+  "type": "object",
+  "required": ["@context", "@type", "serialNumber"],
+  "properties": {
+    "@context": {
+      "oneOf": [{ "type": "string" }, { "type": "object" }, { "type": "array" }]
+    },
+    "@type": {
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      ]
+    },
+    "serialNumber": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "gs1DigitalLink": { "type": "string", "format": "uri" },
+    "purchaseDate": { "type": "string", "format": "date" },
+    "manufacturingDate": { "type": "string", "format": "date" },
+    "hasManufacturer": {
+      "oneOf": [
+        { "type": "string", "format": "uri" },
+        { "type": "object" }
+      ]
+    },
+    "hasLifecycleStage": {
+      "oneOf": [
+        { "type": "string", "format": "uri" },
+        { "type": "array", "minItems": 1 },
+        { "type": "object" }
+      ]
+    },
+    "hasCurrentStatus": {
+      "oneOf": [
+        { "type": "string", "format": "uri" },
+        { "type": "object" }
+      ]
+    }
+  },
+  "additionalProperties": true
+}

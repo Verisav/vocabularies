@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dcat="http://www.w3.org/ns/dcat#"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:schema="https://schema.org/"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#conditionDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">condition description</rdfs:label>
+    <rdfs:label xml:lang="fr">description de condition</rdfs:label>
+    <rdfs:comment xml:lang="en">Description of the condition that must be met.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Condition"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#contractEndDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">contract end date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de fin de contrat</rdfs:label>
+    <rdfs:comment xml:lang="en">End date of the contract.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#excludedCause">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">excluded cause</rdfs:label>
+    <rdfs:label xml:lang="fr">cause exclue</rdfs:label>
+    <rdfs:comment xml:lang="en">Links exclusion to causes that are excluded (normal wear, damage, misuse, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Exclusion"/>
+    <rdfs:range rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#coversDefectType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">covers defect type</rdfs:label>
+    <rdfs:label xml:lang="fr">couvre le type de défaut</rdfs:label>
+    <rdfs:comment xml:lang="en">Links coverage to types of defects that are covered.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Coverage"/>
+    <rdfs:range rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    <rdfs:label xml:lang="en">Verisav Warranty &amp; Contracts Vocabulary</rdfs:label>
+    <rdfs:label xml:lang="fr">Vocabulaire Garanties et Contrats Verisav</rdfs:label>
+    <dcterms:title xml:lang="en">Verisav Warranty &amp; Contracts Vocabulary</dcterms:title>
+    <dcterms:description xml:lang="en">Vocabulary for machine-readable warranties and service contracts aligned with EU product compliance context (ESPR / Digital Product Passport ecosystem): structured coverage, payment rules, and claim assessment data interoperable with DPP and ticketing (RMA). Execution of payment logic requires an application or rules layer on top of this ontology.</dcterms:description>
+    <dcterms:description xml:lang="fr">Vocabulaire pour garanties et contrats de service lisibles par machine, aligné sur le contexte européen du passeport produit numérique (ESPR) : couverture structurée, règles de paiement et évaluation de réclamations, interopérable avec DPP et RMA. L’exécution des règles de paiement suppose une couche applicative ou de règles au-dessus de cette ontologie.</dcterms:description>
+    <rdfs:comment xml:lang="en">Version 1.2.2 (2026-05-07): Aligned rdfs:seeAlso with dpp 1.5.2 — Data Act, Interoperable Europe Act, CIRPASS-2, CircularData, data.europa.eu &amp; GS1 Europe DPP, GS1 URI syntax, W3C DID 1.0, LOV/W3ID/GitHub/Zenodo for WTY. Version 1.2.1: DPP policy block. Version 1.2.0: paymentSplit OWL fix.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Version 1.2.2 (2026-05-07): rdfs:seeAlso aligné sur dpp 1.5.2 (Data Act, interopérabilité, communauté DPP, GS1, DID, LOV/W3ID/GitHub/Zenodo). Voir 1.2.1–1.0.0.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This vocabulary is accessible via GraphQL API at https://www.verisav.fr/api/graphql and via SPARQL endpoint at https://www.verisav.fr/api/sparql. Use vocabulary(id: "wty") for GraphQL, or SPARQL over the combined DPP, RMA, WTY graph.</rdfs:comment>
+    <rdfs:comment xml:lang="fr">Ce vocabulaire est accessible via l'API GraphQL à https://www.verisav.fr/api/graphql et via l'endpoint SPARQL à https://www.verisav.fr/api/sparql. Utilisez vocabulary(id: "wty") pour GraphQL, ou SPARQL sur le graphe combiné DPP, RMA, WTY.</rdfs:comment>
+    <vann:preferredNamespacePrefix>wty</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://ns.verisav.fr/wty#</vann:preferredNamespaceUri>
+    <owl:versionInfo>1.2.2</owl:versionInfo>
+    <owl:versionIRI rdf:resource="https://ns.verisav.fr/wty/1.2.2"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-16</dcterms:created>
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-07</dcterms:issued>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-07</dcterms:modified>
+    <dcterms:creator rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b1"/>
+    <dcterms:publisher rdf:resource="https://www.verisav.fr"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <cc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:rights xml:lang="en">Copyright © 2025 Verisav SAS. All rights reserved.</dcterms:rights>
+    <dcterms:rights xml:lang="fr">Copyright © 2025 Verisav SAS. Tous droits réservés.</dcterms:rights>
+    <dcat:distribution rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b2"/>
+    <dcat:distribution rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b3"/>
+    <dcat:distribution rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b4"/>
+    <dcat:distribution rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b5"/>
+    <dcat:distribution rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b6"/>
+    <dcat:distribution rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b7"/>
+    <dcat:distribution rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b8"/>
+    <dcat:distribution rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b9"/>
+    <dcat:distribution rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b10"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <schema:potentialAction rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b11"/>
+    <owl:imports rdf:resource="https://schema.org/"/>
+    <owl:imports rdf:resource="https://ns.verisav.fr/dpp#"/>
+    <owl:imports rdf:resource="https://ns.verisav.fr/rma#"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1781"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52025DC0187"/>
+    <rdfs:seeAlso rdf:resource="https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/ecodesign-sustainable-products-regulation_en"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1542"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R2854"/>
+    <rdfs:seeAlso rdf:resource="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R903"/>
+    <rdfs:seeAlso rdf:resource="https://publications.jrc.ec.europa.eu/repository/handle/JRC145830"/>
+    <rdfs:seeAlso rdf:resource="https://standards.cencenelec.eu/dyn/www/f?p=305:7:0:25:::FSP_ORG_ID,FSP_LANG_ID:3342699"/>
+    <rdfs:seeAlso rdf:resource="https://www.cencenelec.eu/news-events/news/2025/brief-news/2025-12-19-moving-forward-with-espr/"/>
+    <rdfs:seeAlso rdf:resource="https://cirpass2.eu/"/>
+    <rdfs:seeAlso rdf:resource="https://circular-data.org/"/>
+    <rdfs:seeAlso rdf:resource="https://data.europa.eu/en/news-events/news/eus-digital-product-passport-advancing-transparency-and-sustainability"/>
+    <rdfs:seeAlso rdf:resource="https://gs1.eu/activities/digital-product-passport/on-the-eu-digital-product-passport/"/>
+    <rdfs:seeAlso rdf:resource="https://ref.gs1.org/standards/digital-link/uri-syntax"/>
+    <rdfs:seeAlso rdf:resource="https://untp.unece.org/docs/specification/DigitalProductPassport/"/>
+    <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/did-1.0/"/>
+    <rdfs:seeAlso rdf:resource="https://lov.linkeddata.es/dataset/lov/vocabs/wty"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/verisav/wty"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/Verisav/vocabularies"/>
+    <rdfs:seeAlso rdf:resource="https://doi.org/10.5281/zenodo.18352147"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#assessesClaim">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">assesses claim</rdfs:label>
+    <rdfs:label xml:lang="fr">évalue la réclamation</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a claim assessment to the ticket or claim being assessed.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#WarrantyClaim"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#contractStartDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">contract start date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de début de contrat</rdfs:label>
+    <rdfs:comment xml:lang="en">Start date of the contract.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#Limit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Limit</rdfs:label>
+    <rdfs:label xml:lang="fr">Limite</rdfs:label>
+    <rdfs:comment xml:lang="en">Defines limits (financial, temporal, quantity) for warranty or contract coverage.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#checksExclusions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">checks exclusions</rdfs:label>
+    <rdfs:label xml:lang="fr">vérifie les exclusions</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a claim assessment to exclusions being checked.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#Exclusion"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#Condition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Condition</rdfs:label>
+    <rdfs:label xml:lang="fr">Condition</rdfs:label>
+    <rdfs:comment xml:lang="en">A condition that must be met for warranty or contract to apply (normal use, proper installation, documentation, etc.).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#generatesInvoice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">generates invoice</rdfs:label>
+    <rdfs:label xml:lang="fr">génère la facture</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a claim assessment to the invoice generated.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#Invoice"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#excludedDefectType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">excluded defect type</rdfs:label>
+    <rdfs:label xml:lang="fr">type de défaut exclu</rdfs:label>
+    <rdfs:comment xml:lang="en">Links exclusion to types of defects that are excluded.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Exclusion"/>
+    <rdfs:range rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#assessmentResult">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">assessment result</rdfs:label>
+    <rdfs:label xml:lang="fr">résultat d'évaluation</rdfs:label>
+    <rdfs:comment xml:lang="en">Result of the assessment (covered, not_covered, partially_covered, pending_verification).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b3">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/ld+json</dcterms:format>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/wty/wty.jsonld"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b10">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/sparql-results+json</dcterms:format>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/sparql"/>
+    <dcterms:title xml:lang="en">Verisav Vocabularies SPARQL Endpoint</dcterms:title>
+    <dcterms:title xml:lang="fr">Endpoint SPARQL Vocabulaires Verisav</dcterms:title>
+    <dcterms:description xml:lang="en">Public SPARQL 1.1 endpoint for querying all Verisav vocabularies (DPP, RMA, WTY). GET/POST with query parameter; responses in application/sparql-results+json or application/sparql-results+xml.</dcterms:description>
+    <dcterms:description xml:lang="fr">Endpoint SPARQL 1.1 public pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). GET/POST avec paramètre query ; réponses en application/sparql-results+json ou application/sparql-results+xml.</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#coverageStartDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">coverage start date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de début de couverture</rdfs:label>
+    <rdfs:comment xml:lang="en">Start date of coverage period.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Coverage"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#limitCurrency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">limit currency</rdfs:label>
+    <rdfs:label xml:lang="fr">devise limite</rdfs:label>
+    <rdfs:comment xml:lang="en">Currency code for the limit amount (ISO 4217).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Limit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#coveragePeriod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">coverage period</rdfs:label>
+    <rdfs:label xml:lang="fr">période de couverture</rdfs:label>
+    <rdfs:comment xml:lang="en">The period during which coverage applies (e.g., '24_months', 'lifetime').</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Coverage"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#Coverage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Coverage</rdfs:label>
+    <rdfs:label xml:lang="fr">Couverture</rdfs:label>
+    <rdfs:comment xml:lang="en">Defines what is covered by a warranty or contract (components, defect types, repair types, periods).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b6">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>text/turtle</dcterms:format>
+    <dcterms:title xml:lang="en">SHACL validation shapes (WTY)</dcterms:title>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/wty/validation/wty.shacl.ttl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#triggersAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">triggers assessment</rdfs:label>
+    <rdfs:label xml:lang="fr">déclenche l'évaluation</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a ticket or claim to a claim assessment.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/rma#Ticket"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/dpp#WarrantyClaim"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#contractStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">contract status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut du contrat</rdfs:label>
+    <rdfs:comment xml:lang="en">Status of the contract (active, expired, suspended, cancelled, renewed).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#definesConditions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">defines conditions</rdfs:label>
+    <rdfs:label xml:lang="fr">définit les conditions</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a warranty or contract to its conditions.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Warranty"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Contract"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#Condition"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#paymentSplit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">payment split</rdfs:label>
+    <rdfs:label xml:lang="fr">répartition du paiement</rdfs:label>
+    <rdfs:comment xml:lang="en">JSON string describing payment split between multiple parties.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#PaymentRule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b5">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>text/plain</dcterms:format>
+    <dcterms:title xml:lang="en">SHA-256 checksums</dcterms:title>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/wty/CHECKSUMS.sha256"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#Exclusion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Exclusion</rdfs:label>
+    <rdfs:label xml:lang="fr">Exclusion</rdfs:label>
+    <rdfs:comment xml:lang="en">Defines what is NOT covered by a warranty or contract (excluded defect types, causes, components).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#payer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">payer</rdfs:label>
+    <rdfs:label xml:lang="fr">payeur</rdfs:label>
+    <rdfs:comment xml:lang="en">The party responsible for paying the invoice.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Invoice"/>
+    <rdfs:range rdf:resource="https://schema.org/Organization"/>
+    <rdfs:range rdf:resource="https://schema.org/Person"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b2">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>text/turtle</dcterms:format>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/wty/wty.ttl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#requiresDocumentation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">requires documentation</rdfs:label>
+    <rdfs:label xml:lang="fr">nécessite une documentation</rdfs:label>
+    <rdfs:comment xml:lang="en">Whether documentation is required (proof of purchase, installation certificate, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Condition"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#Invoice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Invoice</rdfs:label>
+    <rdfs:label xml:lang="fr">Facture</rdfs:label>
+    <rdfs:comment xml:lang="en">An invoice generated automatically based on warranty/contract payment rules and claim assessment.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Invoice"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#limitPeriod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">limit period</rdfs:label>
+    <rdfs:label xml:lang="fr">période limite</rdfs:label>
+    <rdfs:comment xml:lang="en">Period over which the limit applies (per_month, per_year, total, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Limit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#Contract">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Contract</rdfs:label>
+    <rdfs:label xml:lang="fr">Contrat</rdfs:label>
+    <rdfs:comment xml:lang="en">A contract (maintenance, extension, insurance) that defines terms and coverage for after-sales service.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Contract"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#assessmentReason">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">assessment reason</rdfs:label>
+    <rdfs:label xml:lang="fr">raison d'évaluation</rdfs:label>
+    <rdfs:comment xml:lang="en">Reason for the assessment result (explanation of why covered or not).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#definesLimits">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">defines limits</rdfs:label>
+    <rdfs:label xml:lang="fr">définit les limites</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a warranty or contract to its limits.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Warranty"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Contract"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#Limit"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b4">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/rdf+xml</dcterms:format>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/wty/wty.xml"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#coverageEndDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">coverage end date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de fin de couverture</rdfs:label>
+    <rdfs:comment xml:lang="en">End date of coverage period.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Coverage"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#contractNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">contract number</rdfs:label>
+    <rdfs:label xml:lang="fr">numéro de contrat</rdfs:label>
+    <rdfs:comment xml:lang="en">Unique identifier for the contract.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#checksCoverage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">checks coverage</rdfs:label>
+    <rdfs:label xml:lang="fr">vérifie la couverture</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a claim assessment to the coverage being checked.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#Coverage"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#customerResponsibility">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">customer responsibility</rdfs:label>
+    <rdfs:label xml:lang="fr">responsabilité client</rdfs:label>
+    <rdfs:comment xml:lang="en">Amount the customer is responsible for.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b7">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/schema+json</dcterms:format>
+    <dcterms:title xml:lang="en">JSON Schema validation (WTY)</dcterms:title>
+    <dcat:downloadURL rdf:resource="https://ns.verisav.fr/wty/validation/wty.schema.json"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#excludedComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">excluded component</rdfs:label>
+    <rdfs:label xml:lang="fr">composant exclu</rdfs:label>
+    <rdfs:comment xml:lang="en">Links exclusion to specific components that are excluded.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Exclusion"/>
+    <rdfs:range rdf:resource="https://schema.org/Product"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#paysFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">pays for</rdfs:label>
+    <rdfs:label xml:lang="fr">paie pour</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a payment rule to what it pays for (diagnostic, repair, parts, travel, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#PaymentRule"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Diagnostic"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ReplacementPart"/>
+    <rdfs:range rdf:resource="https://schema.org/Service"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#appliedCoverage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">applied coverage</rdfs:label>
+    <rdfs:label xml:lang="fr">couverture appliquée</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a claim assessment to the coverage that applies.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#Coverage"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#limitQuantity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">limit quantity</rdfs:label>
+    <rdfs:label xml:lang="fr">quantité limite</rdfs:label>
+    <rdfs:comment xml:lang="en">Maximum quantity (for number-based limits like interventions).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Limit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#invoicePaymentSplit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">invoice payment split</rdfs:label>
+    <rdfs:label xml:lang="fr">répartition de paiement sur facture</rdfs:label>
+    <rdfs:comment xml:lang="en">JSON string describing how payment is split between parties on an invoice (if multiple payers).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Invoice"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#requiresProof">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">requires proof</rdfs:label>
+    <rdfs:label xml:lang="fr">nécessite une preuve</rdfs:label>
+    <rdfs:comment xml:lang="en">Whether proof is required (photos, diagnostic report, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Condition"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#autoRenewal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">auto renewal</rdfs:label>
+    <rdfs:label xml:lang="fr">renouvellement automatique</rdfs:label>
+    <rdfs:comment xml:lang="en">Whether the contract auto-renews.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#invoiceAmount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">invoice amount</rdfs:label>
+    <rdfs:label xml:lang="fr">montant de facture</rdfs:label>
+    <rdfs:comment xml:lang="en">Total amount of the invoice.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Invoice"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#hasPaymentLimit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">has payment limit</rdfs:label>
+    <rdfs:label xml:lang="fr">a une limite de paiement</rdfs:label>
+    <rdfs:comment xml:lang="en">Whether the payment rule has a limit.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#PaymentRule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#paymentDecision">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">payment decision</rdfs:label>
+    <rdfs:label xml:lang="fr">décision de paiement</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a claim assessment to the payment rule that determines who pays.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#PaymentRule"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#invoiceCurrency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">invoice currency</rdfs:label>
+    <rdfs:label xml:lang="fr">devise de facture</rdfs:label>
+    <rdfs:comment xml:lang="en">Currency code for the invoice amount (ISO 4217).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Invoice"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#definesExclusions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">defines exclusions</rdfs:label>
+    <rdfs:label xml:lang="fr">définit les exclusions</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a warranty or contract to its exclusion definitions.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Warranty"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Contract"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#Exclusion"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#coversComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">covers component</rdfs:label>
+    <rdfs:label xml:lang="fr">couvre le composant</rdfs:label>
+    <rdfs:comment xml:lang="en">Links coverage to specific product components that are covered.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Coverage"/>
+    <rdfs:range rdf:resource="https://schema.org/Product"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#ProductPassport"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#definesCoverage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">defines coverage</rdfs:label>
+    <rdfs:label xml:lang="fr">définit la couverture</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a warranty or contract to its coverage definition.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Warranty"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Contract"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#Coverage"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#definesPaymentRule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">defines payment rule</rdfs:label>
+    <rdfs:label xml:lang="fr">définit la règle de paiement</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a warranty or contract to its payment rule.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Warranty"/>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Contract"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#PaymentRule"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#ClaimAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Claim Assessment</rdfs:label>
+    <rdfs:label xml:lang="fr">Évaluation de Réclamation</rdfs:label>
+    <rdfs:comment xml:lang="en">Automated assessment of a claim against warranty or contract, determining coverage and payment responsibility.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#coveredAmount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">covered amount</rdfs:label>
+    <rdfs:label xml:lang="fr">montant couvert</rdfs:label>
+    <rdfs:comment xml:lang="en">Amount covered by warranty/contract for this claim.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#invoiceStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">invoice status</rdfs:label>
+    <rdfs:label xml:lang="fr">statut de facture</rdfs:label>
+    <rdfs:comment xml:lang="en">Status of the invoice (draft, sent, paid, overdue, cancelled).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Invoice"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#invoiceDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">invoice date</rdfs:label>
+    <rdfs:label xml:lang="fr">date de facture</rdfs:label>
+    <rdfs:comment xml:lang="en">Date when the invoice was generated.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Invoice"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#contractType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">contract type</rdfs:label>
+    <rdfs:label xml:lang="fr">type de contrat</rdfs:label>
+    <rdfs:comment xml:lang="en">Type of contract (maintenance, extension, insurance, service_agreement).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Contract"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#determinesPayment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">determines payment</rdfs:label>
+    <rdfs:label xml:lang="fr">détermine le paiement</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a claim assessment to the payment rule used to determine payment responsibility.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#PaymentRule"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#appliedExclusions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">applied exclusions</rdfs:label>
+    <rdfs:label xml:lang="fr">exclusions appliquées</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a claim assessment to exclusions that apply.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/wty#Exclusion"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#invoiceNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">invoice number</rdfs:label>
+    <rdfs:label xml:lang="fr">numéro de facture</rdfs:label>
+    <rdfs:comment xml:lang="en">Unique identifier for the invoice.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Invoice"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#paymentPercentage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">payment percentage</rdfs:label>
+    <rdfs:label xml:lang="fr">pourcentage de paiement</rdfs:label>
+    <rdfs:comment xml:lang="en">Percentage of cost paid by the first party (0-100).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#PaymentRule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#limitType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">limit type</rdfs:label>
+    <rdfs:label xml:lang="fr">type de limite</rdfs:label>
+    <rdfs:comment xml:lang="en">Type of limit (amount, number_of_interventions, per_incident, total, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Limit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#coveredCurrency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">covered currency</rdfs:label>
+    <rdfs:label xml:lang="fr">devise couverte</rdfs:label>
+    <rdfs:comment xml:lang="en">Currency code for the covered amount (ISO 4217).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#PaymentRule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Payment Rule</rdfs:label>
+    <rdfs:label xml:lang="fr">Règle de Paiement</rdfs:label>
+    <rdfs:comment xml:lang="en">Defines who pays for what (diagnostic, repair, parts, travel) and payment splits between parties.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Thing"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#invoices">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">invoices</rdfs:label>
+    <rdfs:label xml:lang="fr">facture</rdfs:label>
+    <rdfs:comment xml:lang="en">Links an invoice to the intervention, repair, or service being invoiced.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Invoice"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#WorkOrder"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/rma#Resolution"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#assessmentDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">assessment date</rdfs:label>
+    <rdfs:label xml:lang="fr">date d'évaluation</rdfs:label>
+    <rdfs:comment xml:lang="en">Date when the assessment was performed.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#ClaimAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b9">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/graphql</dcterms:format>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcat:endpointURL rdf:resource="https://www.verisav.fr/api/graphql"/>
+    <dcterms:title xml:lang="en">Verisav Vocabularies GraphQL API</dcterms:title>
+    <dcterms:title xml:lang="fr">API GraphQL Vocabulaires Verisav</dcterms:title>
+    <dcterms:description xml:lang="en">GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY). Supports introspection, multilingual labels, and real-time vocabulary access.</dcterms:description>
+    <dcterms:description xml:lang="fr">API GraphQL pour interroger tous les vocabulaires Verisav (DPP, RMA, WTY). Supporte l'introspection, les labels multilingues et l'accès en temps réel aux vocabulaires.</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b1">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:name>Kévin Boutillier</foaf:name>
+    <rdfs:seeAlso rdf:resource="https://orcid.org/0009-0001-0356-4421"/>
+    <rdfs:seeAlso rdf:resource="https://www.verisav.fr/en/founders/kevin-boutillier"/>
+    <rdfs:seeAlso rdf:resource="https://www.linkedin.com/in/kévinboutillier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#limitAmount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">limit amount</rdfs:label>
+    <rdfs:label xml:lang="fr">montant limite</rdfs:label>
+    <rdfs:comment xml:lang="en">Maximum amount for the limit.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Limit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#conditionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">condition type</rdfs:label>
+    <rdfs:label xml:lang="fr">type de condition</rdfs:label>
+    <rdfs:comment xml:lang="en">Type of condition (normal_use, proper_installation, documentation, proof_of_purchase, etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Condition"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#coversRepairType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">covers repair type</rdfs:label>
+    <rdfs:label xml:lang="fr">couvre le type de réparation</rdfs:label>
+    <rdfs:comment xml:lang="en">Links coverage to types of repairs that are covered.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Coverage"/>
+    <rdfs:range rdf:resource="https://ns.verisav.fr/dpp#Intervention"/>
+    <rdfs:range rdf:resource="https://schema.org/Service"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#firstParty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">first party</rdfs:label>
+    <rdfs:label xml:lang="fr">première partie</rdfs:label>
+    <rdfs:comment xml:lang="en">The party (organization or person) that pays first or primarily.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#PaymentRule"/>
+    <rdfs:range rdf:resource="https://schema.org/Organization"/>
+    <rdfs:range rdf:resource="https://schema.org/Person"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b11">
+    <rdf:type rdf:resource="https://schema.org/SearchAction"/>
+    <schema:target rdf:resource="https://www.verisav.fr/api/v1/vocabulary/wty/search?q=%7Bquery%7D"/>
+    <schema:query-input>required name=query</schema:query-input>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#validityPeriod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">validity period</rdfs:label>
+    <rdfs:label xml:lang="fr">période de validité</rdfs:label>
+    <rdfs:comment xml:lang="en">Period during which the condition is valid (e.g., 'warranty_period', 'lifetime').</rdfs:comment>
+    <rdfs:domain rdf:resource="https://ns.verisav.fr/wty#Condition"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ns.verisav.fr/wty#Warranty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Warranty</rdfs:label>
+    <rdfs:label xml:lang="fr">Garantie</rdfs:label>
+    <rdfs:comment xml:lang="en">An extended warranty that defines coverage, exclusions, payment rules, and conditions in a machine-readable format for automation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ns.verisav.fr/dpp#Warranty"/>
+    <rdfs:subClassOf rdf:resource="https://schema.org/WarrantyScope"/>
+    <rdfs:isDefinedBy rdf:resource="https://ns.verisav.fr/wty#"/>
+    <vs:term_status>stable</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0c34f41d9d39404d8abb5eb396cfa517b8">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcterms:format>application/ld+json</dcterms:format>
+    <dcat:accessURL rdf:resource="https://www.verisav.fr/api/wty/wty.jsonld"/>
+    <dcterms:title xml:lang="en">WTY Vocabulary (JSON-LD via API)</dcterms:title>
+  </rdf:Description>
+</rdf:RDF>

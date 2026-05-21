@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ns.verisav.fr/wty/validation/wty.schema.json",
+  "title": "Verisav WTY JSON-LD payload",
+  "description": "JSON Schema for pre-validating machine-readable warranties and contracts.",
+  "type": "object",
+  "required": ["@context", "@type"],
+  "properties": {
+    "@context": {
+      "oneOf": [{ "type": "string" }, { "type": "object" }, { "type": "array" }]
+    },
+    "@type": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      ]
+    },
+    "contractNumber": { "type": "string", "minLength": 1 },
+    "contractType": { "type": "string" },
+    "contractStartDate": { "type": "string", "format": "date" },
+    "contractEndDate": { "type": "string", "format": "date" },
+    "contractStatus": { "type": "string", "minLength": 1 },
+    "coverageStartDate": { "type": "string", "format": "date" },
+    "coverageEndDate": { "type": "string", "format": "date" },
+    "paymentPercentage": { "type": "number", "minimum": 0, "maximum": 100 },
+    "hasPaymentLimit": { "type": "boolean" },
+    "limitAmount": { "type": "number", "minimum": 0 },
+    "invoiceAmount": { "type": "number", "minimum": 0 }
+  },
+  "additionalProperties": true
+}

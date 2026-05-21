@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verisav Warranty & Contracts Vocabulary - Vocabulaire Garanties et Contrats Verisav</title>
+    
+    <!-- Meta tags pour LOV (Linked Open Vocabularies) -->
+    <meta name="vocabulary:namespace" content="https://ns.verisav.fr/wty#">
+    <meta name="vocabulary:prefix" content="wty">
+    <meta name="vocabulary:lov" content="https://lov.linkeddata.es/dataset/lov/vocabs/wty">
+    <link rel="canonical" href="https://ns.verisav.fr/wty">
+    <link rel="alternate" type="text/turtle" href="https://ns.verisav.fr/wty/wty.ttl">
+    <link rel="alternate" type="application/ld+json" href="https://ns.verisav.fr/wty/wty.jsonld">
+    <link rel="describedby" href="https://lov.linkeddata.es/dataset/lov/vocabs/wty">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Verisav WTY Vocabulary",
+      "alternateName": "Vocabulaire Garanties et Contrats Verisav",
+      "description": "Vocabulary for machine-readable warranties and contracts in RDF/OWL format, enabling complete automation of payment decisions and coverage assessment in after-sales service. Vocabulaire pour garanties et contrats lisibles par machine.",
+      "url": "https://ns.verisav.fr/wty",
+      "identifier": "https://ns.verisav.fr/wty#",
+      "version": "1.0.0",
+      "datePublished": "2025-12-16",
+      "dateModified": "2025-12-28",
+      "keywords": ["Warranty", "Contract", "WTY", "RDF", "OWL", "Vocabulary", "Semantic Web", "Automation", "After-Sales Service"],
+      "creator": {
+        "@type": "Person",
+        "@id": "https://www.verisav.fr/#person-kevin-boutillier",
+        "name": "Kévin Boutillier",
+        "givenName": "Kévin",
+        "familyName": "Boutillier",
+        "alternateName": "Kevin Boutillier",
+        "url": "https://www.verisav.fr/fondateurs/kevin-boutillier",
+        "jobTitle": "Fondateur & CEO de Verisav",
+        "email": "contact@verisav.fr",
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "propertyID": "ORCID",
+            "value": "0009-0001-0356-4421",
+            "url": "https://orcid.org/0009-0001-0356-4421"
+          }
+        ],
+        "sameAs": [
+          "https://orcid.org/0009-0001-0356-4421",
+          "https://www.linkedin.com/in/kévinboutillier",
+          "https://www.google.com/search?kgmid=/g/11yp_5040h"
+        ],
+        "worksFor": {
+          "@id": "https://www.verisav.fr/#organization",
+          "@type": "Organization",
+          "name": "Verisav",
+          "url": "https://www.verisav.fr"
+        },
+        "knowsAbout": ["Semantic Web", "RDF", "OWL", "Linked Data", "Digital Product Passport", "Service After-Sales", "Warranty Management"],
+        "description": "Créateur et développeur principal des vocabulaires Verisav (DPP, RMA, WTY) pour le Web sémantique et le service après-vente."
+      },
+      "author": {
+        "@id": "https://www.verisav.fr/#person-kevin-boutillier"
+      },
+      "contributor": {
+        "@id": "https://www.verisav.fr/#person-kevin-boutillier"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.verisav.fr/#organization",
+        "name": "Verisav",
+        "url": "https://www.verisav.fr",
+        "sameAs": [
+          "https://www.linkedin.com/company/verisav",
+          "https://github.com/verisav"
+        ],
+        "founder": {
+          "@id": "https://www.verisav.fr/#person-kevin-boutillier"
+        }
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "contentUrl": "https://ns.verisav.fr/wty/wty.ttl",
+          "encodingFormat": "text/turtle",
+          "name": "WTY Vocabulary (Turtle)"
+        },
+        {
+          "@type": "DataDownload",
+          "contentUrl": "https://ns.verisav.fr/wty/wty.jsonld",
+          "encodingFormat": "application/ld+json",
+          "name": "WTY Vocabulary (JSON-LD)"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/ld+json",
+          "contentUrl": "https://www.verisav.fr/api/wty/wty.jsonld",
+          "name": "WTY Vocabulary (JSON-LD via API)"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/graphql",
+          "contentUrl": "https://www.verisav.fr/api/graphql",
+          "name": "Verisav Vocabularies GraphQL API",
+          "description": "GraphQL API for querying all Verisav vocabularies (DPP, RMA, WTY)"
+        }
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.verisav.fr/api/v1/vocabulary/wty/search?q={query}",
+        "query-input": "required name=query"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "Verisav Vocabularies",
+        "url": "https://www.verisav.fr/vocabularies"
+      },
+      "citation": {
+        "@type": "CreativeWork",
+        "name": "Linked Open Vocabularies (LOV)",
+        "url": "https://lov.linkeddata.es/dataset/lov/vocabs/wty",
+        "description": "Ce vocabulaire est validé et référencé dans le registre Linked Open Vocabularies (LOV)"
+      },
+      "sameAs": [
+        "https://lov.linkeddata.es/dataset/lov/vocabs/wty",
+        "https://w3id.org/verisav/wty"
+      ],
+      "datePublished": "2025-12-31",
+      "dateModified": "2025-12-31"
+    }
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2563eb;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1e40af;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #3b82f6;
+        }
+        .namespace {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+        }
+        .class, .property {
+            background: #f9fafb;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #2563eb;
+            border-radius: 3px;
+        }
+        .class h3, .property h3 {
+            margin-top: 0;
+        }
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .links {
+            margin: 30px 0;
+            padding: 20px;
+            background: #eff6ff;
+            border-radius: 5px;
+        }
+        .links a {
+            color: #2563eb;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+        .example {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin: 15px 0;
+        }
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vocabulaire Garanties et Contrats Verisav (Warranty & Contracts Vocabulary)</h1>
+    
+    <div class="namespace">
+        <strong>Namespace:</strong> <code>https://ns.verisav.fr/wty#</code><br>
+        <strong>Version:</strong> 1.0.0<br>
+        <strong>Dernière modification:</strong> 2025-12-31<br>
+        <strong>Préfixe recommandé:</strong> <code>wty:</code><br>
+        <strong>✅ Validé LOV:</strong> <a href="https://lov.linkeddata.es/dataset/lov/vocabs/wty" target="_blank" style="color: #10b981; font-weight: 600;">Voir sur LOV</a>
+    </div>
+
+    <div class="links">
+        <h3>Fichiers disponibles:</h3>
+        <a href="wty.ttl">wty.ttl</a> (Turtle/OWL)
+        <a href="wty.jsonld">wty.jsonld</a> (JSON-LD Context)
+        <a href="https://ns.verisav.fr/dpp">Vocabulaire DPP</a> (complémentaire)
+        <a href="https://ns.verisav.fr/rma">Vocabulaire RMA</a> (complémentaire)
+    </div>
+
+    <div class="links" style="background: #ecfdf5; border-left: 4px solid #10b981;">
+        <h3>📚 Exemples de données WTY:</h3>
+        <p>Consultez nos exemples pratiques d'utilisation du vocabulaire :</p>
+        <a href="https://www.verisav.fr/data/wty-examples/">Voir tous les exemples</a>
+        <a href="https://www.verisav.fr/data/wty-examples/README.md">Documentation des exemples</a>
+        <br><br>
+        <strong>Exemples disponibles :</strong>
+        <ul>
+            <li><a href="https://www.verisav.fr/data/wty-examples/simple-warranty.ttl">Simple Warranty</a> - Garantie étendue simple</li>
+            <li><a href="https://www.verisav.fr/data/wty-examples/maintenance-contract.ttl">Maintenance Contract</a> - Contrat de maintenance</li>
+            <li><a href="https://www.verisav.fr/data/wty-examples/claim-assessment.ttl">Claim Assessment</a> - Évaluation automatisée</li>
+            <li><a href="https://www.verisav.fr/data/wty-examples/warranty-with-limits.ttl">Warranty with Limits</a> - Garantie avec limites</li>
+            <li><a href="https://www.verisav.fr/data/wty-examples/demo-complete-warranty.ttl">Demo Complete Warranty</a> - Exemple exhaustif</li>
+        </ul>
+    </div>
+
+    <div class="links" style="background: #ecfdf5; border-left: 4px solid #10b981; margin-bottom: 30px;">
+        <h3 style="margin-top: 0; color: #059669;">✅ Validé sur Linked Open Vocabularies (LOV)</h3>
+        <p>
+            Ce vocabulaire est officiellement validé et référencé dans le registre 
+            <strong><a href="https://lov.linkeddata.es/dataset/lov/vocabs/wty" target="_blank" style="color: #059669;">Linked Open Vocabularies (LOV)</a></strong>, 
+            garantissant sa conformité aux standards du Web sémantique et sa réutilisabilité dans l'écosystème Linked Data.
+        </p>
+        <p>
+            <strong>Lien LOV :</strong> 
+            <a href="https://lov.linkeddata.es/dataset/lov/vocabs/wty" target="_blank" style="color: #2563eb;">
+                https://lov.linkeddata.es/dataset/lov/vocabs/wty
+            </a>
+        </p>
+        <p>
+            <strong>Date de validation :</strong> 2025-12-31
+        </p>
+    </div>
+
+    <h2>Description</h2>
+    <p>
+        Le vocabulaire <strong>WTY/CNT</strong> (Warranty & Contracts) standardise les garanties et contrats 
+        sous un format <span class="highlight">machine-readable</span>, permettant l'<strong>automatisation complète</strong> 
+        des décisions de paiement et évaluation de couverture dans le service après-vente.
+    </p>
+    
+    <p>
+        <strong>Problème résolu :</strong> Aujourd'hui, les garanties sont des PDF illisibles de 40 pages. 
+        Avec ce vocabulaire, la question "Qui paie ?" est résolue automatiquement en < 1 seconde.
+    </p>
+
+    <h2>Classes principales</h2>
+
+    <div class="class">
+        <h3><code>wty:Warranty</code></h3>
+        <p><strong>Garantie étendue</strong> qui définit couverture, exclusions, règles de paiement et conditions dans un format machine-readable.</p>
+        <p><strong>Hérite de :</strong> <code>dpp:Warranty</code>, <code>schema:WarrantyScope</code></p>
+    </div>
+
+    <div class="class">
+        <h3><code>wty:Contract</code></h3>
+        <p><strong>Contrat</strong> (maintenance, extension, assurance) qui définit termes et couverture pour le SAV.</p>
+        <p><strong>Hérite de :</strong> <code>schema:Contract</code></p>
+    </div>
+
+    <div class="class">
+        <h3><code>wty:Coverage</code></h3>
+        <p>Définit <strong>ce qui est couvert</strong> par une garantie ou contrat (composants, types de défauts, types de réparations, périodes).</p>
+    </div>
+
+    <div class="class">
+        <h3><code>wty:Exclusion</code></h3>
+        <p>Définit <strong>ce qui n'est PAS couvert</strong> (types de défauts exclus, causes exclues, composants exclus).</p>
+    </div>
+
+    <div class="class">
+        <h3><code>wty:PaymentRule</code></h3>
+        <p><strong>Règle de paiement</strong> définissant qui paie pour quoi (diagnostic, réparation, pièces, déplacement) et répartition entre parties.</p>
+        <p><strong>Cœur de l'automatisation :</strong> Cette classe permet de déterminer automatiquement qui paie.</p>
+    </div>
+
+    <div class="class">
+        <h3><code>wty:Condition</code></h3>
+        <p><strong>Condition</strong> qui doit être remplie pour que la garantie/contrat s'applique (utilisation normale, installation correcte, documentation, preuves).</p>
+    </div>
+
+    <div class="class">
+        <h3><code>wty:Limit</code></h3>
+        <p>Définit les <strong>limites</strong> (financières, temporelles, quantitatives) de couverture garantie/contrat.</p>
+    </div>
+
+    <div class="class">
+        <h3><code>wty:ClaimAssessment</code></h3>
+        <p><strong>Évaluation automatique</strong> d'une réclamation contre garantie/contrat, déterminant couverture et responsabilité de paiement.</p>
+        <p><strong>Automation :</strong> Cette classe automatise la décision "couvert ou non couvert ?" et "qui paie ?".</p>
+    </div>
+
+    <div class="class">
+        <h3><code>wty:Invoice</code></h3>
+        <p><strong>Facture</strong> générée automatiquement basée sur règles de paiement garantie/contrat et évaluation de réclamation.</p>
+        <p><strong>Hérite de :</strong> <code>schema:Invoice</code></p>
+    </div>
+
+    <h2>Flux d'automatisation</h2>
+    
+    <div class="example">
+Ticket RMA → wty:triggersAssessment → wty:ClaimAssessment
+  ├─ wty:checksCoverage → wty:Coverage
+  ├─ wty:checksExclusions → wty:Exclusion  
+  └─ wty:determinesPayment → wty:PaymentRule
+  ↓
+wty:generatesInvoice → wty:Invoice
+    </div>
+
+    <h2>Exemple d'utilisation</h2>
+    
+    <h3>Garantie constructeur 2 ans - Défaut de fabrication</h3>
+    <div class="example">
+:garantie1 a wty:Warranty ;
+    dpp:warrantyType "constructeur" ;
+    dpp:warrantyDurationMonths 24 ;
+    wty:definesCoverage :couverture1 ;
+    wty:definesPaymentRule :paiement1 .
+
+:couverture1 a wty:Coverage ;
+    wty:coversDefectType "defaut_fabrication" ;
+    wty:coveragePeriod "24_months" .
+
+:paiement1 a wty:PaymentRule ;
+    wty:firstParty :fabricant ;
+    wty:paysFor :reparation, :pieces, :deplacement ;
+    wty:paymentPercentage 100.0 .
+    </div>
+    
+    <p><strong>Résultat automatique :</strong> Fabricant paie 100% si défaut de fabrication</p>
+
+    <h2>Intégration avec DPP et RMA</h2>
+    <p>
+        Le vocabulaire WTY s'intègre naturellement avec :
+    </p>
+    <ul>
+        <li><strong>DPP</strong> : Utilise <code>dpp:Warranty</code>, <code>dpp:ProductPassport</code>, <code>dpp:Intervention</code></li>
+        <li><strong>RMA</strong> : Utilise <code>rma:Ticket</code>, <code>rma:Dispute</code> pour déclencher les évaluations</li>
+    </ul>
+
+    <h2>Impact business</h2>
+    <ul>
+        <li>✅ <strong>Automatisation complète</strong> : Décision "Qui paie ?" en < 1 seconde</li>
+        <li>✅ <strong>Réduction des erreurs</strong> : < 1% d'erreurs vs 10-15% manuellement</li>
+        <li>✅ <strong>Économies</strong> : ~50 000€/mois pour 1000 tickets</li>
+        <li>✅ <strong>Réduction des litiges</strong> : -70-80% grâce à la transparence</li>
+    </ul>
+
+    <footer>
+        <p>
+            Vocabulaire créé par <a href="https://www.verisav.fr">Verisav</a> - 
+            Licence <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </p>
+        <p>
+            Voir aussi : 
+            <a href="https://ns.verisav.fr/dpp">Vocabulaire DPP</a> | 
+            <a href="https://ns.verisav.fr/rma">Vocabulaire RMA</a>
+        </p>
+    </footer>
+</body>
+</html>
+
