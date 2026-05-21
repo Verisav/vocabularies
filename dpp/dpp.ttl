@@ -159,7 +159,7 @@
     rdfs:seeAlso <https://lov.linkeddata.es/dataset/lov/vocabs/dpp> ;
     rdfs:seeAlso <https://w3id.org/verisav/dpp> ;
     rdfs:seeAlso <https://github.com/Verisav/vocabularies> ;
-    rdfs:seeAlso <https://doi.org/10.5281/zenodo.18352147> ;
+    rdfs:seeAlso <https://doi.org/10.5281/zenodo.18016853> ;
     rdfs:comment "This vocabulary is aligned with UNTP DPP specification for sustainability and traceability, EU Business Wallet (EBW) for verifiable credentials and enterprise identity, while maintaining a specific focus on after-sales service (SAV)."@en ;
     rdfs:comment "Ce vocabulaire est aligné avec la spécification UNTP DPP pour la durabilité et la traçabilité, EU Business Wallet (EBW) pour les credentials vérifiables et l'identité d'entreprise, tout en conservant un focus spécifique sur le service après-vente (SAV)."@fr .
 

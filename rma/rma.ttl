@@ -151,7 +151,7 @@
     rdfs:seeAlso <https://lov.linkeddata.es/dataset/lov/vocabs/rma> ;
     rdfs:seeAlso <https://w3id.org/verisav/rma> ;
     rdfs:seeAlso <https://github.com/Verisav/vocabularies> ;
-    rdfs:seeAlso <https://doi.org/10.5281/zenodo.18352147> .
+    rdfs:seeAlso <https://doi.org/10.5281/zenodo.18016853> .
 
 # ============================================================================
 # CLASSES

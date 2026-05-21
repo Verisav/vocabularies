@@ -3,7 +3,7 @@
 [![LOV](https://img.shields.io/badge/LOV-Validated-brightgreen)](https://lov.linkeddata.es/dataset/lov/agents/Verisav)
 [![W3ID](https://img.shields.io/badge/W3ID-Persistent%20URI-blue)](https://w3id.org/verisav)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18352147-blue)](https://doi.org/10.5281/zenodo.18352147)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18016853-blue)](https://doi.org/10.5281/zenodo.18016853)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0001--0356--4421-green)](https://orcid.org/0009-0001-0356-4421)
 [![npm](https://img.shields.io/badge/npm-@verisav%2Fdpp--verifiable--credentials-red)](https://www.npmjs.com/package/@verisav/dpp-verifiable-credentials)
 
@@ -123,7 +123,8 @@ curl https://w3id.org/verisav/dpp
 | Namespace | https://ns.verisav.fr/ |
 | W3ID | https://w3id.org/verisav/ |
 | LOV (agent) | https://lov.linkeddata.es/dataset/lov/agents/Verisav |
-| Zenodo DOI | https://doi.org/10.5281/zenodo.18352147 |
+| Zenodo DOI (concept, latest) | https://doi.org/10.5281/zenodo.18016853 |
+| Zenodo DOI (v1.5.2) | https://doi.org/10.5281/zenodo.20321287 |
 | Schema.org DPP proposal | https://github.com/schemaorg/schemaorg/issues/4663 |
 
 ## Citation
@@ -134,8 +135,9 @@ curl https://w3id.org/verisav/dpp
   author = {Boutillier, Kévin},
   year = {2026},
   publisher = {Zenodo},
-  doi = {10.5281/zenodo.18352147},
-  url = {https://doi.org/10.5281/zenodo.18352147},
+  doi = {10.5281/zenodo.18016853},
+  url = {https://doi.org/10.5281/zenodo.18016853},
+  note = {Version 1.5.2; version-specific DOI: 10.5281/zenodo.20321287},
   version = {1.5.2}
 }
 ```

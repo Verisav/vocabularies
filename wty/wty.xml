@@ -112,7 +112,7 @@
     <rdfs:seeAlso rdf:resource="https://lov.linkeddata.es/dataset/lov/vocabs/wty"/>
     <rdfs:seeAlso rdf:resource="https://w3id.org/verisav/wty"/>
     <rdfs:seeAlso rdf:resource="https://github.com/Verisav/vocabularies"/>
-    <rdfs:seeAlso rdf:resource="https://doi.org/10.5281/zenodo.18352147"/>
+    <rdfs:seeAlso rdf:resource="https://doi.org/10.5281/zenodo.18016853"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://ns.verisav.fr/wty#assessesClaim">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>

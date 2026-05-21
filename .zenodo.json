@@ -1,0 +1,57 @@
+{
+  "title": "Verisav Semantic Vocabularies: DPP, RMA, WTY",
+  "description": "Open RDF/OWL vocabularies for EU Digital Product Passports (ESPR 2024/1781), after-sales (RMA), and machine-readable warranties (WTY). DPP v1.5.2 aligns with JRC methodology, GS1 Digital Link, UNTP, EPCIS, CIRPASS-2, W3C Verifiable Credentials and EU Business Wallet patterns. Validated on LOV, persistent URIs via W3ID.",
+  "version": "1.5.2",
+  "upload_type": "software",
+  "publication_date": "2026-05-21",
+  "creators": [
+    {
+      "name": "Boutillier, Kévin",
+      "affiliation": "Verisav",
+      "orcid": "0009-0001-0356-4421"
+    }
+  ],
+  "keywords": [
+    "RDF",
+    "OWL",
+    "Semantic Web",
+    "Linked Data",
+    "Digital Product Passport",
+    "DPP",
+    "ESPR",
+    "After-sales service",
+    "RMA",
+    "Warranty",
+    "LOV",
+    "W3ID",
+    "SHACL",
+    "Verifiable Credentials",
+    "GS1 Digital Link",
+    "Circular economy"
+  ],
+  "license": {
+    "id": "CC-BY-4.0"
+  },
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Verisav/vocabularies",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://w3id.org/verisav/",
+      "relation": "isIdenticalTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://ns.verisav.fr/dpp/",
+      "relation": "isDocumentedBy",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://lov.linkeddata.es/dataset/lov/vocabs/dpp",
+      "relation": "isDocumentedBy",
+      "resource_type": "other"
+    }
+  ]
+}
