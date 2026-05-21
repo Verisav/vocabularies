@@ -2,6 +2,30 @@
 
 Toutes les évolutions notables du vocabulaire `wty` sont documentées ici.
 
+## [1.2.2] - 2026-05-07
+
+### Added
+- `rdfs:seeAlso` aligné sur le vocabulaire DPP 1.5.2 (Data Act, Interoperable Europe Act, CIRPASS-2, CircularData, GS1 Europe DPP, GS1 URI syntax, W3C DID 1.0, LOV/W3ID/GitHub/Zenodo).
+
+### Breaking Changes
+- Aucune.
+
+## [1.2.1] - 2026-05
+
+### Added
+- Bloc politique UE aligné sur DPP (ESPR, références réglementaires).
+
+### Breaking Changes
+- Aucune.
+
+## [1.2.0] - 2026-01-23
+
+### Changed
+- Correction OWL sur `paymentSplit` (cohérence logique).
+
+### Breaking Changes
+- Aucune.
+
 ## [1.1.0] - 2026-04-29
 
 ### Added

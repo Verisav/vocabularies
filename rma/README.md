@@ -1,6 +1,6 @@
 # Vocabulaire RMA / Ticketing Verisav
 
-**Version:** 1.0.0  
+**Version:** 1.2.2  
 **Namespace (URI principale):** `https://ns.verisav.fr/rma#`  
 **Namespace (URI persistante W3ID):** `https://w3id.org/verisav/rma#`  
 **Préfixe:** `rma:`  

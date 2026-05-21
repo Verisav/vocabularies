@@ -1,6 +1,6 @@
 # Verisav RMA / Ticketing Vocabulary
 
-**Version:** 1.0.0  
+**Version:** 1.2.2  
 **Primary Namespace URI:** `https://ns.verisav.fr/rma#`  
 **Persistent W3ID Namespace URI:** `https://w3id.org/verisav/rma#`  
 **Prefix:** `rma:`  

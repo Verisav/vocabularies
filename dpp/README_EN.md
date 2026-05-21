@@ -209,9 +209,9 @@ This vocabulary is licensed under [CC BY 4.0](https://creativecommons.org/licens
 
 ## 🔄 Version
 
-**Current version**: 1.1.0  
+**Current version**: 1.5.2  
 **Creation date**: 2025-12-16  
-**Last modification**: 2025-01-XX
+**Last modification**: 2026-05-07
 
 ## 📖 Project Overview
 

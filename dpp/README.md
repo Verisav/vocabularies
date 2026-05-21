@@ -226,7 +226,7 @@ Ce vocabulaire est sous licence [CC BY 4.0](https://creativecommons.org/licenses
 
 ## 🔄 Version
 
-**Version actuelle:** 1.0.0  
+**Version actuelle:** 1.5.2  
 **Date de création:** 2025-12-16  
-**Dernière modification:** 2025-12-16
+**Dernière modification:** 2026-05-07
 

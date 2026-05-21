@@ -1,6 +1,6 @@
 # Vocabulaire Warranty & Contracts (WTY/CNT) - Verisav
 
-**Version:** 1.0.0  
+**Version:** 1.2.2  
 **Date:** 16 décembre 2025  
 **Namespace (URI principale):** `https://ns.verisav.fr/wty#`  
 **Namespace (URI persistante W3ID):** `https://w3id.org/verisav/wty#`  

@@ -94,9 +94,9 @@ Verisav provides three complementary RDF/OWL vocabularies that standardize after
 
 ## Project Status
 
-- **DPP Vocabulary**: Version 1.1.0 (stable)
-- **RMA Vocabulary**: Version 1.0.0 (stable)
-- **WTY Vocabulary**: Version 1.0.0 (stable)
+- **DPP Vocabulary**: Version 1.5.2 (stable)
+- **RMA Vocabulary**: Version 1.2.2 (stable)
+- **WTY Vocabulary**: Version 1.2.2 (stable)
 - **LOV Registration**: All three vocabularies registered in Linked Open Vocabularies
 - **W3ID Persistent URIs**: All vocabularies have W3C-managed persistent identifiers
 
@@ -106,7 +106,7 @@ Verisav provides three complementary RDF/OWL vocabularies that standardize after
 - **Vocabulary Namespace**: https://ns.verisav.fr/
 - **W3ID Persistent URIs**: https://w3id.org/verisav/
 - **LOV Registry**: https://lov.linkeddata.es/dataset/lov/agents/Verisav
-- **GitHub Repository**: https://github.com/kevinbouti/verisav.fr
+- **GitHub Repository**: https://github.com/Verisav/vocabularies
 
 ## Contact
 
